@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>ParserSupport xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> org.infinispan.cli.interpreter.utils;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.HashMap;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.concurrent.TimeUnit;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> ParserSupport {
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Map&lt;String, TimeUnit&gt; TIMEUNITS;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>      <strong class="jxr_keyword">static</strong> {
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>        TIMEUNITS = <strong class="jxr_keyword">new</strong> HashMap&lt;String, TimeUnit&gt;();
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>        TIMEUNITS.put(<span class="jxr_string">"d"</span>, TimeUnit.DAYS);
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>        TIMEUNITS.put(<span class="jxr_string">"h"</span>, TimeUnit.HOURS);
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>        TIMEUNITS.put(<span class="jxr_string">"m"</span>, TimeUnit.MINUTES);
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>        TIMEUNITS.put(<span class="jxr_string">"s"</span>, TimeUnit.SECONDS);
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>        TIMEUNITS.put(<span class="jxr_string">"ms"</span>, TimeUnit.MILLISECONDS);
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>     }
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">    * Converts a time representation into milliseconds</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">    *</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">    * @param time</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">    * @param timeUnit</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">    * @return</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">    */</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">long</strong> millis(<strong class="jxr_keyword">final</strong> String time, <strong class="jxr_keyword">final</strong> String timeUnit) {
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>        <strong class="jxr_keyword">return</strong> TIMEUNITS.get(timeUnit).toMillis(Long.parseLong(time));
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>     }
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">long</strong> millis(<strong class="jxr_keyword">final</strong> String time) {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>        <strong class="jxr_keyword">int</strong> s = time.length() - 1;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>        <strong class="jxr_keyword">for</strong> (; time.charAt(s) &gt; '9'; s--) {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>        }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>        <strong class="jxr_keyword">return</strong> millis(time.substring(0, s + 1), time.substring(s + 1));
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>     }
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String unquote(<strong class="jxr_keyword">final</strong> String s) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>        <strong class="jxr_keyword">if</strong> (s == <strong class="jxr_keyword">null</strong> || s.length() &lt; 2) {
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>           <strong class="jxr_keyword">return</strong> s;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>        }
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>        <strong class="jxr_keyword">char</strong> first = s.charAt(0);
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>        <strong class="jxr_keyword">char</strong> last = s.charAt(s.length() - 1);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>        <strong class="jxr_keyword">if</strong> (first == last &amp;&amp; (first == '\'' || first == '&quot;')) {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>           <strong class="jxr_keyword">return</strong> s.substring(1, s.length() - 1);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>        } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>           <strong class="jxr_keyword">return</strong> s;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>        }
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>     }
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

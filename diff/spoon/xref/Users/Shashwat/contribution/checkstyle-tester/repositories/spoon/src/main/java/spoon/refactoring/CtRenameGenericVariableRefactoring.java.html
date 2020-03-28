@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>CtRenameGenericVariableRefactoring xref</title>
+<link type="text/css" rel="stylesheet" href="../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> * Copyright (C) 2006-2019 INRIA and contributors</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> * Spoon is available either under the terms of the MIT License (see LICENSE-MIT.txt) of the Cecill-C License (see LICENSE-CECILL-C.txt). You as the user are entitled to choose the terms under which to adopt Spoon.</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">package</strong> spoon.refactoring;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> spoon.reflect.declaration.CtVariable;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> spoon.reflect.reference.CtReference;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> spoon.reflect.visitor.chain.CtConsumer;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> spoon.reflect.visitor.filter.VariableReferenceFunction;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * Spoon model that can refactor any type of variable (method parameters, local variables, field variables.</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> * Provides no variable rename checking, so renaming variables to a name that already exists is possible, be wary</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * of creating incorrect code with this.</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * This class can be used as a tool for investigating code obfuscation. Useful for research purposes.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * It has the same interface as the local variable rename:</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> * new CtRenameGenericVariableRefactoring().setTarget(myVar).setNewName("myNewName").refactor();</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> CtRenameGenericVariableRefactoring <strong class="jxr_keyword">extends</strong> AbstractRenameRefactoring&lt;CtVariable&gt; {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	<strong class="jxr_keyword">public</strong> CtRenameGenericVariableRefactoring() {
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  		<strong class="jxr_keyword">super</strong>(javaIdentifierRE);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  	}
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	@Override
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> refactorNoCheck() {
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		getTarget().map(<strong class="jxr_keyword">new</strong> VariableReferenceFunction()).forEach(<strong class="jxr_keyword">new</strong> CtConsumer&lt;CtReference&gt;() {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  			@Override
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> accept(CtReference t) {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  				t.setSimpleName(newName);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  			}
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  		});
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  		target.setSimpleName(newName);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  	}
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

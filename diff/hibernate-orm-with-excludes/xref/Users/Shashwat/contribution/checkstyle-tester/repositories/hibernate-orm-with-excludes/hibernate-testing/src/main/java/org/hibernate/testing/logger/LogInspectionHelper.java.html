@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>LogInspectionHelper xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Hibernate, Relational Persistence for Idiomatic Java</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * License: GNU Lesser General Public License (LGPL), version 2.1 or later.</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * See the lgpl.txt file in the root directory or &lt;<a href="http://www.gnu.org/licenses/lgpl-2.1.html&gt;." target="alexandria_uri">http://www.gnu.org/licenses/lgpl-2.1.html&gt;.</a></em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">package</strong> org.hibernate.testing.logger;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.lang.reflect.Field;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.hibernate.AssertionFailure;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.jboss.logging.BasicLogger;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.jboss.logging.DelegatingBasicLogger;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * Test helper to listen for logging events.</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * For this to work, it requires JBoss Logging to pick up our custom</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * implementation {@code Log4DelegatingLogger} via ServiceLoader.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> * @author Sanne Grinovero &lt;sanne@hibernate.org&gt; (C) 2015 Red Hat Inc.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> LogInspectionHelper {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  	<strong class="jxr_keyword">private</strong> LogInspectionHelper() {
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	}
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  	<strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> registerListener(LogListener listener, BasicLogger log) {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  		convertType( log ).registerListener( listener );
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	}
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> clearAllListeners(BasicLogger log) {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  		convertType( log ).clearAllListeners();
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	}
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Log4DelegatingLogger convertType(BasicLogger log) {
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  		<strong class="jxr_keyword">if</strong> ( log instanceof DelegatingBasicLogger) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  			<em class="jxr_comment">//Most loggers generated via the annotation processor are of this type</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  			DelegatingBasicLogger wrapper = (DelegatingBasicLogger) log;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  			<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  				<strong class="jxr_keyword">return</strong> extractFromWrapper( wrapper );
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  			}
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  			<strong class="jxr_keyword">catch</strong> (Exception cause) {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException( cause );
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  			}
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  		}
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  		<strong class="jxr_keyword">if</strong> ( ! ( log instanceof Log4DelegatingLogger ) ) {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> AssertionFailure( <span class="jxr_string">"Unexpected log type: JBoss Logger didn't register the custom TestableLoggerProvider as logger provider"</span> );
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  		}
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  		<strong class="jxr_keyword">return</strong> (Log4DelegatingLogger) log;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  	}
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Log4DelegatingLogger extractFromWrapper(DelegatingBasicLogger wrapper) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		Field field = DelegatingBasicLogger.<strong class="jxr_keyword">class</strong>.getDeclaredField( <span class="jxr_string">"log"</span> );
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  		field.setAccessible( <strong class="jxr_keyword">true</strong> );
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		Object object = field.get( wrapper );
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		<strong class="jxr_keyword">return</strong> convertType( (BasicLogger) object );
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  	}
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

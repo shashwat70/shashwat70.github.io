@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Verify xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 7026347</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @summary X509CRL should have verify(PublicKey key, Provider sigProvider)</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.io.ByteArrayInputStream;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.security.*;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.security.cert.*;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Verify {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">static</strong> String selfSignedCertStr =
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <span class="jxr_string">"MIICPjCCAaegAwIBAgIBADANBgkqhkiG9w0BAQQFADAfMQswCQYDVQQGEwJVUzEQ\n"</span> +
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          <span class="jxr_string">"MA4GA1UEChMHRXhhbXBsZTAeFw0wOTA0MjcwMjI0MzJaFw0zMDA0MDcwMjI0MzJa\n"</span> +
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          <span class="jxr_string">"MB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKEwdFeGFtcGxlMIGfMA0GCSqGSIb3DQEB\n"</span> +
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <span class="jxr_string">"AQUAA4GNADCBiQKBgQC4OTag24sTxL2tXTNuvpmUEtdxrYAZoFsslFQ60T+WD9wQ\n"</span> +
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <span class="jxr_string">"Jeiw87FSPsR2vxRuv0j8DNm2a4h7LNNIFcLurfNldbz5pvgZ7VqdbbUMPE9qP85n\n"</span> +
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          <span class="jxr_string">"jgDl4woyRTSUeRI4A7O0CO6NpES21dtbdhroWQrEkHxpnrDPxsxrz5gf2m3gqwID\n"</span> +
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          <span class="jxr_string">"AQABo4GJMIGGMB0GA1UdDgQWBBSCJd0hpl5PdAD9IZS+Hzng4lXLGzBHBgNVHSME\n"</span> +
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <span class="jxr_string">"QDA+gBSCJd0hpl5PdAD9IZS+Hzng4lXLG6EjpCEwHzELMAkGA1UEBhMCVVMxEDAO\n"</span> +
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          <span class="jxr_string">"BgNVBAoTB0V4YW1wbGWCAQAwDwYDVR0TAQH/BAUwAwEB/zALBgNVHQ8EBAMCAgQw\n"</span> +
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          <span class="jxr_string">"DQYJKoZIhvcNAQEEBQADgYEAluy6HIjWcq009lTLmhp+Np6dxU78pInBK8RZkza0\n"</span> +
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          <span class="jxr_string">"484qGaxFGD3UGyZkI5uWmsH2XuMbuox5khfIq6781gmkPBHXBIEtJN8eLusOHEye\n"</span> +
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <span class="jxr_string">"iE8h7WI+N3qa6Pj56WionMrioqC/3X+b06o147bbhx8U0vkYv/HyPaITOFfMXTdz\n"</span> +
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <span class="jxr_string">"Vjw=\n"</span> +
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      <strong class="jxr_keyword">static</strong> String crlIssuerCertStr =
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <span class="jxr_string">"-----BEGIN CERTIFICATE-----\n"</span> +
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <span class="jxr_string">"MIICKzCCAZSgAwIBAgIBAjANBgkqhkiG9w0BAQQFADAfMQswCQYDVQQGEwJVUzEQ\n"</span> +
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <span class="jxr_string">"MA4GA1UEChMHRXhhbXBsZTAeFw0wOTA0MjcwMjI0MzNaFw0yOTAxMTIwMjI0MzNa\n"</span> +
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <span class="jxr_string">"MB8xCzAJBgNVBAYTAlVTMRAwDgYDVQQKEwdFeGFtcGxlMIGfMA0GCSqGSIb3DQEB\n"</span> +
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          <span class="jxr_string">"AQUAA4GNADCBiQKBgQDMJeBMBybHykI/YpwUJ4O9euqDSLb1kpWpceBS8TVqvgBC\n"</span> +
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <span class="jxr_string">"SgUJWtFZL0i6bdvF6mMdlbuBkGzhXqHiVAi96/zRLbUC9F8SMEJ6MuD+YhQ0ZFTQ\n"</span> +
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <span class="jxr_string">"atKy8zf8O9XzztelLJ26Gqb7QPV133WY3haAqHtCXOhEKkCN16NOYNC37DTaJwID\n"</span> +
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <span class="jxr_string">"AQABo3cwdTAdBgNVHQ4EFgQULXSWzXzUOIpOJpzbSCpW42IJUugwRwYDVR0jBEAw\n"</span> +
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <span class="jxr_string">"PoAUgiXdIaZeT3QA/SGUvh854OJVyxuhI6QhMB8xCzAJBgNVBAYTAlVTMRAwDgYD\n"</span> +
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <span class="jxr_string">"VQQKEwdFeGFtcGxlggEAMAsGA1UdDwQEAwIBAjANBgkqhkiG9w0BAQQFAAOBgQAY\n"</span> +
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <span class="jxr_string">"eMnf5AHSNlyUlzXk8o2S0h4gCuvKX6C3kFfKuZcWvFAbx4yQOWLS2s15/nzR4+AP\n"</span> +
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <span class="jxr_string">"FGX3lgJjROyAh7fGedTQK+NFWwkM2ag1g3hXktnlnT1qHohi0w31nVBJxXEDO/Ck\n"</span> +
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          <span class="jxr_string">"uJTpJGt8XxxbFaw5v7cHy7XuTAeU/sekvjEiNHW00Q==\n"</span> +
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          <span class="jxr_string">"-----END CERTIFICATE-----"</span>;
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">static</strong> String crlStr =
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          <span class="jxr_string">"-----BEGIN X509 CRL-----\n"</span> +
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <span class="jxr_string">"MIIBGzCBhQIBATANBgkqhkiG9w0BAQQFADAfMQswCQYDVQQGEwJVUzEQMA4GA1UE\n"</span> +
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <span class="jxr_string">"ChMHRXhhbXBsZRcNMDkwNDI3MDIzODA0WhcNMjgwNjI2MDIzODA0WjAiMCACAQUX\n"</span> +
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <span class="jxr_string">"DTA5MDQyNzAyMzgwMFowDDAKBgNVHRUEAwoBBKAOMAwwCgYDVR0UBAMCAQIwDQYJ\n"</span> +
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <span class="jxr_string">"KoZIhvcNAQEEBQADgYEAoarfzXEtw3ZDi4f9U8eSvRIipHSyxOrJC7HR/hM5VhmY\n"</span> +
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <span class="jxr_string">"CErChny6x9lBVg9s57tfD/P9PSzBLusCcHwHMAbMOEcTltVVKUWZnnbumpywlYyg\n"</span> +
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <span class="jxr_string">"oKLrE9+yCOkYUOpiRlz43/3vkEL5hjIKMcDSZnPKBZi1h16Yj2hPe9GMibNip54=\n"</span> +
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <span class="jxr_string">"-----END X509 CRL-----"</span>;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> X509CRL crl;
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> PublicKey selfSignedCertPubKey;
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> PublicKey crlIssuerCertPubKey;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          setup();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  <em class="jxr_comment">         * Verify CRL with its own public key.</em>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  <em class="jxr_comment">         * Should pass.</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          verifyCRL(crlIssuerCertPubKey, <span class="jxr_string">"SunRsaSign"</span>);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_comment">         * Try to verify CRL with a provider that does not have a Signature</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_comment">         * implementation.</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_comment">         * Should fail with NoSuchAlgorithmException.</em>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>              verifyCRL(crlIssuerCertPubKey, <span class="jxr_string">"SunJCE"</span>);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Didn't catch the exception properly"</span>);
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         } <strong class="jxr_keyword">catch</strong> (NoSuchAlgorithmException e) {
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>             System.out.println(<span class="jxr_string">"Caught the correct exception."</span>);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         }
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> 
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_comment">         * Try to verify CRL with a provider that has a Signature implementation</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_comment">         * but not of the right algorithm (MD5withRSA).</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_comment">         * Should fail with NoSuchAlgorithmException.</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             verifyCRL(crlIssuerCertPubKey, <span class="jxr_string">"SUN"</span>);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Didn't catch the exception properly"</span>);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         } <strong class="jxr_keyword">catch</strong> (NoSuchAlgorithmException e) {
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>             System.out.println(<span class="jxr_string">"Caught the correct exception."</span>);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         }
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_comment">         * Try to verify CRL with the wrong public key.</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_comment">         * Should fail with SignatureException.</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>             verifyCRL(selfSignedCertPubKey, <span class="jxr_string">"SunRsaSign"</span>);
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Didn't catch the exception properly"</span>);
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         } <strong class="jxr_keyword">catch</strong> (SignatureException e) {
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>             System.out.println(<span class="jxr_string">"Caught the correct exception."</span>);
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         }
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>     }
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> setup() <strong class="jxr_keyword">throws</strong> CertificateException, CRLException {
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         CertificateFactory cf = CertificateFactory.getInstance(<span class="jxr_string">"X.509"</span>);
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>         <em class="jxr_comment">/* Create CRL */</em>
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>         ByteArrayInputStream inputStream =
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                 <strong class="jxr_keyword">new</strong> ByteArrayInputStream(crlStr.getBytes());
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>         crl = (X509CRL)cf.generateCRL(inputStream);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> 
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         <em class="jxr_comment">/* Get public key of the CRL issuer cert */</em>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>         inputStream = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(crlIssuerCertStr.getBytes());
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>         X509Certificate cert
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                 = (X509Certificate)cf.generateCertificate(inputStream);
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         crlIssuerCertPubKey = cert.getPublicKey();
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>         <em class="jxr_comment">/* Get public key of the self-signed Cert */</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>         inputStream = <strong class="jxr_keyword">new</strong> ByteArrayInputStream(selfSignedCertStr.getBytes());
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         selfSignedCertPubKey = cf.generateCertificate(inputStream).getPublicKey();
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>     }
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> verifyCRL(PublicKey key, String providerName)
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             <strong class="jxr_keyword">throws</strong> CRLException, NoSuchAlgorithmException, InvalidKeyException,
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>             SignatureException {
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         Provider provider = Security.getProvider(providerName);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <strong class="jxr_keyword">if</strong> (provider == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Provider "</span> + providerName
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                                                    + <span class="jxr_string">" not found."</span>);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>         }
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         crl.verify(key, provider);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>     }
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

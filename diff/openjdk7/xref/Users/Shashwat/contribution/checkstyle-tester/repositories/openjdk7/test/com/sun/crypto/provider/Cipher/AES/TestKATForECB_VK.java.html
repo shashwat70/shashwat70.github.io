@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>TestKATForECB_VK xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2002, 2007, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 4635086</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @library ../UTIL</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * @build TestUtil</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * @run main TestKATForECB_VK</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> * @summary Known Answer Test for AES cipher with ECB mode</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment"> * @author Valerie Peng</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.security.*;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> javax.crypto.*;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> javax.crypto.spec.*;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> java.math.*;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> com.sun.crypto.provider.*;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> TestKATForECB_VK
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String ALGO = <span class="jxr_string">"AES"</span>;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String MODE = <span class="jxr_string">"ECB"</span>;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String PADDING = <span class="jxr_string">"NoPadding"</span>;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <em class="jxr_comment">//ecb-vk.txt</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] PT = <strong class="jxr_keyword">new</strong> byte[16];
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String[][] CTS = {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <em class="jxr_comment">// Cipher Texts for 128-bit key</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <span class="jxr_string">"0EDD33D3C621E546455BD8BA1418BEC8"</span>,
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <span class="jxr_string">"C0CC0C5DA5BD63ACD44A80774FAD5222"</span>,
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <span class="jxr_string">"2F0B4B71BC77851B9CA56D42EB8FF080"</span>,
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <span class="jxr_string">"6B1E2FFFE8A114009D8FE22F6DB5F876"</span>,
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <span class="jxr_string">"9AA042C315F94CBB97B62202F83358F5"</span>,
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <span class="jxr_string">"DBE01DE67E346A800C4C4B4880311DE4"</span>,
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <span class="jxr_string">"C117D2238D53836ACD92DDCDB85D6A21"</span>,
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <span class="jxr_string">"DC0ED85DF9611ABB7249CDD168C5467E"</span>,
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <span class="jxr_string">"807D678FFF1F56FA92DE3381904842F2"</span>,
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <span class="jxr_string">"0E53B3FCAD8E4B130EF73AEB957FB402"</span>,
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <span class="jxr_string">"969FFD3B7C35439417E7BDE923035D65"</span>,
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <span class="jxr_string">"A99B512C19CA56070491166A1503BF15"</span>,
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <span class="jxr_string">"6E9985252126EE344D26AE369D2327E3"</span>,
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <span class="jxr_string">"B85F4809F904C275491FCDCD1610387E"</span>,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <span class="jxr_string">"ED365B8D7D20C1F5D53FB94DD211DF7B"</span>,
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <span class="jxr_string">"B3A575E86A8DB4A7135D604C43304896"</span>,
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  <span class="jxr_string">"89704BCB8E69F846259EB0ACCBC7F8A2"</span>,
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  <span class="jxr_string">"C56EE7C92197861F10D7A92B90882055"</span>,
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  <span class="jxr_string">"92F296F6846E0EAF9422A5A24A08B069"</span>,
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  <span class="jxr_string">"E67E32BB8F11DEB8699318BEE9E91A60"</span>,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  <span class="jxr_string">"B08EEF85EAF626DD91B65C4C3A97D92B"</span>,
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <span class="jxr_string">"661083A6ADDCE79BB4E0859AB5538013"</span>,
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <span class="jxr_string">"55DFE2941E0EB10AFC0B333BD34DE1FE"</span>,
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <span class="jxr_string">"6BFE5945E715C9662609770F8846087A"</span>,
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <span class="jxr_string">"79848E9C30C2F8CDA8B325F7FED2B139"</span>,
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <span class="jxr_string">"7A713A53B99FEF34AC04DEEF80965BD0"</span>,
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <span class="jxr_string">"18144A2B46620D32C3C32CE52D49257F"</span>,
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <span class="jxr_string">"872E827C70887C80749F7B8BB1847C7E"</span>,
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <span class="jxr_string">"6B86C6A4FE6A60C59B1A3102F8DE49F3"</span>,
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <span class="jxr_string">"9848BB3DFDF6F532F094679A4C231A20"</span>,
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <span class="jxr_string">"925AD528E852E329B2091CD3F1C2BCEE"</span>,
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  <span class="jxr_string">"80DF436544B0DD596722E46792A40CD8"</span>,
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <span class="jxr_string">"525DAF18F93E83E1E74BBBDDE4263BBA"</span>,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  <span class="jxr_string">"F65C9D2EE485D24701FFA3313B9D5BE6"</span>,
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  <span class="jxr_string">"E4FC8D8BCA06425BDF94AFA40FCC14BA"</span>,
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  <span class="jxr_string">"A53F0A5CA1E4E6440BB975FF320DE6F8"</span>,
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  <span class="jxr_string">"D55313B9394080462E87E02899B553F0"</span>,
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  <span class="jxr_string">"34A71D761F71BCD344384C7F97D27906"</span>,
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  <span class="jxr_string">"233F3D819599612EBC89580245C996A8"</span>,
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  <span class="jxr_string">"B4F1374E5268DBCB676E447529E53F89"</span>,
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <span class="jxr_string">"0816BD27861D2BA891D1044E39951E96"</span>,
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  <span class="jxr_string">"F3BE9EA3F10C73CA64FDE5DB13A951D1"</span>,
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <span class="jxr_string">"2448086A8106FBD03048DDF857D3F1C8"</span>,
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  <span class="jxr_string">"670756E65BEC8B68F03D77CDCDCE7B91"</span>,
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  <span class="jxr_string">"EF968CF0D36FD6C6EFFD225F6FB44CA9"</span>,
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  <span class="jxr_string">"2E8767157922E3826DDCEC1B0CC1E105"</span>,
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  <span class="jxr_string">"78CE7EEC670E45A967BAB17E26A1AD36"</span>,
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> <span class="jxr_string">"3C5CEE825655F098F6E81A2F417DA3FB"</span>,
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> <span class="jxr_string">"67BFDB431DCE1292200BC6F5207ADB12"</span>,
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <span class="jxr_string">"7540FD38E447C0779228548747843A6F"</span>,
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <span class="jxr_string">"B85E513301F8A936EA9EC8A21A85B5E6"</span>,
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <span class="jxr_string">"04C67DBF16C11427D507A455DE2C9BC5"</span>,
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <span class="jxr_string">"03F75EB8959E55079CFFB4FF149A37B6"</span>,
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <span class="jxr_string">"74550287F666C63BB9BC7838433434B0"</span>,
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <span class="jxr_string">"7D537200195EBC3AEFD1EAAB1C385221"</span>,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <span class="jxr_string">"CE24E4D40C68A82B535CBD3C8E21652A"</span>,
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <span class="jxr_string">"AB20072405AA8FC40265C6F1F3DC8BC0"</span>,
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <span class="jxr_string">"6CFD2CF688F566B093F67B9B3839E80A"</span>,
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> <span class="jxr_string">"BD95977E6B7239D407A012C5544BF584"</span>,
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> <span class="jxr_string">"DF9C0130AC77E7C72C997F587B46DBE0"</span>,
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <span class="jxr_string">"E7F1B82CADC53A648798945B34EFEFF2"</span>,
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <span class="jxr_string">"932C6DBF69255CF13EDCDB72233ACEA3"</span>,
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <span class="jxr_string">"5C76002BC7206560EFE550C80B8F12CC"</span>,
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> <span class="jxr_string">"F6B7BDD1CAEEBAB574683893C4475484"</span>,
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <span class="jxr_string">"A920E37CC6DC6B31DA8C0169569F5034"</span>,
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <span class="jxr_string">"919380ECD9C778BC513148B0C28D65FD"</span>,
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <span class="jxr_string">"EE67308DD3F2D9E6C2170755E5784BE1"</span>,
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <span class="jxr_string">"3CC73E53B85609023A05E149B223AE09"</span>,
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <span class="jxr_string">"983E8AF7CF05EBB28D71EB841C9406E6"</span>,
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> <span class="jxr_string">"0F3099B2D31FA5299EE5BF43193287FC"</span>,
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> <span class="jxr_string">"B763D84F38C27FE6931DCEB6715D4DB6"</span>,
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> <span class="jxr_string">"5AE3C9B0E3CC29C0C61565CD01F8A248"</span>,
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> <span class="jxr_string">"F58083572CD90981958565D48D2DEE25"</span>,
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> <span class="jxr_string">"7E6255EEF8F70C0EF10337AAB1CCCEF8"</span>,
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> <span class="jxr_string">"AAD4BAC34DB22821841CE2F631961902"</span>,
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> <span class="jxr_string">"D7431C0409BB1441BA9C6858DC7D4E81"</span>,
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> <span class="jxr_string">"EF9298C65E339F6E801A59C626456993"</span>,
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> <span class="jxr_string">"53FE29F68FF541ABC3F0EF3350B72F7E"</span>,
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> <span class="jxr_string">"F6BBA5C10DB02529E2C2DA3FB582CC14"</span>,
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> <span class="jxr_string">"E4239AA37FC531A386DAD1126FC0E9CD"</span>,
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> <span class="jxr_string">"8F7758F857D15BBE7BFD0E416404C365"</span>,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> <span class="jxr_string">"D273EB57C687BCD1B4EA7218A509E7B8"</span>,
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> <span class="jxr_string">"65D64F8D76E8B3423FA25C4EB58A210A"</span>,
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> <span class="jxr_string">"623D802B4EC450D66A16625702FCDBE0"</span>,
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> <span class="jxr_string">"7496460CB28E5791BAEAF9B68FB00022"</span>,
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> <span class="jxr_string">"34EA600F18BB0694B41681A49D510C1D"</span>,
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> <span class="jxr_string">"5F8FF0D47D5766D29B5D6E8F46423BD8"</span>,
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> <span class="jxr_string">"225F9286C5928BF09F84D3F93F541959"</span>,
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> <span class="jxr_string">"B21E90D25DF383416A5F072CEBEB1FFB"</span>,
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> <span class="jxr_string">"4AEFCDA089318125453EB9E8EB5E492E"</span>,
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> <span class="jxr_string">"4D3E75C6CD40EC4869BC85158591ADB8"</span>,
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> <span class="jxr_string">"63A8B904405436A1B99D7751866771B7"</span>,
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <span class="jxr_string">"64F0DAAE47529199792EAE172BA53293"</span>,
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> <span class="jxr_string">"C3EEF84BEA18225D515A8C852A9047EE"</span>,
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> <span class="jxr_string">"A44AC422B47D47B81AF73B3E9AC9596E"</span>,
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> <span class="jxr_string">"D16E04A8FBC435094F8D53ADF25F5084"</span>,
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> <span class="jxr_string">"EF13DC34BAB03E124EEAD8B6BF44B532"</span>,
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> <span class="jxr_string">"D94799075C24DCC067AF0D392049250D"</span>,
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> <span class="jxr_string">"14F431771EDDCE4764C21A2254B5E3C8"</span>,
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> <span class="jxr_string">"7039329F36F2ED682B02991F28D64679"</span>,
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> <span class="jxr_string">"124EE24EDE5551639DB8B8B941F6141D"</span>,
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> <span class="jxr_string">"C2852879A34D5184E478EC918B993FEE"</span>,
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> <span class="jxr_string">"86A806A3525B93E432053C9AB5ABBEDF"</span>,
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> <span class="jxr_string">"C1609BF5A4F07E37C17A36366EC23ECC"</span>,
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> <span class="jxr_string">"7E81E7CB92159A51FFCEA331B1E8EA53"</span>,
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> <span class="jxr_string">"37A7BE002856C5A59A6E03EAFCE7729A"</span>,
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> <span class="jxr_string">"BDF98A5A4F91E890C9A1D1E5FAAB138F"</span>,
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> <span class="jxr_string">"4E96ACB66E051F2BC739CC3D3E34A26B"</span>,
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> <span class="jxr_string">"EE996CDD120EB86E21ECFA49E8E1FCF1"</span>,
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> <span class="jxr_string">"61B9E6B579DBF6070C351A1440DD85FF"</span>,
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> <span class="jxr_string">"AC369E484316440B40DFC83AA96E28E7"</span>,
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> <span class="jxr_string">"0A2D16DE985C76D45C579C1159413BBE"</span>,
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> <span class="jxr_string">"DA3FDC38DA1D374FA4802CDA1A1C6B0F"</span>,
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> <span class="jxr_string">"B842523D4C41C2211AFE43A5800ADCE3"</span>,
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> <span class="jxr_string">"9E2CDA90D8E992DBA6C73D8229567192"</span>,
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> <span class="jxr_string">"D49583B781D9E20F5BE101415957FC49"</span>,
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> <span class="jxr_string">"EF09DA5C12B376E458B9B8670032498E"</span>,
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> <span class="jxr_string">"A96BE0463DA774461A5E1D5A9DD1AC10"</span>,
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> <span class="jxr_string">"32CEE3341060790D2D4B1362EF397090"</span>,
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> <span class="jxr_string">"21CEA416A3D3359D2C4D58FB6A035F06"</span>,
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> <span class="jxr_string">"172AEAB3D507678ECAF455C12587ADB7"</span>,
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> <span class="jxr_string">"B6F897941EF8EBFF9FE80A567EF38478"</span>,
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> <span class="jxr_string">"A9723259D94A7DC662FB0C782CA3F1DD"</span>,
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> <span class="jxr_string">"2F91C984B9A4839F30001B9F430493B4"</span>,
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> <span class="jxr_string">"0472406345A610B048CB99EE0EF3FA0F"</span>,
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> <span class="jxr_string">"F5F39086646F8C05ED16EFA4B617957C"</span>,
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> <span class="jxr_string">"26D50F485A30408D5AF47A5736292450"</span>,
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> <span class="jxr_string">"0545AAD56DA2A97C3663D1432A3D1C84"</span>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>         },
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>         <em class="jxr_comment">// Cipher Texts for 192-bit key</em>
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         {
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> <span class="jxr_string">"DE885DC87F5A92594082D02CC1E1B42C"</span>,
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> <span class="jxr_string">"C749194F94673F9DD2AA1932849630C1"</span>,
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> <span class="jxr_string">"0CEF643313912934D310297B90F56ECC"</span>,
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> <span class="jxr_string">"C4495D39D4A553B225FBA02A7B1B87E1"</span>,
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> <span class="jxr_string">"636D10B1A0BCAB541D680A7970ADC830"</span>,
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> <span class="jxr_string">"07CF045786BD6AFCC147D99E45A901A7"</span>,
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> <span class="jxr_string">"6A8E3F425A7599348F95398448827976"</span>,
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> <span class="jxr_string">"5518276836148A00D91089A20D8BFF57"</span>,
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> <span class="jxr_string">"F267E07B5E87E3BC20B969C61D4FCB06"</span>,
+<a class="jxr_linenumber" name="L193" href="#L193">193</a> <span class="jxr_string">"5A1CDE69571D401BFCD20DEBADA2212C"</span>,
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> <span class="jxr_string">"70A9057263254701D12ADD7D74CD509E"</span>,
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> <span class="jxr_string">"35713A7E108031279388A33A0FE2E190"</span>,
+<a class="jxr_linenumber" name="L196" href="#L196">196</a> <span class="jxr_string">"E74EDE82B1254714F0C7B4B243108655"</span>,
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> <span class="jxr_string">"39272E3100FAA37B55B862320D1B3EB3"</span>,
+<a class="jxr_linenumber" name="L198" href="#L198">198</a> <span class="jxr_string">"6D6E24C659FC5AEF712F77BCA19C9DD0"</span>,
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> <span class="jxr_string">"76D18212F972370D3CC2C6C372C6CF2F"</span>,
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> <span class="jxr_string">"B21A1F0BAE39E55C7594ED570A7783EA"</span>,
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> <span class="jxr_string">"77DE202111895AC48DD1C974B358B458"</span>,
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> <span class="jxr_string">"67810B311969012AAF7B504FFAF39FD1"</span>,
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> <span class="jxr_string">"C22EA2344D3E9417A6BA07843E713AEA"</span>,
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> <span class="jxr_string">"C79CAF4B97BEE0BD0630AB354539D653"</span>,
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> <span class="jxr_string">"135FD1AF761D9AE23DF4AA6B86760DB4"</span>,
+<a class="jxr_linenumber" name="L206" href="#L206">206</a> <span class="jxr_string">"D4659D0B06ACD4D56AB8D11A16FD83B9"</span>,
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> <span class="jxr_string">"F7D270028FC188E4E4F35A4AAA25D4D4"</span>,
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> <span class="jxr_string">"345CAE5A8C9620A9913D5473985852FF"</span>,
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> <span class="jxr_string">"4E8980ADDE60B0E42C0B287FEA41E729"</span>,
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> <span class="jxr_string">"F11B6D74E1F15155633DC39743C1A527"</span>,
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> <span class="jxr_string">"9C87916C0180064F9D3179C6F5DD8C35"</span>,
+<a class="jxr_linenumber" name="L212" href="#L212">212</a> <span class="jxr_string">"71AB186BCAEA518E461D4F7FAD230E6A"</span>,
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> <span class="jxr_string">"C4A31BBC3DAAF742F9141C2A5001A49C"</span>,
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> <span class="jxr_string">"E7C47B7B1D40F182A8928C8A55671D07"</span>,
+<a class="jxr_linenumber" name="L215" href="#L215">215</a> <span class="jxr_string">"8E17F294B28FA373C6249538868A7EEF"</span>,
+<a class="jxr_linenumber" name="L216" href="#L216">216</a> <span class="jxr_string">"754404096A5CBC08AF09491BE249141A"</span>,
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> <span class="jxr_string">"101CB56E55F05D86369B6D1069204F0A"</span>,
+<a class="jxr_linenumber" name="L218" href="#L218">218</a> <span class="jxr_string">"73F19BB6604205C6EE227B9759791E41"</span>,
+<a class="jxr_linenumber" name="L219" href="#L219">219</a> <span class="jxr_string">"6270C0028F0D136C37A56B2CB64D24D6"</span>,
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> <span class="jxr_string">"A3BF7C2C38D1114A087ECF212E694346"</span>,
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> <span class="jxr_string">"49CABFF2CEF7D9F95F5EFB1F7A1A7DDE"</span>,
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> <span class="jxr_string">"EC7F8A47CC59B849469255AD49F62752"</span>,
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> <span class="jxr_string">"68FAE55A13EFAF9B07B3552A8A0DC9D1"</span>,
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> <span class="jxr_string">"211E6B19C69FAEF481F64F24099CDA65"</span>,
+<a class="jxr_linenumber" name="L225" href="#L225">225</a> <span class="jxr_string">"DBB918C75BC5732416F79FB0C8EE4C5C"</span>,
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> <span class="jxr_string">"98D494E5D963A6C8B92536D3EC35E3FD"</span>,
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> <span class="jxr_string">"C9A873404D403D6F074190851D67781A"</span>,
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> <span class="jxr_string">"073AEF4A7C77D921928CB0DD9D27CAE7"</span>,
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> <span class="jxr_string">"89BDE25CEE36FDE769A10E52298CF90F"</span>,
+<a class="jxr_linenumber" name="L230" href="#L230">230</a> <span class="jxr_string">"26D0842D37EAD38557C65E0A5E5F122E"</span>,
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> <span class="jxr_string">"F8294BA375AF46B3F22905BBAFFAB107"</span>,
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> <span class="jxr_string">"2AD63EB4D0D43813B979CF72B35BDB94"</span>,
+<a class="jxr_linenumber" name="L233" href="#L233">233</a> <span class="jxr_string">"7710C171EE0F4EFA39BE4C995180181D"</span>,
+<a class="jxr_linenumber" name="L234" href="#L234">234</a> <span class="jxr_string">"C0CB2B40DBA7BE8C0698FAE1E4B80FF8"</span>,
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> <span class="jxr_string">"97970E505194622FD955CA1B80B784E9"</span>,
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> <span class="jxr_string">"7CB1824B29F850900DF2CAD9CF04C1CF"</span>,
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> <span class="jxr_string">"FDF4F036BB988E42F2F62DE63FE19A64"</span>,
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> <span class="jxr_string">"08908CFE2C82606B2C15DF61B75CF3E2"</span>,
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> <span class="jxr_string">"B3AA689EF2D07FF365ACB9ADBA2AF07A"</span>,
+<a class="jxr_linenumber" name="L240" href="#L240">240</a> <span class="jxr_string">"F2672CD8EAA3B98776660D0263656F5C"</span>,
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> <span class="jxr_string">"5BDEAC00E986687B9E1D94A0DA7BF452"</span>,
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> <span class="jxr_string">"E6D57BD66EA1627363EE0C4B711B0B21"</span>,
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> <span class="jxr_string">"03730DD6ACB4AD9996A63BE7765EC06F"</span>,
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> <span class="jxr_string">"A470E361AA5437B2BE8586D2F78DE582"</span>,
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> <span class="jxr_string">"7567FEEFA559911FD479670246B484E3"</span>,
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> <span class="jxr_string">"29829DEA15A4E7A4C049045E7B106E29"</span>,
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> <span class="jxr_string">"A407834C3D89D48A2CB7A152208FA4ED"</span>,
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> <span class="jxr_string">"68F948053F78FEF0D8F9FE7EF3A89819"</span>,
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> <span class="jxr_string">"B605174CAB13AD8FE3B20DA3AE7B0234"</span>,
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> <span class="jxr_string">"CCAB8F0AEBFF032893996D383CBFDBFA"</span>,
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> <span class="jxr_string">"AF14BB8428C9730B7DC17B6C1CBEBCC8"</span>,
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> <span class="jxr_string">"5A41A21332040877EB7B89E8E80D19FE"</span>,
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> <span class="jxr_string">"AC1BA52EFCDDE368B1596F2F0AD893A0"</span>,
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> <span class="jxr_string">"41B890E31B9045E6ECDC1BC3F2DB9BCC"</span>,
+<a class="jxr_linenumber" name="L255" href="#L255">255</a> <span class="jxr_string">"4D54A549728E55B19A23660424A0F146"</span>,
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> <span class="jxr_string">"A917581F41C47C7DDCFFD5285E2D6A61"</span>,
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> <span class="jxr_string">"604DF24BA6099B93A7405A524D764FCB"</span>,
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> <span class="jxr_string">"78D9D156F28B190E232D1B7AE7FC730A"</span>,
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> <span class="jxr_string">"5A12C39E442CD7F27B3CD77F5D029582"</span>,
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> <span class="jxr_string">"FF2BF2F47CF7B0F28EE25AF95DBF790D"</span>,
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> <span class="jxr_string">"1863BB7D193BDA39DF090659EB8AE48B"</span>,
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> <span class="jxr_string">"38178F2FB4CFCF31E87E1ABCDC023EB5"</span>,
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> <span class="jxr_string">"F5B13DC690CC0D541C6BA533023DC8C9"</span>,
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> <span class="jxr_string">"48EC05238D7375D126DC9D08884D4827"</span>,
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> <span class="jxr_string">"ACD0D81139691B310B92A6E377BACC87"</span>,
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> <span class="jxr_string">"9A4AA43578B55CE9CC178F0D2E162C79"</span>,
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> <span class="jxr_string">"08AD94BC737DB3C87D49B9E01B720D81"</span>,
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> <span class="jxr_string">"3BCFB2D5D210E8332900C5991D551A2A"</span>,
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> <span class="jxr_string">"C5F0C6B9397ACB29635CE1A0DA2D8D96"</span>,
+<a class="jxr_linenumber" name="L270" href="#L270">270</a> <span class="jxr_string">"844A29EFC693E2FA9900F87FBF5DCD5F"</span>,
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> <span class="jxr_string">"5126A1C41051FEA158BE41200E1EA59D"</span>,
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> <span class="jxr_string">"302123CA7B4F46D667FFFB0EB6AA7703"</span>,
+<a class="jxr_linenumber" name="L273" href="#L273">273</a> <span class="jxr_string">"A9D16BCE7DB5C024277709EE2A88D91A"</span>,
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> <span class="jxr_string">"F013C5EC123A26CFC34B598C992A996B"</span>,
+<a class="jxr_linenumber" name="L275" href="#L275">275</a> <span class="jxr_string">"E38A825CD971A1D2E56FB1DBA248F2A8"</span>,
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> <span class="jxr_string">"6E701773C0311E0BD4C5A097406D22B3"</span>,
+<a class="jxr_linenumber" name="L277" href="#L277">277</a> <span class="jxr_string">"754262CEF0C64BE4C3E67C35ABE439F7"</span>,
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> <span class="jxr_string">"C9C2D4C47DF7D55CFA0EE5F1FE5070F4"</span>,
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> <span class="jxr_string">"6AB4BEA85B172573D8BD2D5F4329F13D"</span>,
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> <span class="jxr_string">"11F03EF28E2CC9AE5165C587F7396C8C"</span>,
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> <span class="jxr_string">"0682F2EB1A68BAC7949922C630DD27FA"</span>,
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> <span class="jxr_string">"ABB0FEC0413D659AFE8E3DCF6BA873BB"</span>,
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> <span class="jxr_string">"FE86A32E19F805D6569B2EFADD9C92AA"</span>,
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> <span class="jxr_string">"E434E472275D1837D3D717F2EECC88C3"</span>,
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> <span class="jxr_string">"74E57DCD12A21D26EF8ADAFA5E60469A"</span>,
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> <span class="jxr_string">"C275429D6DAD45DDD423FA63C816A9C1"</span>,
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> <span class="jxr_string">"7F6EC1A9AE729E86F7744AED4B8F4F07"</span>,
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> <span class="jxr_string">"48B5A71AB9292BD4F9E608EF102636B2"</span>,
+<a class="jxr_linenumber" name="L289" href="#L289">289</a> <span class="jxr_string">"076FB95D5F536C78CBED3181BCCF3CF1"</span>,
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> <span class="jxr_string">"BFA76BEA1E684FD3BF9256119EE0BC0F"</span>,
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> <span class="jxr_string">"7D395923D56577F3FF8670998F8C4A71"</span>,
+<a class="jxr_linenumber" name="L292" href="#L292">292</a> <span class="jxr_string">"BA02C986E529AC18A882C34BA389625F"</span>,
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> <span class="jxr_string">"3DFCF2D882AFE75D3A191193013A84B5"</span>,
+<a class="jxr_linenumber" name="L294" href="#L294">294</a> <span class="jxr_string">"FAD1FDE1D0241784B63080D2C74D236C"</span>,
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> <span class="jxr_string">"7D6C80D39E41F007A14FB9CD2B2C15CD"</span>,
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> <span class="jxr_string">"7975F401FC10637BB33EA2DB058FF6EC"</span>,
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> <span class="jxr_string">"657983865C55A818F02B7FCD52ED7E99"</span>,
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> <span class="jxr_string">"B32BEB1776F9827FF4C3AC9997E84B20"</span>,
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> <span class="jxr_string">"2AE2C7C374F0A41E3D46DBC3E66BB59F"</span>,
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> <span class="jxr_string">"4D835E4ABDD4BDC6B88316A6E931A07F"</span>,
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> <span class="jxr_string">"E07EFABFF1C353F7384EBB87B435A3F3"</span>,
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> <span class="jxr_string">"ED3088DC3FAF89AD87B4356FF1BB09C2"</span>,
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> <span class="jxr_string">"4324D01140C156FC898C2E32BA03FB05"</span>,
+<a class="jxr_linenumber" name="L304" href="#L304">304</a> <span class="jxr_string">"BE15D016FACB5BAFBC24FA9289132166"</span>,
+<a class="jxr_linenumber" name="L305" href="#L305">305</a> <span class="jxr_string">"AC9B7048EDB1ACF4D97A5B0B3F50884B"</span>,
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> <span class="jxr_string">"448BECE1F86C7845DFA9A4BB2A016FB3"</span>,
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> <span class="jxr_string">"10DD445E87686EB46EA9B1ABC49257F0"</span>,
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> <span class="jxr_string">"B7FCCF7659FA756D4B7303EEA6C07458"</span>,
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> <span class="jxr_string">"289117115CA3513BAA7640B1004872C2"</span>,
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> <span class="jxr_string">"57CB42F7EE7186051F50B93FFA7B35BF"</span>,
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> <span class="jxr_string">"F2741BFBFB81663B9136802FB9C3126A"</span>,
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> <span class="jxr_string">"E32DDDC5C7398C096E3BD535B31DB5CE"</span>,
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> <span class="jxr_string">"81D3C204E608AF9CC713EAEBCB72433F"</span>,
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> <span class="jxr_string">"D4DEEF4BFC36AAA579496E6935F8F98E"</span>,
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> <span class="jxr_string">"C356DB082B97802B038571C392C5C8F6"</span>,
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> <span class="jxr_string">"A3919ECD4861845F2527B77F06AC6A4E"</span>,
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> <span class="jxr_string">"A53858E17A2F802A20E40D44494FFDA0"</span>,
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> <span class="jxr_string">"5D989E122B78C758921EDBEEB827F0C0"</span>,
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> <span class="jxr_string">"4B1C0C8F9E7830CC3C4BE7BD226FA8DE"</span>,
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> <span class="jxr_string">"82C40C5FD897FBCA7B899C70713573A1"</span>,
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> <span class="jxr_string">"ED13EE2D45E00F75CCDB51EA8E3E36AD"</span>,
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> <span class="jxr_string">"F121799EEFE8432423176A3CCF6462BB"</span>,
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> <span class="jxr_string">"4FA0C06F07997E98271DD86F7B355C50"</span>,
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> <span class="jxr_string">"849EB364B4E81D058649DC5B1BF029B9"</span>,
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> <span class="jxr_string">"F48F9E0DE8DE7AD944A207809335D9B1"</span>,
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> <span class="jxr_string">"E59E9205B5A81A4FD26DFCF308966022"</span>,
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> <span class="jxr_string">"3A91A1BE14AAE9ED700BDF9D70018804"</span>,
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> <span class="jxr_string">"8ABAD78DCB79A48D79070E7DA89664EC"</span>,
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> <span class="jxr_string">"B68377D98AAE6044938A7457F6C649D9"</span>,
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> <span class="jxr_string">"E4E1275C42F5F1B63D662C099D6CE33D"</span>,
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> <span class="jxr_string">"7DEF32A34C6BE668F17DA1BB193B06EF"</span>,
+<a class="jxr_linenumber" name="L332" href="#L332">332</a> <span class="jxr_string">"78B6000CC3D30CB3A74B68D0EDBD2B53"</span>,
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> <span class="jxr_string">"0A47531DE88DD8AE5C23EAE4F7D1F2D5"</span>,
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> <span class="jxr_string">"667B24E8000CF68231EC484581D922E5"</span>,
+<a class="jxr_linenumber" name="L335" href="#L335">335</a> <span class="jxr_string">"39DAA5EBD4AACAE130E9C33236C52024"</span>,
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> <span class="jxr_string">"E3C88760B3CB21360668A63E55BB45D1"</span>,
+<a class="jxr_linenumber" name="L337" href="#L337">337</a> <span class="jxr_string">"F131EE903C1CDB49D416866FD5D8DE51"</span>,
+<a class="jxr_linenumber" name="L338" href="#L338">338</a> <span class="jxr_string">"7A1916135B0447CF4033FC13047A583A"</span>,
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> <span class="jxr_string">"F7D55FB27991143DCDFA90DDF0424FCB"</span>,
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> <span class="jxr_string">"EA93E7D1CA1111DBD8F7EC111A848C0C"</span>,
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> <span class="jxr_string">"2A689E39DFD3CBCBE221326E95888779"</span>,
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> <span class="jxr_string">"C1CE399CA762318AC2C40D1928B4C57D"</span>,
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> <span class="jxr_string">"D43FB6F2B2879C8BFAF0092DA2CA63ED"</span>,
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> <span class="jxr_string">"224563E617158DF97650AF5D130E78A5"</span>,
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> <span class="jxr_string">"6562FDF6833B7C4F7484AE6EBCC243DD"</span>,
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> <span class="jxr_string">"93D58BA7BED22615D661D002885A7457"</span>,
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> <span class="jxr_string">"9A0EF559003AD9E52D3E09ED3C1D3320"</span>,
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> <span class="jxr_string">"96BAF5A7DC6F3DD27EB4C717A85D261C"</span>,
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> <span class="jxr_string">"B8762E06884900E8452293190E19CCDB"</span>,
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> <span class="jxr_string">"785416A22BD63CBABF4B1789355197D3"</span>,
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> <span class="jxr_string">"A0D20CE1489BAA69A3612DCE90F7ABF6"</span>,
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> <span class="jxr_string">"700244E93DC94230CC607FFBA0E48F32"</span>,
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> <span class="jxr_string">"85329E476829F872A2B4A7E59F91FF2D"</span>,
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> <span class="jxr_string">"E4219B4935D988DB719B8B8B2B53D247"</span>,
+<a class="jxr_linenumber" name="L355" href="#L355">355</a> <span class="jxr_string">"6ACDD04FD13D4DB4409FE8DD13FD737B"</span>,
+<a class="jxr_linenumber" name="L356" href="#L356">356</a> <span class="jxr_string">"9EB7A670AB59E15BE582378701C1EC14"</span>,
+<a class="jxr_linenumber" name="L357" href="#L357">357</a> <span class="jxr_string">"29DF2D6935FE657763BC7A9F22D3D492"</span>,
+<a class="jxr_linenumber" name="L358" href="#L358">358</a> <span class="jxr_string">"99303359D4A13AFDBE6C784028CE533A"</span>,
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> <span class="jxr_string">"FF5C70A6334545F33B9DBF7BEA0417CA"</span>,
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> <span class="jxr_string">"289F58A17E4C50EDA4269EFB3DF55815"</span>,
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> <span class="jxr_string">"EA35DCB416E9E1C2861D1682F062B5EB"</span>,
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> <span class="jxr_string">"3A47BF354BE775383C50B0C0A83E3A58"</span>,
+<a class="jxr_linenumber" name="L363" href="#L363">363</a> <span class="jxr_string">"BF6C1DC069FB95D05D43B01D8206D66B"</span>,
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> <span class="jxr_string">"046D1D580D5898DA6595F32FD1F0C33D"</span>,
+<a class="jxr_linenumber" name="L365" href="#L365">365</a> <span class="jxr_string">"5F57803B7B82A110F7E9855D6A546082"</span>,
+<a class="jxr_linenumber" name="L366" href="#L366">366</a> <span class="jxr_string">"25336ECF34E7BE97862CDFF715FF05A8"</span>,
+<a class="jxr_linenumber" name="L367" href="#L367">367</a> <span class="jxr_string">"ACBAA2A943D8078022D693890E8C4FEF"</span>,
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> <span class="jxr_string">"3947597879F6B58E4E2F0DF825A83A38"</span>,
+<a class="jxr_linenumber" name="L369" href="#L369">369</a> <span class="jxr_string">"4EB8CC3335496130655BF3CA570A4FC0"</span>,
+<a class="jxr_linenumber" name="L370" href="#L370">370</a> <span class="jxr_string">"BBDA7769AD1FDA425E18332D97868824"</span>,
+<a class="jxr_linenumber" name="L371" href="#L371">371</a> <span class="jxr_string">"5E7532D22DDB0829A29C868198397154"</span>,
+<a class="jxr_linenumber" name="L372" href="#L372">372</a> <span class="jxr_string">"E66DA67B630AB7AE3E682855E1A1698E"</span>,
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> <span class="jxr_string">"4D93800F671B48559A64D1EA030A590A"</span>,
+<a class="jxr_linenumber" name="L374" href="#L374">374</a> <span class="jxr_string">"F33159FCC7D9AE30C062CD3B322AC764"</span>,
+<a class="jxr_linenumber" name="L375" href="#L375">375</a> <span class="jxr_string">"8BAE4EFB70D33A9792EEA9BE70889D72"</span>
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>         },
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>         <em class="jxr_comment">// Cipher Texts for 256-bit key</em>
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>         {
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> <span class="jxr_string">"E35A6DCB19B201A01EBCFA8AA22B5759"</span>,
+<a class="jxr_linenumber" name="L380" href="#L380">380</a> <span class="jxr_string">"5075C2405B76F22F553488CAE47CE90B"</span>,
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> <span class="jxr_string">"49DF95D844A0145A7DE01C91793302D3"</span>,
+<a class="jxr_linenumber" name="L382" href="#L382">382</a> <span class="jxr_string">"E7396D778E940B8418A86120E5F421FE"</span>,
+<a class="jxr_linenumber" name="L383" href="#L383">383</a> <span class="jxr_string">"05F535C36FCEDE4657BE37F4087DB1EF"</span>,
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> <span class="jxr_string">"D0C1DDDD10DA777C68AB36AF51F2C204"</span>,
+<a class="jxr_linenumber" name="L385" href="#L385">385</a> <span class="jxr_string">"1C55FB811B5C6464C4E5DE1535A75514"</span>,
+<a class="jxr_linenumber" name="L386" href="#L386">386</a> <span class="jxr_string">"52917F3AE957D5230D3A2AF57C7B5A71"</span>,
+<a class="jxr_linenumber" name="L387" href="#L387">387</a> <span class="jxr_string">"C6E3D5501752DD5E9AEF086D6B45D705"</span>,
+<a class="jxr_linenumber" name="L388" href="#L388">388</a> <span class="jxr_string">"A24A9C7AF1D9B1E17E1C9A3E711B3FA7"</span>,
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> <span class="jxr_string">"B881ECA724A6D43DBC6B96F6F59A0D20"</span>,
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> <span class="jxr_string">"EC524D9A24DFFF2A9639879B83B8E137"</span>,
+<a class="jxr_linenumber" name="L391" href="#L391">391</a> <span class="jxr_string">"34C4F345F5466215A037F443635D6F75"</span>,
+<a class="jxr_linenumber" name="L392" href="#L392">392</a> <span class="jxr_string">"5BA5055BEDB8895F672E29F2EB5A355D"</span>,
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> <span class="jxr_string">"B3F692AA3A435259EBBEF9B51AD1E08D"</span>,
+<a class="jxr_linenumber" name="L394" href="#L394">394</a> <span class="jxr_string">"414FEB4376F2C64A5D2FBB2ED531BA7D"</span>,
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> <span class="jxr_string">"A20D519E3BCA3303F07E81719F61605E"</span>,
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> <span class="jxr_string">"A08D10E520AF811F45BD60A2DC0DC4B1"</span>,
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> <span class="jxr_string">"B06893A8C563C430E6F3858826EFBBE4"</span>,
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> <span class="jxr_string">"0FFEE26AE2D3929C6BD9C6BEDFF84409"</span>,
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> <span class="jxr_string">"4D0F5E906ED77801FC0EF53EDC5F9E2B"</span>,
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> <span class="jxr_string">"8B6EC00119AD8B026DCE56EA7DEFE930"</span>,
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> <span class="jxr_string">"69026591D43363EE9D83B5007F0B484E"</span>,
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> <span class="jxr_string">"27135D86950C6A2F86872706279A4761"</span>,
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> <span class="jxr_string">"35E6DB8723F281DA410C3AC8535ED77C"</span>,
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> <span class="jxr_string">"57427CF214B8C28E4BBF487CCB8D0E09"</span>,
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> <span class="jxr_string">"6DF01BF56E5131AC87F96E99CAB86367"</span>,
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> <span class="jxr_string">"3856C5B55790B768BBF7D43031579BCF"</span>,
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> <span class="jxr_string">"1E6ED8FB7C15BC4D2F63BA7037ED44D0"</span>,
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> <span class="jxr_string">"E1B2ED6CD8D93D455534E401156D4BCF"</span>,
+<a class="jxr_linenumber" name="L409" href="#L409">409</a> <span class="jxr_string">"EFBCCA5BDFDAD10E875F02336212CE36"</span>,
+<a class="jxr_linenumber" name="L410" href="#L410">410</a> <span class="jxr_string">"0B777F02FD18DCE2646DCFE868DFAFAD"</span>,
+<a class="jxr_linenumber" name="L411" href="#L411">411</a> <span class="jxr_string">"C8A104B5693D1B14F5BF1F10100BF508"</span>,
+<a class="jxr_linenumber" name="L412" href="#L412">412</a> <span class="jxr_string">"4CCE6615244AFCB38408FECE219962EA"</span>,
+<a class="jxr_linenumber" name="L413" href="#L413">413</a> <span class="jxr_string">"F99E7845D3A255B394C9C050CBA258B1"</span>,
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> <span class="jxr_string">"B4AFBB787F9BCFB7B55FDF447F611295"</span>,
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> <span class="jxr_string">"AE1C426A697FAF2808B7EF6ADDB5C020"</span>,
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> <span class="jxr_string">"7572F92811A85B9BDD38DEAD9945BCAE"</span>,
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> <span class="jxr_string">"71BC7AA46E43FB95A181527D9F6A360F"</span>,
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> <span class="jxr_string">"5542EF2923066F1EC8F546DD0D8E7CA8"</span>,
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> <span class="jxr_string">"6B92317C7D623790B748FDD7EFC42422"</span>,
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> <span class="jxr_string">"0FE7C097E899C71EF045360F8D6C25CF"</span>,
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> <span class="jxr_string">"4ECE7EE107D0264D04693151C25B9DF6"</span>,
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> <span class="jxr_string">"FD6AE687CBFCA9E301045888D3BB9605"</span>,
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> <span class="jxr_string">"476B579C8556C7254424902CC1D6D36E"</span>,
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> <span class="jxr_string">"4133CBCDFDD6B8860A1FC18665D6D71B"</span>,
+<a class="jxr_linenumber" name="L425" href="#L425">425</a> <span class="jxr_string">"3B36EC2664798C108B816812C65DFDC7"</span>,
+<a class="jxr_linenumber" name="L426" href="#L426">426</a> <span class="jxr_string">"364E20A234FEA385D48DC5A09C9E70CF"</span>,
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> <span class="jxr_string">"4A4BA25969DE3F5EE5642C71AAD0EFD1"</span>,
+<a class="jxr_linenumber" name="L428" href="#L428">428</a> <span class="jxr_string">"E42CBAAE43297F67A76C1C501BB79E36"</span>,
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> <span class="jxr_string">"23CEDEDA4C15B4C037E8C61492217937"</span>,
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> <span class="jxr_string">"A1719147A1F4A1A1180BD16E8593DCDE"</span>,
+<a class="jxr_linenumber" name="L431" href="#L431">431</a> <span class="jxr_string">"AB82337E9FB0EC60D1F25A1D0014192C"</span>,
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> <span class="jxr_string">"74BF2D8FC5A8388DF1A3A4D7D33FC164"</span>,
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> <span class="jxr_string">"D5B493317E6FBC6FFFD664B3C491368A"</span>,
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> <span class="jxr_string">"BA767381586DA56A2A8D503D5F7ADA0B"</span>,
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> <span class="jxr_string">"E8E6BC57DFE9CCADB0DECABF4E5CF91F"</span>,
+<a class="jxr_linenumber" name="L436" href="#L436">436</a> <span class="jxr_string">"3C8E5A5CDC9CEED90815D1F84BB2998C"</span>,
+<a class="jxr_linenumber" name="L437" href="#L437">437</a> <span class="jxr_string">"283843020BA38F056001B2FD585F7CC9"</span>,
+<a class="jxr_linenumber" name="L438" href="#L438">438</a> <span class="jxr_string">"D8ADC7426F623ECE8741A70621D28870"</span>,
+<a class="jxr_linenumber" name="L439" href="#L439">439</a> <span class="jxr_string">"D7C5C215592D06F00E6A80DA69A28EA9"</span>,
+<a class="jxr_linenumber" name="L440" href="#L440">440</a> <span class="jxr_string">"52CF6FA433C3C870CAC70190358F7F16"</span>,
+<a class="jxr_linenumber" name="L441" href="#L441">441</a> <span class="jxr_string">"F63D442A584DA71786ADEC9F3346DF75"</span>,
+<a class="jxr_linenumber" name="L442" href="#L442">442</a> <span class="jxr_string">"549078F4B0CA7079B45F9A5ADAFAFD99"</span>,
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> <span class="jxr_string">"F2A5986EE4E9984BE2BAFB79EA8152FA"</span>,
+<a class="jxr_linenumber" name="L444" href="#L444">444</a> <span class="jxr_string">"8A74535017B4DB2776668A1FAE64384C"</span>,
+<a class="jxr_linenumber" name="L445" href="#L445">445</a> <span class="jxr_string">"E613342F57A97FD95DC088711A5D0ECD"</span>,
+<a class="jxr_linenumber" name="L446" href="#L446">446</a> <span class="jxr_string">"3FFAEBF6B22CF1DC82AE17CD48175B01"</span>,
+<a class="jxr_linenumber" name="L447" href="#L447">447</a> <span class="jxr_string">"BAFD52EFA15C248CCBF9757735E6B1CE"</span>,
+<a class="jxr_linenumber" name="L448" href="#L448">448</a> <span class="jxr_string">"7AF94BC018D9DDD4539D2DD1C6F4000F"</span>,
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> <span class="jxr_string">"FE177AD61CA0FDB281086FBA8FE76803"</span>,
+<a class="jxr_linenumber" name="L450" href="#L450">450</a> <span class="jxr_string">"74DBEA15E2E9285BAD163D7D534251B6"</span>,
+<a class="jxr_linenumber" name="L451" href="#L451">451</a> <span class="jxr_string">"23DD21331B3A92F200FE56FF050FFE74"</span>,
+<a class="jxr_linenumber" name="L452" href="#L452">452</a> <span class="jxr_string">"A69C5AA34AB20A858CAFA766EACED6D8"</span>,
+<a class="jxr_linenumber" name="L453" href="#L453">453</a> <span class="jxr_string">"3F72BB4DF2A4F941A4A09CB78F04B97A"</span>,
+<a class="jxr_linenumber" name="L454" href="#L454">454</a> <span class="jxr_string">"72CC43577E1FD5FD14622D24D97FCDCC"</span>,
+<a class="jxr_linenumber" name="L455" href="#L455">455</a> <span class="jxr_string">"D83AF8EBE93E0B6B99CAFADE224937D1"</span>,
+<a class="jxr_linenumber" name="L456" href="#L456">456</a> <span class="jxr_string">"44042329128D56CAA8D084C8BD769D1E"</span>,
+<a class="jxr_linenumber" name="L457" href="#L457">457</a> <span class="jxr_string">"14102D72290DE4F2C430ADD1ED64BA1D"</span>,
+<a class="jxr_linenumber" name="L458" href="#L458">458</a> <span class="jxr_string">"449124097B1ECD0AE7065206DF06F03C"</span>,
+<a class="jxr_linenumber" name="L459" href="#L459">459</a> <span class="jxr_string">"D060A99F8CC153A42E11E5F97BD7584A"</span>,
+<a class="jxr_linenumber" name="L460" href="#L460">460</a> <span class="jxr_string">"65605B3EA9261488D53E48602ADEA299"</span>,
+<a class="jxr_linenumber" name="L461" href="#L461">461</a> <span class="jxr_string">"C5E5CAD7A208DE8EA6BE049EFE5C7346"</span>,
+<a class="jxr_linenumber" name="L462" href="#L462">462</a> <span class="jxr_string">"4C280C46D2181646048DD5BC0C0831A5"</span>,
+<a class="jxr_linenumber" name="L463" href="#L463">463</a> <span class="jxr_string">"5DD65CF37F2A0929559AABAFDA08E730"</span>,
+<a class="jxr_linenumber" name="L464" href="#L464">464</a> <span class="jxr_string">"31F2335CAAF264172F69A693225E6D22"</span>,
+<a class="jxr_linenumber" name="L465" href="#L465">465</a> <span class="jxr_string">"3E28B35F99A72662590DA96426DD377F"</span>,
+<a class="jxr_linenumber" name="L466" href="#L466">466</a> <span class="jxr_string">"570F40F5D7B20441486578ED344343BE"</span>,
+<a class="jxr_linenumber" name="L467" href="#L467">467</a> <span class="jxr_string">"C54308AD1C9E3B19F8B7417873045A8C"</span>,
+<a class="jxr_linenumber" name="L468" href="#L468">468</a> <span class="jxr_string">"CBF335E39CE13ADE2B696179E8FD0CE1"</span>,
+<a class="jxr_linenumber" name="L469" href="#L469">469</a> <span class="jxr_string">"9C2FBF422355D8293083D51F4A3C18A9"</span>,
+<a class="jxr_linenumber" name="L470" href="#L470">470</a> <span class="jxr_string">"5ED8B5A31ECEFAB16C9AA6986DA67BCE"</span>,
+<a class="jxr_linenumber" name="L471" href="#L471">471</a> <span class="jxr_string">"627815DCFC814ABC75900041B1DD7B59"</span>,
+<a class="jxr_linenumber" name="L472" href="#L472">472</a> <span class="jxr_string">"9EF3E82A50A59F166260494F7A7F2CC3"</span>,
+<a class="jxr_linenumber" name="L473" href="#L473">473</a> <span class="jxr_string">"878CD0D8D920888B5935D6C351128737"</span>,
+<a class="jxr_linenumber" name="L474" href="#L474">474</a> <span class="jxr_string">"E44429474D6FC3084EB2A6B8B46AF754"</span>,
+<a class="jxr_linenumber" name="L475" href="#L475">475</a> <span class="jxr_string">"EBAACF9641D54E1FB18D0A2BE4F19BE5"</span>,
+<a class="jxr_linenumber" name="L476" href="#L476">476</a> <span class="jxr_string">"13B3BF497CEE780E123C7E193DEA3A01"</span>,
+<a class="jxr_linenumber" name="L477" href="#L477">477</a> <span class="jxr_string">"6E8F381DE00A41161F0DF03B4155BFD4"</span>,
+<a class="jxr_linenumber" name="L478" href="#L478">478</a> <span class="jxr_string">"35E4F29BBA2BAE01144910783C3FEF49"</span>,
+<a class="jxr_linenumber" name="L479" href="#L479">479</a> <span class="jxr_string">"55B17BD66788CEAC366398A31F289FFB"</span>,
+<a class="jxr_linenumber" name="L480" href="#L480">480</a> <span class="jxr_string">"11341F56C0D6D1008D28741DAA7679CE"</span>,
+<a class="jxr_linenumber" name="L481" href="#L481">481</a> <span class="jxr_string">"4DF7253DF421D83358BDBE924745D98C"</span>,
+<a class="jxr_linenumber" name="L482" href="#L482">482</a> <span class="jxr_string">"BAE2EE651116D93EDC8E83B5F3347BE1"</span>,
+<a class="jxr_linenumber" name="L483" href="#L483">483</a> <span class="jxr_string">"F9721ABD06709157183AF3965A659D9D"</span>,
+<a class="jxr_linenumber" name="L484" href="#L484">484</a> <span class="jxr_string">"19A1C252A613FE2860A4AE6D75CE6FA3"</span>,
+<a class="jxr_linenumber" name="L485" href="#L485">485</a> <span class="jxr_string">"B5DDB2F5D9752C949FBDE3FFF5556C6E"</span>,
+<a class="jxr_linenumber" name="L486" href="#L486">486</a> <span class="jxr_string">"81B044FCFFC78ECCFCD171AAD0405C66"</span>,
+<a class="jxr_linenumber" name="L487" href="#L487">487</a> <span class="jxr_string">"C640566D3C06020EB2C42F1D62E56A9B"</span>,
+<a class="jxr_linenumber" name="L488" href="#L488">488</a> <span class="jxr_string">"EA6C4BCF425291679FDFFD26A424FBCC"</span>,
+<a class="jxr_linenumber" name="L489" href="#L489">489</a> <span class="jxr_string">"57F6901465D9440D9F15EE2CBA5A4090"</span>,
+<a class="jxr_linenumber" name="L490" href="#L490">490</a> <span class="jxr_string">"FBCFA74CADC7406260F63D96C8AAB6B1"</span>,
+<a class="jxr_linenumber" name="L491" href="#L491">491</a> <span class="jxr_string">"DFF4F096CEA211D4BBDACA033D0EC7D1"</span>,
+<a class="jxr_linenumber" name="L492" href="#L492">492</a> <span class="jxr_string">"1EE5190D551F0F42F675227A381296A9"</span>,
+<a class="jxr_linenumber" name="L493" href="#L493">493</a> <span class="jxr_string">"F98E1905012E580F097623C10B93054F"</span>,
+<a class="jxr_linenumber" name="L494" href="#L494">494</a> <span class="jxr_string">"E7D43743D21DD3C9F168C86856558B9A"</span>,
+<a class="jxr_linenumber" name="L495" href="#L495">495</a> <span class="jxr_string">"632A9DDA730DAB67593C5D08D8AC1059"</span>,
+<a class="jxr_linenumber" name="L496" href="#L496">496</a> <span class="jxr_string">"E084317000715B9057BC9DE9F3AB6124"</span>,
+<a class="jxr_linenumber" name="L497" href="#L497">497</a> <span class="jxr_string">"61F9EF33A0BB4E666C2ED99101919FAB"</span>,
+<a class="jxr_linenumber" name="L498" href="#L498">498</a> <span class="jxr_string">"6DC1D68A11834657D46703C22578D59A"</span>,
+<a class="jxr_linenumber" name="L499" href="#L499">499</a> <span class="jxr_string">"53AC1548863D3D16F1D4DC7242E05F2C"</span>,
+<a class="jxr_linenumber" name="L500" href="#L500">500</a> <span class="jxr_string">"E82CD587A408306AD78CEAE0916B9F8C"</span>,
+<a class="jxr_linenumber" name="L501" href="#L501">501</a> <span class="jxr_string">"0FD2D40EA6AD17A3A767F0A8600D6295"</span>,
+<a class="jxr_linenumber" name="L502" href="#L502">502</a> <span class="jxr_string">"AD84CC8255ADB39DFCA23F92761AE7E9"</span>,
+<a class="jxr_linenumber" name="L503" href="#L503">503</a> <span class="jxr_string">"F4F20CF7D51BEE7DA024A2B11A7ECA0B"</span>,
+<a class="jxr_linenumber" name="L504" href="#L504">504</a> <span class="jxr_string">"5057691B85D9CE93A193214DB0A016B6"</span>,
+<a class="jxr_linenumber" name="L505" href="#L505">505</a> <span class="jxr_string">"0F58C960876390BDEF4BB6BE95CAA1EE"</span>,
+<a class="jxr_linenumber" name="L506" href="#L506">506</a> <span class="jxr_string">"9A3E66EEBC21BC0BD9430B341EF465FA"</span>,
+<a class="jxr_linenumber" name="L507" href="#L507">507</a> <span class="jxr_string">"20415035F34B8BCBCB28ABF07F78F0D4"</span>,
+<a class="jxr_linenumber" name="L508" href="#L508">508</a> <span class="jxr_string">"AC89FC7BA10479EBF10DE65BCEF89B3C"</span>,
+<a class="jxr_linenumber" name="L509" href="#L509">509</a> <span class="jxr_string">"068FA75A30BE443171AF3F6FEB1A20D2"</span>,
+<a class="jxr_linenumber" name="L510" href="#L510">510</a> <span class="jxr_string">"50E02F213246C525A8C27700CA34B502"</span>,
+<a class="jxr_linenumber" name="L511" href="#L511">511</a> <span class="jxr_string">"227DA47D5A0906DB3AB042BB0A695FB6"</span>,
+<a class="jxr_linenumber" name="L512" href="#L512">512</a> <span class="jxr_string">"8663AC30ED12514F1DE46777F4514BFC"</span>,
+<a class="jxr_linenumber" name="L513" href="#L513">513</a> <span class="jxr_string">"A987D4BC12E1DE9F4B6DF43567C34A8B"</span>,
+<a class="jxr_linenumber" name="L514" href="#L514">514</a> <span class="jxr_string">"6D5A0370F599ACA605F63B04E5143D0C"</span>,
+<a class="jxr_linenumber" name="L515" href="#L515">515</a> <span class="jxr_string">"9809266E378B07B7AFDB3BAA97B7E442"</span>,
+<a class="jxr_linenumber" name="L516" href="#L516">516</a> <span class="jxr_string">"8F753252B30CCCACE12D9A301F4D5090"</span>,
+<a class="jxr_linenumber" name="L517" href="#L517">517</a> <span class="jxr_string">"032465F6C0CE34D41962F561692A1AFF"</span>,
+<a class="jxr_linenumber" name="L518" href="#L518">518</a> <span class="jxr_string">"C50E9AD5BEB8F3B00821DD47FF8AC093"</span>,
+<a class="jxr_linenumber" name="L519" href="#L519">519</a> <span class="jxr_string">"9C6FEA3D46268D54A6829B2AD25BB276"</span>,
+<a class="jxr_linenumber" name="L520" href="#L520">520</a> <span class="jxr_string">"0FD8575E87706F561343D7B3A41E044A"</span>,
+<a class="jxr_linenumber" name="L521" href="#L521">521</a> <span class="jxr_string">"BEE9BEB3739540D88CBCE77925F0A114"</span>,
+<a class="jxr_linenumber" name="L522" href="#L522">522</a> <span class="jxr_string">"D24EAEE7FFFBAC3D6F26C2DCE0DCDE28"</span>,
+<a class="jxr_linenumber" name="L523" href="#L523">523</a> <span class="jxr_string">"47771A90398FF0F7FA821C2F8F5E1398"</span>,
+<a class="jxr_linenumber" name="L524" href="#L524">524</a> <span class="jxr_string">"4639741B6F84B135AD118C8249B64ED0"</span>,
+<a class="jxr_linenumber" name="L525" href="#L525">525</a> <span class="jxr_string">"8EE5505EC85567697A3306F250A27720"</span>,
+<a class="jxr_linenumber" name="L526" href="#L526">526</a> <span class="jxr_string">"7C8A19AC1AEFBC5E0119D91A5F05D4C2"</span>,
+<a class="jxr_linenumber" name="L527" href="#L527">527</a> <span class="jxr_string">"5141B9B672E54773B672E3A6C424887B"</span>,
+<a class="jxr_linenumber" name="L528" href="#L528">528</a> <span class="jxr_string">"B5A2D3CD206653C6402F34FB0AE3613D"</span>,
+<a class="jxr_linenumber" name="L529" href="#L529">529</a> <span class="jxr_string">"0F5BD9408738231D114B0A82753279A3"</span>,
+<a class="jxr_linenumber" name="L530" href="#L530">530</a> <span class="jxr_string">"FEF033FF4268EA487FC74C5E43A45338"</span>,
+<a class="jxr_linenumber" name="L531" href="#L531">531</a> <span class="jxr_string">"A3EDC09DCD529B113910D904AD855581"</span>,
+<a class="jxr_linenumber" name="L532" href="#L532">532</a> <span class="jxr_string">"AB8FBB6F27A0AC7C55B59FDD36B72F1C"</span>,
+<a class="jxr_linenumber" name="L533" href="#L533">533</a> <span class="jxr_string">"EEA44D5ED4D769CC930CD83D8999EC46"</span>,
+<a class="jxr_linenumber" name="L534" href="#L534">534</a> <span class="jxr_string">"6972276803AE9AA7C6F431AB10979C34"</span>,
+<a class="jxr_linenumber" name="L535" href="#L535">535</a> <span class="jxr_string">"86DEAA9F39244101818178474D7DBDE9"</span>,
+<a class="jxr_linenumber" name="L536" href="#L536">536</a> <span class="jxr_string">"88C6B466EA361D662D8D08CBF181F4FE"</span>,
+<a class="jxr_linenumber" name="L537" href="#L537">537</a> <span class="jxr_string">"91AB2C6B7C63FF59F7CBEEBF91B20B95"</span>,
+<a class="jxr_linenumber" name="L538" href="#L538">538</a> <span class="jxr_string">"2DFE6C146AD5B3D8C3C1718F13B48E01"</span>,
+<a class="jxr_linenumber" name="L539" href="#L539">539</a> <span class="jxr_string">"C7CFF1623451711391A302EEC3584AAA"</span>,
+<a class="jxr_linenumber" name="L540" href="#L540">540</a> <span class="jxr_string">"089FE845CC05011686C66019D18BE050"</span>,
+<a class="jxr_linenumber" name="L541" href="#L541">541</a> <span class="jxr_string">"08C8410B9B427211A67124B0DCCEAD48"</span>,
+<a class="jxr_linenumber" name="L542" href="#L542">542</a> <span class="jxr_string">"8D91592F5566085254784606334D7629"</span>,
+<a class="jxr_linenumber" name="L543" href="#L543">543</a> <span class="jxr_string">"3298FEAAF2E1201D6299FF8846639C97"</span>,
+<a class="jxr_linenumber" name="L544" href="#L544">544</a> <span class="jxr_string">"C497CB9F0BDFE0EFC8C2F3F90760AA72"</span>,
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> <span class="jxr_string">"2788AFD046E0309CBE4424690DA2AB89"</span>,
+<a class="jxr_linenumber" name="L546" href="#L546">546</a> <span class="jxr_string">"E9891707F25EF29FEE372890D4258982"</span>,
+<a class="jxr_linenumber" name="L547" href="#L547">547</a> <span class="jxr_string">"DB041D94A23D45D4D4DCED5A030CAF61"</span>,
+<a class="jxr_linenumber" name="L548" href="#L548">548</a> <span class="jxr_string">"FFAFDBF0ECB18DF9EA02C27077448E6D"</span>,
+<a class="jxr_linenumber" name="L549" href="#L549">549</a> <span class="jxr_string">"2DAAA42A7D0A1D3B0E4761D99CF2150A"</span>,
+<a class="jxr_linenumber" name="L550" href="#L550">550</a> <span class="jxr_string">"3B7A54CB7CF30ABE263DD6ED5BFE8D63"</span>,
+<a class="jxr_linenumber" name="L551" href="#L551">551</a> <span class="jxr_string">"EEFA090174C590C448A55D43648F534A"</span>,
+<a class="jxr_linenumber" name="L552" href="#L552">552</a> <span class="jxr_string">"9E15798731ED42F43EA2740A691DA872"</span>,
+<a class="jxr_linenumber" name="L553" href="#L553">553</a> <span class="jxr_string">"31FBD661540A5DEAAD1017CFD3909EC8"</span>,
+<a class="jxr_linenumber" name="L554" href="#L554">554</a> <span class="jxr_string">"CDA9AE05F224140E28CB951721B44D6A"</span>,
+<a class="jxr_linenumber" name="L555" href="#L555">555</a> <span class="jxr_string">"0C5BC512C60A1EAC3434EFB1A8FBB182"</span>,
+<a class="jxr_linenumber" name="L556" href="#L556">556</a> <span class="jxr_string">"AA863610DEEEEB62D045E87EA30B59B5"</span>,
+<a class="jxr_linenumber" name="L557" href="#L557">557</a> <span class="jxr_string">"6AC2448DE568D279C7EEBE1DF403920C"</span>,
+<a class="jxr_linenumber" name="L558" href="#L558">558</a> <span class="jxr_string">"E2011E3D292B26888AE801215FD0CB40"</span>,
+<a class="jxr_linenumber" name="L559" href="#L559">559</a> <span class="jxr_string">"E06F3E15EE3A61672D1C99BADE5B9DBE"</span>,
+<a class="jxr_linenumber" name="L560" href="#L560">560</a> <span class="jxr_string">"BB7027F0548CF6712CEB4C7A4B28E178"</span>,
+<a class="jxr_linenumber" name="L561" href="#L561">561</a> <span class="jxr_string">"061EC21FB70FADBDF87C3BD2AE23825B"</span>,
+<a class="jxr_linenumber" name="L562" href="#L562">562</a> <span class="jxr_string">"4C21F26FE94ABBAC381352375314C3EB"</span>,
+<a class="jxr_linenumber" name="L563" href="#L563">563</a> <span class="jxr_string">"F7CEE6DD99909C2B569EEDA61ED8942E"</span>,
+<a class="jxr_linenumber" name="L564" href="#L564">564</a> <span class="jxr_string">"CE98C4A876C65E4CCB261EBB1D9DF7F5"</span>,
+<a class="jxr_linenumber" name="L565" href="#L565">565</a> <span class="jxr_string">"A5491881CF833C3604ABC08044F402AC"</span>,
+<a class="jxr_linenumber" name="L566" href="#L566">566</a> <span class="jxr_string">"A1BA16E64CCCB3087D57A768507B0BFC"</span>,
+<a class="jxr_linenumber" name="L567" href="#L567">567</a> <span class="jxr_string">"D55951E202D2949EBD3BE43120C738BF"</span>,
+<a class="jxr_linenumber" name="L568" href="#L568">568</a> <span class="jxr_string">"EBB8E43069E69F450EFEC65DCD52B7FD"</span>,
+<a class="jxr_linenumber" name="L569" href="#L569">569</a> <span class="jxr_string">"2B292135663B4AA5ABFE9423D57E7EE9"</span>,
+<a class="jxr_linenumber" name="L570" href="#L570">570</a> <span class="jxr_string">"E91BF974B3BE3AD966249D8655292A85"</span>,
+<a class="jxr_linenumber" name="L571" href="#L571">571</a> <span class="jxr_string">"384365998EAA9562236CC58F6ADF9610"</span>,
+<a class="jxr_linenumber" name="L572" href="#L572">572</a> <span class="jxr_string">"C2E997012AA3D4D8D359C9A947CBE69F"</span>,
+<a class="jxr_linenumber" name="L573" href="#L573">573</a> <span class="jxr_string">"F49421204148BA213BE87E2D5C22B0BF"</span>,
+<a class="jxr_linenumber" name="L574" href="#L574">574</a> <span class="jxr_string">"82ED0ED9953AA92E4DF30929CA65C00F"</span>,
+<a class="jxr_linenumber" name="L575" href="#L575">575</a> <span class="jxr_string">"291EB1D11653C8479437C74A977F5106"</span>,
+<a class="jxr_linenumber" name="L576" href="#L576">576</a> <span class="jxr_string">"BCB997B1939B8983ABD550D6025683E3"</span>,
+<a class="jxr_linenumber" name="L577" href="#L577">577</a> <span class="jxr_string">"1FBA2592C6F489775CAADA71F9B983E9"</span>,
+<a class="jxr_linenumber" name="L578" href="#L578">578</a> <span class="jxr_string">"969F66F217AF1A3DB9E41C1B29039824"</span>,
+<a class="jxr_linenumber" name="L579" href="#L579">579</a> <span class="jxr_string">"A54BB7D6B17E423AC0A7744C19073CB8"</span>,
+<a class="jxr_linenumber" name="L580" href="#L580">580</a> <span class="jxr_string">"B0AC6E6578D1021F47DCF9748A32EAD5"</span>,
+<a class="jxr_linenumber" name="L581" href="#L581">581</a> <span class="jxr_string">"B87B361C3B7B194C77A4358D4669153E"</span>,
+<a class="jxr_linenumber" name="L582" href="#L582">582</a> <span class="jxr_string">"46A133847F96EAA8282A799DC8899D58"</span>,
+<a class="jxr_linenumber" name="L583" href="#L583">583</a> <span class="jxr_string">"2265EC3A9F2D5C9547A091CC8CFB18EA"</span>,
+<a class="jxr_linenumber" name="L584" href="#L584">584</a> <span class="jxr_string">"54CBF3A6FC4FE56D426117AA1FFD1DDE"</span>,
+<a class="jxr_linenumber" name="L585" href="#L585">585</a> <span class="jxr_string">"5312877CCEAB6CFB0905394A370A8003"</span>,
+<a class="jxr_linenumber" name="L586" href="#L586">586</a> <span class="jxr_string">"7190BD6EC613FE38B84ECFE28F702FE4"</span>,
+<a class="jxr_linenumber" name="L587" href="#L587">587</a> <span class="jxr_string">"D1FA5B9CA89A43B04C05F0EF29EF68CD"</span>,
+<a class="jxr_linenumber" name="L588" href="#L588">588</a> <span class="jxr_string">"808285751548ED934FD1056D2D9AE8BA"</span>,
+<a class="jxr_linenumber" name="L589" href="#L589">589</a> <span class="jxr_string">"2758DEF3E7B95A9AE89777BE64D5A6CF"</span>,
+<a class="jxr_linenumber" name="L590" href="#L590">590</a> <span class="jxr_string">"07D81F87DB3E0ACC82B01E08FB22F3C1"</span>,
+<a class="jxr_linenumber" name="L591" href="#L591">591</a> <span class="jxr_string">"8DA250E5553D650711A75EE1CB4FD1C7"</span>,
+<a class="jxr_linenumber" name="L592" href="#L592">592</a> <span class="jxr_string">"A93D946BD0E87F32719DF5F158CEE669"</span>,
+<a class="jxr_linenumber" name="L593" href="#L593">593</a> <span class="jxr_string">"03945236EC2A4D4EAF30B8ABEB54330D"</span>,
+<a class="jxr_linenumber" name="L594" href="#L594">594</a> <span class="jxr_string">"11CC35301F24B79DDE31AEA2D1354F88"</span>,
+<a class="jxr_linenumber" name="L595" href="#L595">595</a> <span class="jxr_string">"E73715B3E8D9A290F44AE6FFBF247E5D"</span>,
+<a class="jxr_linenumber" name="L596" href="#L596">596</a> <span class="jxr_string">"7345E07732B71CB158BBF64CCA5C5B96"</span>,
+<a class="jxr_linenumber" name="L597" href="#L597">597</a> <span class="jxr_string">"6E128F296D24705A1924FD9B70C4ED04"</span>,
+<a class="jxr_linenumber" name="L598" href="#L598">598</a> <span class="jxr_string">"95A789776F036783FBD330947083F54F"</span>,
+<a class="jxr_linenumber" name="L599" href="#L599">599</a> <span class="jxr_string">"360DEC2533EA4AA2E3E54FD3DE2906EB"</span>,
+<a class="jxr_linenumber" name="L600" href="#L600">600</a> <span class="jxr_string">"E68EFD7FECF4D601EA22727BD764965B"</span>,
+<a class="jxr_linenumber" name="L601" href="#L601">601</a> <span class="jxr_string">"9065C64A8BFF44AC33EDBB611CF83D7B"</span>,
+<a class="jxr_linenumber" name="L602" href="#L602">602</a> <span class="jxr_string">"8F33C8DF2A7A51CE8090E8F123BC3723"</span>,
+<a class="jxr_linenumber" name="L603" href="#L603">603</a> <span class="jxr_string">"807F391FFBA8291BA625623210F99018"</span>,
+<a class="jxr_linenumber" name="L604" href="#L604">604</a> <span class="jxr_string">"5E8B3F3A701522CE5CAA761C929D6292"</span>,
+<a class="jxr_linenumber" name="L605" href="#L605">605</a> <span class="jxr_string">"3BA404DC38735A78289E3809E8364835"</span>,
+<a class="jxr_linenumber" name="L606" href="#L606">606</a> <span class="jxr_string">"D23BEDBAD229F8305DC425B6B759DCC9"</span>,
+<a class="jxr_linenumber" name="L607" href="#L607">607</a> <span class="jxr_string">"44880F21CF5913040AE376AEE2A10AD8"</span>,
+<a class="jxr_linenumber" name="L608" href="#L608">608</a> <span class="jxr_string">"9BC98E29D057C0E828C3B5CCE69256C1"</span>,
+<a class="jxr_linenumber" name="L609" href="#L609">609</a> <span class="jxr_string">"B293CC7A975DA141A68279368057CC41"</span>,
+<a class="jxr_linenumber" name="L610" href="#L610">610</a> <span class="jxr_string">"8D60FB87ACD91385B313BE5F1D7BD30F"</span>,
+<a class="jxr_linenumber" name="L611" href="#L611">611</a> <span class="jxr_string">"2C8E56132D70291B303C48FDF75543CD"</span>,
+<a class="jxr_linenumber" name="L612" href="#L612">612</a> <span class="jxr_string">"D1F80035B826791F6CE4E59B7DB1BB0D"</span>,
+<a class="jxr_linenumber" name="L613" href="#L613">613</a> <span class="jxr_string">"42CE6224FC36469339A133DD08173BD4"</span>,
+<a class="jxr_linenumber" name="L614" href="#L614">614</a> <span class="jxr_string">"61817155EA41BCBA2AF7F06AE7CBF585"</span>,
+<a class="jxr_linenumber" name="L615" href="#L615">615</a> <span class="jxr_string">"D1923A9866068D2EF5FB77D57C3315B6"</span>,
+<a class="jxr_linenumber" name="L616" href="#L616">616</a> <span class="jxr_string">"B37CBDB5D719F49691CA968EF2E84140"</span>,
+<a class="jxr_linenumber" name="L617" href="#L617">617</a> <span class="jxr_string">"EC974E653A055D7F8F22171030F68E1D"</span>,
+<a class="jxr_linenumber" name="L618" href="#L618">618</a> <span class="jxr_string">"DDE5D3B9AAD9C32213BB3675A822499C"</span>,
+<a class="jxr_linenumber" name="L619" href="#L619">619</a> <span class="jxr_string">"D3B6E9216EA1AE57EB1C628A3C38AB78"</span>,
+<a class="jxr_linenumber" name="L620" href="#L620">620</a> <span class="jxr_string">"82C99ECC69472B7E96324B042AE8B87A"</span>,
+<a class="jxr_linenumber" name="L621" href="#L621">621</a> <span class="jxr_string">"97144DC5338C43600F84439C0AA0D147"</span>,
+<a class="jxr_linenumber" name="L622" href="#L622">622</a> <span class="jxr_string">"400AC4A0BBADA1DB2121EB144C7E5209"</span>,
+<a class="jxr_linenumber" name="L623" href="#L623">623</a> <span class="jxr_string">"EFD9D550EB419ED278F4885A490AB54C"</span>,
+<a class="jxr_linenumber" name="L624" href="#L624">624</a> <span class="jxr_string">"2AB7816E149B7C0404C88A8857793670"</span>,
+<a class="jxr_linenumber" name="L625" href="#L625">625</a> <span class="jxr_string">"5B591DFF9E8DEE15BAD24C025DBCA481"</span>,
+<a class="jxr_linenumber" name="L626" href="#L626">626</a> <span class="jxr_string">"0C06633E30721C3749F49AD8CBF2B754"</span>,
+<a class="jxr_linenumber" name="L627" href="#L627">627</a> <span class="jxr_string">"96D6D31A41B5123B2035FD91A921D4CA"</span>,
+<a class="jxr_linenumber" name="L628" href="#L628">628</a> <span class="jxr_string">"E7F6C34D86668BC2805CA7793C5E86AD"</span>,
+<a class="jxr_linenumber" name="L629" href="#L629">629</a> <span class="jxr_string">"F46DFF5FF500D6879C4D3E45CF0CF0F3"</span>,
+<a class="jxr_linenumber" name="L630" href="#L630">630</a> <span class="jxr_string">"60D842D9C61DA7495C116197B7CECBBE"</span>,
+<a class="jxr_linenumber" name="L631" href="#L631">631</a> <span class="jxr_string">"D45B24EDB673353EBDF248B8FA06B67A"</span>,
+<a class="jxr_linenumber" name="L632" href="#L632">632</a> <span class="jxr_string">"119EAEBCC165D0BD02C0D35DC82EF992"</span>,
+<a class="jxr_linenumber" name="L633" href="#L633">633</a> <span class="jxr_string">"E673143680414ADA301D0ED34626B9FE"</span>,
+<a class="jxr_linenumber" name="L634" href="#L634">634</a> <span class="jxr_string">"6B6CFE160A6263631B292F879EEFF926"</span>
+<a class="jxr_linenumber" name="L635" href="#L635">635</a>         }
+<a class="jxr_linenumber" name="L636" href="#L636">636</a>     };
+<a class="jxr_linenumber" name="L637" href="#L637">637</a> 
+<a class="jxr_linenumber" name="L638" href="#L638">638</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong>[] KEY_SIZES = {
+<a class="jxr_linenumber" name="L639" href="#L639">639</a>         16, 24, 32
+<a class="jxr_linenumber" name="L640" href="#L640">640</a>     };
+<a class="jxr_linenumber" name="L641" href="#L641">641</a> 
+<a class="jxr_linenumber" name="L642" href="#L642">642</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L643" href="#L643">643</a> <em class="jxr_javadoccomment">     * Constructs an AES Key according to the specified key size and</em>
+<a class="jxr_linenumber" name="L644" href="#L644">644</a> <em class="jxr_javadoccomment">     * round number.</em>
+<a class="jxr_linenumber" name="L645" href="#L645">645</a> <em class="jxr_javadoccomment">     * @param len key size in bytes, i.e. 16, 24, or 32</em>
+<a class="jxr_linenumber" name="L646" href="#L646">646</a> <em class="jxr_javadoccomment">     * @param rounds round number starting from 0, i.e. valid from 0 to len-1.</em>
+<a class="jxr_linenumber" name="L647" href="#L647">647</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L648" href="#L648">648</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> SecretKey constructAESKey(<strong class="jxr_keyword">int</strong> len, <strong class="jxr_keyword">int</strong> rounds)
+<a class="jxr_linenumber" name="L649" href="#L649">649</a>         <strong class="jxr_keyword">throws</strong> IllegalArgumentException {
+<a class="jxr_linenumber" name="L650" href="#L650">650</a>         <strong class="jxr_keyword">if</strong> ((len != 16) &amp;&amp; (len != 24) &amp;&amp; (len != 32)) {
+<a class="jxr_linenumber" name="L651" href="#L651">651</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Wrong Key Length: "</span> + len);
+<a class="jxr_linenumber" name="L652" href="#L652">652</a>         }
+<a class="jxr_linenumber" name="L653" href="#L653">653</a>         byte[] rawKeyValue = constructKeyValue(len, rounds);
+<a class="jxr_linenumber" name="L654" href="#L654">654</a>         SecretKeySpec key = <strong class="jxr_keyword">new</strong> SecretKeySpec(rawKeyValue, <span class="jxr_string">"AES"</span>);
+<a class="jxr_linenumber" name="L655" href="#L655">655</a>         <strong class="jxr_keyword">return</strong> key;
+<a class="jxr_linenumber" name="L656" href="#L656">656</a>     }
+<a class="jxr_linenumber" name="L657" href="#L657">657</a> 
+<a class="jxr_linenumber" name="L658" href="#L658">658</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] constructKeyValue(<strong class="jxr_keyword">int</strong> keysize, <strong class="jxr_keyword">int</strong> rounds) {
+<a class="jxr_linenumber" name="L659" href="#L659">659</a>         byte[] tempKeyValue = <strong class="jxr_keyword">new</strong> byte[keysize];
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>         Arrays.fill(tempKeyValue, (byte)0);
+<a class="jxr_linenumber" name="L661" href="#L661">661</a> 
+<a class="jxr_linenumber" name="L662" href="#L662">662</a>         <strong class="jxr_keyword">int</strong> whichByte = rounds/8;
+<a class="jxr_linenumber" name="L663" href="#L663">663</a>         <strong class="jxr_keyword">int</strong> whichDigit = rounds % 8;
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>         <strong class="jxr_keyword">if</strong> ((whichByte &gt;= keysize) || (whichDigit &lt; 0) ||
+<a class="jxr_linenumber" name="L665" href="#L665">665</a>             (whichDigit &gt; 8)) {
+<a class="jxr_linenumber" name="L666" href="#L666">666</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Invalid keysize/rounds "</span> +
+<a class="jxr_linenumber" name="L667" href="#L667">667</a>                                                <span class="jxr_string">"combination :"</span> + keysize +
+<a class="jxr_linenumber" name="L668" href="#L668">668</a>                                                <span class="jxr_string">"/"</span> + rounds);
+<a class="jxr_linenumber" name="L669" href="#L669">669</a>         }
+<a class="jxr_linenumber" name="L670" href="#L670">670</a>         <strong class="jxr_keyword">switch</strong> (whichDigit) {
+<a class="jxr_linenumber" name="L671" href="#L671">671</a>         <strong class="jxr_keyword">case</strong> 0:
+<a class="jxr_linenumber" name="L672" href="#L672">672</a>             tempKeyValue[whichByte] = (byte)0x80;
+<a class="jxr_linenumber" name="L673" href="#L673">673</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L674" href="#L674">674</a>         <strong class="jxr_keyword">case</strong> 1:
+<a class="jxr_linenumber" name="L675" href="#L675">675</a>             tempKeyValue[whichByte] = (byte)0x40;
+<a class="jxr_linenumber" name="L676" href="#L676">676</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L677" href="#L677">677</a>         <strong class="jxr_keyword">case</strong> 2:
+<a class="jxr_linenumber" name="L678" href="#L678">678</a>             tempKeyValue[whichByte] = (byte)0x20;
+<a class="jxr_linenumber" name="L679" href="#L679">679</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L680" href="#L680">680</a>         <strong class="jxr_keyword">case</strong> 3:
+<a class="jxr_linenumber" name="L681" href="#L681">681</a>             tempKeyValue[whichByte] = (byte)0x10;
+<a class="jxr_linenumber" name="L682" href="#L682">682</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L683" href="#L683">683</a>         <strong class="jxr_keyword">case</strong> 4:
+<a class="jxr_linenumber" name="L684" href="#L684">684</a>             tempKeyValue[whichByte] = (byte)0x08;
+<a class="jxr_linenumber" name="L685" href="#L685">685</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L686" href="#L686">686</a>         <strong class="jxr_keyword">case</strong> 5:
+<a class="jxr_linenumber" name="L687" href="#L687">687</a>             tempKeyValue[whichByte] = (byte)0x04;
+<a class="jxr_linenumber" name="L688" href="#L688">688</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L689" href="#L689">689</a>         <strong class="jxr_keyword">case</strong> 6:
+<a class="jxr_linenumber" name="L690" href="#L690">690</a>             tempKeyValue[whichByte] = (byte)0x02;
+<a class="jxr_linenumber" name="L691" href="#L691">691</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L692" href="#L692">692</a>         <strong class="jxr_keyword">case</strong> 7:
+<a class="jxr_linenumber" name="L693" href="#L693">693</a>             tempKeyValue[whichByte] = (byte)0x01;
+<a class="jxr_linenumber" name="L694" href="#L694">694</a>             <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L695" href="#L695">695</a>         }
+<a class="jxr_linenumber" name="L696" href="#L696">696</a>         <strong class="jxr_keyword">return</strong> tempKeyValue;
+<a class="jxr_linenumber" name="L697" href="#L697">697</a>     }
+<a class="jxr_linenumber" name="L698" href="#L698">698</a> 
+<a class="jxr_linenumber" name="L699" href="#L699">699</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> byte[] constructByteArray(String s) {
+<a class="jxr_linenumber" name="L700" href="#L700">700</a>         <strong class="jxr_keyword">int</strong> len = s.length()/2;
+<a class="jxr_linenumber" name="L701" href="#L701">701</a>         byte[] tempValue = <strong class="jxr_keyword">new</strong> byte[len];
+<a class="jxr_linenumber" name="L702" href="#L702">702</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; len; i++) {
+<a class="jxr_linenumber" name="L703" href="#L703">703</a>             tempValue[i] = Integer.valueOf(s.substring(2*i, 2*i+2),
+<a class="jxr_linenumber" name="L704" href="#L704">704</a>                                            16).byteValue();
+<a class="jxr_linenumber" name="L705" href="#L705">705</a>         }
+<a class="jxr_linenumber" name="L706" href="#L706">706</a>         <strong class="jxr_keyword">return</strong> tempValue;
+<a class="jxr_linenumber" name="L707" href="#L707">707</a>     }
+<a class="jxr_linenumber" name="L708" href="#L708">708</a> 
+<a class="jxr_linenumber" name="L709" href="#L709">709</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> execute() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L710" href="#L710">710</a>         String transformation = ALGO+<span class="jxr_string">"/"</span>+MODE+<span class="jxr_string">"/"</span>+PADDING;
+<a class="jxr_linenumber" name="L711" href="#L711">711</a>         Cipher c = Cipher.getInstance(transformation, <span class="jxr_string">"SunJCE"</span>);
+<a class="jxr_linenumber" name="L712" href="#L712">712</a> 
+<a class="jxr_linenumber" name="L713" href="#L713">713</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i=0; i&lt;KEY_SIZES.length; i++) {
+<a class="jxr_linenumber" name="L714" href="#L714">714</a>             <strong class="jxr_keyword">if</strong> (KEY_SIZES[i]*8 &gt;
+<a class="jxr_linenumber" name="L715" href="#L715">715</a>                 Cipher.getMaxAllowedKeyLength(transformation)) {
+<a class="jxr_linenumber" name="L716" href="#L716">716</a>                 <em class="jxr_comment">// skip if this key length is larger than what's</em>
+<a class="jxr_linenumber" name="L717" href="#L717">717</a>                 <em class="jxr_comment">// configured in the jce jurisdiction policy files</em>
+<a class="jxr_linenumber" name="L718" href="#L718">718</a>                 <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L719" href="#L719">719</a>             }
+<a class="jxr_linenumber" name="L720" href="#L720">720</a>             <strong class="jxr_keyword">int</strong> rounds = KEY_SIZES[i] * 8;
+<a class="jxr_linenumber" name="L721" href="#L721">721</a>             byte[] plainText = PT;
+<a class="jxr_linenumber" name="L722" href="#L722">722</a>             byte[] cipherText = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L723" href="#L723">723</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L724" href="#L724">724</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j=0; j &lt; rounds; j++) {
+<a class="jxr_linenumber" name="L725" href="#L725">725</a>                 SecretKey aesKey = constructAESKey(KEY_SIZES[i], j);
+<a class="jxr_linenumber" name="L726" href="#L726">726</a>                 c.init(Cipher.ENCRYPT_MODE, aesKey);
+<a class="jxr_linenumber" name="L727" href="#L727">727</a>                 cipherText = c.doFinal(plainText);
+<a class="jxr_linenumber" name="L728" href="#L728">728</a>                 byte[] answer = constructByteArray(CTS[i][j]);
+<a class="jxr_linenumber" name="L729" href="#L729">729</a>                 <strong class="jxr_keyword">if</strong> (!Arrays.equals(cipherText, answer)) {
+<a class="jxr_linenumber" name="L730" href="#L730">730</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception((i+1) + <span class="jxr_string">"th known answer test failed for encryption"</span>);
+<a class="jxr_linenumber" name="L731" href="#L731">731</a>                 }
+<a class="jxr_linenumber" name="L732" href="#L732">732</a>                 c.init(Cipher.DECRYPT_MODE, aesKey);
+<a class="jxr_linenumber" name="L733" href="#L733">733</a>                 byte[] restored = c.doFinal(cipherText);
+<a class="jxr_linenumber" name="L734" href="#L734">734</a>                 <strong class="jxr_keyword">if</strong> (!Arrays.equals(plainText, restored)) {
+<a class="jxr_linenumber" name="L735" href="#L735">735</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception((i+1) + <span class="jxr_string">"th known answer test failed for decryption"</span>);
+<a class="jxr_linenumber" name="L736" href="#L736">736</a>                 }
+<a class="jxr_linenumber" name="L737" href="#L737">737</a>             }
+<a class="jxr_linenumber" name="L738" href="#L738">738</a>             System.out.println(<span class="jxr_string">"Finished KAT for "</span> + KEY_SIZES[i] + <span class="jxr_string">"-byte key"</span>);
+<a class="jxr_linenumber" name="L739" href="#L739">739</a>             } <strong class="jxr_keyword">catch</strong> (SecurityException se) {
+<a class="jxr_linenumber" name="L740" href="#L740">740</a>                 TestUtil.handleSE(se);
+<a class="jxr_linenumber" name="L741" href="#L741">741</a>             }
+<a class="jxr_linenumber" name="L742" href="#L742">742</a>         }
+<a class="jxr_linenumber" name="L743" href="#L743">743</a> 
+<a class="jxr_linenumber" name="L744" href="#L744">744</a>         <em class="jxr_comment">// passed all tests...hooray!</em>
+<a class="jxr_linenumber" name="L745" href="#L745">745</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L746" href="#L746">746</a>     }
+<a class="jxr_linenumber" name="L747" href="#L747">747</a> 
+<a class="jxr_linenumber" name="L748" href="#L748">748</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main (String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L749" href="#L749">749</a>         Security.addProvider(<strong class="jxr_keyword">new</strong> com.sun.crypto.provider.SunJCE());
+<a class="jxr_linenumber" name="L750" href="#L750">750</a> 
+<a class="jxr_linenumber" name="L751" href="#L751">751</a>         TestKATForECB_VK test = <strong class="jxr_keyword">new</strong> TestKATForECB_VK();
+<a class="jxr_linenumber" name="L752" href="#L752">752</a>         String testName = test.getClass().getName() + <span class="jxr_string">"["</span> + ALGO +
+<a class="jxr_linenumber" name="L753" href="#L753">753</a>             <span class="jxr_string">"/"</span> + MODE + <span class="jxr_string">"/"</span> + PADDING + <span class="jxr_string">"]"</span>;
+<a class="jxr_linenumber" name="L754" href="#L754">754</a>         <strong class="jxr_keyword">if</strong> (test.execute()) {
+<a class="jxr_linenumber" name="L755" href="#L755">755</a>             System.out.println(testName + <span class="jxr_string">": Passed!"</span>);
+<a class="jxr_linenumber" name="L756" href="#L756">756</a>         }
+<a class="jxr_linenumber" name="L757" href="#L757">757</a>     }
+<a class="jxr_linenumber" name="L758" href="#L758">758</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>InlineIdsSubSelectValuesListBuilder xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Hibernate, Relational Persistence for Idiomatic Java</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * License: GNU Lesser General Public License (LGPL), version 2.1 or later.</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * See the lgpl.txt file in the root directory or &lt;<a href="http://www.gnu.org/licenses/lgpl-2.1.html&gt;." target="alexandria_uri">http://www.gnu.org/licenses/lgpl-2.1.html&gt;.</a></em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">package</strong> org.hibernate.hql.spi.id.inline;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.hibernate.dialect.Dialect;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.hibernate.type.Type;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.hibernate.type.TypeResolver;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * Builds the where SELECT FROM VALUES clause that wraps the identifiers to be updated/deleted.</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * @author Vlad Mihalcea</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> InlineIdsSubSelectValuesListBuilder <strong class="jxr_keyword">extends</strong> IdsClauseBuilder {
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  	<strong class="jxr_keyword">public</strong> InlineIdsSubSelectValuesListBuilder(
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  			Dialect dialect, Type identifierType, TypeResolver typeResolver, String[] columns, List&lt;Object[]&gt; ids) {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  		<strong class="jxr_keyword">super</strong>( dialect, identifierType, typeResolver, columns, ids );
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  	}
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  	@Override
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<strong class="jxr_keyword">public</strong> String toStatement() {
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  		StringBuilder buffer = <strong class="jxr_keyword">new</strong> StringBuilder();
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		String columnNames = String.join( <span class="jxr_string">","</span>, (CharSequence[]) getColumns() );
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  		buffer.append( <span class="jxr_string">"select "</span> ).append( columnNames ).append(
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  				<span class="jxr_string">" from ( values "</span> );
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  		<strong class="jxr_keyword">for</strong> ( <strong class="jxr_keyword">int</strong> i = 0; i &lt; getIds().size(); i++ ) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  			Object[] idTokens = getIds().get( i );
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  			<strong class="jxr_keyword">if</strong> ( i &gt; 0 ) {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  				buffer.append( <span class="jxr_string">","</span> );
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  			}
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  			buffer.append( <span class="jxr_string">"("</span> );
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  			buffer.append( quoteIdentifier( idTokens ) );
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  			buffer.append( <span class="jxr_string">")"</span> );
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  		}
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  		buffer.append( <span class="jxr_string">") as HT ("</span> ).append( columnNames ).append( <span class="jxr_string">") "</span> );
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  		<strong class="jxr_keyword">return</strong> buffer.toString();
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	}
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>FlagTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> org.infinispan.api.tree;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> org.infinispan.AdvancedCache;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> org.infinispan.Cache;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> org.infinispan.configuration.cache.CacheMode;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> org.infinispan.configuration.cache.ConfigurationBuilder;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> org.infinispan.context.Flag;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> org.infinispan.test.MultipleCacheManagersTest;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> org.infinispan.tree.Fqn;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> org.infinispan.tree.TreeCache;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.infinispan.tree.TreeCacheFactory;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.infinispan.util.logging.Log;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.infinispan.util.logging.LogFactory;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.Test;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * @author &lt;a href="<a href="mailto:konstantin.kuzmin@db.com" target="alexandria_uri">mailto:konstantin.kuzmin@db.com</a>"&gt;Konstantin Kuzmin&lt;/a&gt;</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * @author Galder Zamarreño</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> * @since 4.2</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  @Test(groups = <span class="jxr_string">"functional"</span>, testName = <span class="jxr_string">"api.tree.FlagTest"</span>)
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> FlagTest <strong class="jxr_keyword">extends</strong> MultipleCacheManagersTest {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>     <strong class="jxr_keyword">private</strong> Cache&lt;String, String&gt; cache1, cache2;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>     <strong class="jxr_keyword">private</strong> TreeCache&lt;String, String&gt; treeCache1, treeCache2;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String KEY = <span class="jxr_string">"key"</span>;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Log log = LogFactory.getLog(FlagTest.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>     @Override
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> createCacheManagers() <strong class="jxr_keyword">throws</strong> Throwable {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>        ConfigurationBuilder cb = getDefaultClusteredCacheConfig(CacheMode.INVALIDATION_SYNC, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>        cb.invocationBatching().enable();
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>        createClusteredCaches(2, <span class="jxr_string">"invalidatedFlagCache"</span>, cb);
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>        cache1 = cache(0, <span class="jxr_string">"invalidatedFlagCache"</span>);
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>        cache2 = cache(1, <span class="jxr_string">"invalidatedFlagCache"</span>);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>        TreeCacheFactory tcf = <strong class="jxr_keyword">new</strong> TreeCacheFactory();
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>        treeCache1 = tcf.createTreeCache(cache1);
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>        treeCache2 = tcf.createTreeCache(cache2);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>     }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTreeCacheLocalPut() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>        <strong class="jxr_keyword">final</strong> Fqn fqn = Fqn.fromElements(<span class="jxr_string">"TEST"</span>);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>        treeCache1.put(fqn, KEY, <span class="jxr_string">"1"</span>, Flag.CACHE_MODE_LOCAL);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>        treeCache2.put(fqn, KEY, <span class="jxr_string">"2"</span>, Flag.CACHE_MODE_LOCAL);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>        assert <span class="jxr_string">"2"</span>.equals(treeCache2.get(fqn, KEY)) : <span class="jxr_string">"treeCache2 was updated locally"</span>;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>        assert <span class="jxr_string">"1"</span>.equals(treeCache1.get(fqn, KEY)) : <span class="jxr_string">"treeCache1 should not be invalidated in case of LOCAL put in treeCache2"</span>;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>        String fqnString = <span class="jxr_string">"fqnAsString"</span>;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>        treeCache1.put(fqnString, KEY, <span class="jxr_string">"3"</span>, Flag.CACHE_MODE_LOCAL);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>        treeCache2.put(fqnString, KEY, <span class="jxr_string">"4"</span>, Flag.CACHE_MODE_LOCAL);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>        assert <span class="jxr_string">"4"</span>.equals(treeCache2.get(fqnString, KEY)) : <span class="jxr_string">"treeCache2 was updated locally"</span>;
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>        assert <span class="jxr_string">"3"</span>.equals(treeCache1.get(fqnString, KEY)) : <span class="jxr_string">"treeCache1 should not be invalidated in case of LOCAL put in treeCache2"</span>;
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>     }
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testWithFlags() {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>        AdvancedCache&lt;String, String&gt; localCache1 = cache1.getAdvancedCache().withFlags(Flag.CACHE_MODE_LOCAL);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>        AdvancedCache&lt;String, String&gt; localCache2 = cache2.getAdvancedCache().withFlags(Flag.CACHE_MODE_LOCAL);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>        TreeCache&lt;String, String&gt; treeCache1 = <strong class="jxr_keyword">new</strong> TreeCacheFactory().createTreeCache(localCache1);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>        TreeCache&lt;String, String&gt; treeCache2 = <strong class="jxr_keyword">new</strong> TreeCacheFactory().createTreeCache(localCache2);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>        <strong class="jxr_keyword">final</strong> Fqn fqn = Fqn.fromElements(<span class="jxr_string">"TEST_WITH_FLAGS"</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>        treeCache1.put(fqn, KEY, <span class="jxr_string">"1"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>        treeCache2.put(fqn, KEY, <span class="jxr_string">"2"</span>);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>        assert <span class="jxr_string">"2"</span>.equals(treeCache2.get(fqn, KEY)) : <span class="jxr_string">"treeCache2 was updated locally"</span>;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>        assert <span class="jxr_string">"1"</span>.equals(treeCache1.get(fqn, KEY)) : <span class="jxr_string">"treeCache1 should not be invalidated in case of LOCAL put in treeCache2"</span>;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>     }
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

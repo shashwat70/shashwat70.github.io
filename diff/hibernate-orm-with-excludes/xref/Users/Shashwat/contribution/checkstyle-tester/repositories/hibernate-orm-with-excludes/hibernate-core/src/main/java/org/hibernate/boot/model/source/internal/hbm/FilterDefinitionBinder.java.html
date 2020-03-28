@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>FilterDefinitionBinder xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Hibernate, Relational Persistence for Idiomatic Java</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> * License: GNU Lesser General Public License (LGPL), version 2.1 or later.</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * See the lgpl.txt file in the root directory or &lt;<a href="http://www.gnu.org/licenses/lgpl-2.1.html&gt;." target="alexandria_uri">http://www.gnu.org/licenses/lgpl-2.1.html&gt;.</a></em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">package</strong> org.hibernate.boot.model.source.internal.hbm;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.io.Serializable;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.util.HashMap;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> javax.xml.bind.JAXBElement;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> org.hibernate.boot.MappingException;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> org.hibernate.boot.jaxb.hbm.spi.JaxbHbmFilterDefinitionType;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.hibernate.boot.jaxb.hbm.spi.JaxbHbmFilterParameterType;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.hibernate.engine.spi.FilterDefinition;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.hibernate.internal.util.StringHelper;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.hibernate.type.Type;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.jboss.logging.Logger;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> * @author Steve Ebersole</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> FilterDefinitionBinder {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger log = Logger.getLogger( FilterDefinitionBinder.<strong class="jxr_keyword">class</strong> );
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">	 * Handling for a {@code &lt;filter-def/&gt;} declaration.</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">	 * @param context Access to information relative to the mapping document containing this binding</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">	 * @param jaxbFilterDefinitionMapping The {@code &lt;filter-def/&gt;} JAXB mapping</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	@SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> processFilterDefinition(
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  			HbmLocalMetadataBuildingContext context,
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  			JaxbHbmFilterDefinitionType jaxbFilterDefinitionMapping) {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  		Map&lt;String,Type&gt; parameterMap = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		String condition = jaxbFilterDefinitionMapping.getCondition();
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  		<strong class="jxr_keyword">for</strong> ( Serializable content : jaxbFilterDefinitionMapping.getContent() ) {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  			<strong class="jxr_keyword">if</strong> ( String.<strong class="jxr_keyword">class</strong>.isInstance( content ) ) {
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  				<strong class="jxr_keyword">final</strong> String contentString = content.toString().trim();
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  				<strong class="jxr_keyword">if</strong> ( StringHelper.isNotEmpty( contentString ) ) {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  					<strong class="jxr_keyword">if</strong> ( condition != <strong class="jxr_keyword">null</strong> ) {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  						log.debugf(
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  								<span class="jxr_string">"filter-def [name=%s, origin=%s] defined multiple conditions, accepting arbitrary one"</span>,
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  								jaxbFilterDefinitionMapping.getName(),
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  								context.getOrigin().toString()
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  						);
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  					}
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  				}
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  			}
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  			<strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  				<strong class="jxr_keyword">final</strong> JaxbHbmFilterParameterType jaxbParameterMapping;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  				<strong class="jxr_keyword">if</strong> ( JaxbHbmFilterParameterType.<strong class="jxr_keyword">class</strong>.isInstance( content ) ) {
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  					jaxbParameterMapping = (JaxbHbmFilterParameterType) content;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  				}
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  				<strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> ( JAXBElement.<strong class="jxr_keyword">class</strong>.isInstance( content ) ) {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  					<strong class="jxr_keyword">final</strong> JAXBElement&lt;JaxbHbmFilterParameterType&gt; jaxbElement = (JAXBElement&lt;JaxbHbmFilterParameterType&gt;) content;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  					jaxbParameterMapping = jaxbElement.getValue();
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  				}
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  				<strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> MappingException(
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  							<span class="jxr_string">"Unable to decipher filter-def content type ["</span> + content.getClass().getName() + <span class="jxr_string">"]"</span>,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  							context.getOrigin()
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  					);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  				}
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  				<strong class="jxr_keyword">if</strong> ( parameterMap == <strong class="jxr_keyword">null</strong> ) {
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  					parameterMap = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Type&gt;();
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  				}
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  				parameterMap.put(
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  						jaxbParameterMapping.getParameterName(),
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  						context.getMetadataCollector().getTypeResolver().heuristicType( jaxbParameterMapping.getParameterValueTypeName() )
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  				);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  			}
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		}
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  		context.getMetadataCollector().addFilterDefinition(
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  				<strong class="jxr_keyword">new</strong> FilterDefinition(
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  						jaxbFilterDefinitionMapping.getName(),
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  						condition,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  						parameterMap
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  				)
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  		);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  		log.debugf( <span class="jxr_string">"Processed filter definition : %s"</span>, jaxbFilterDefinitionMapping.getName() );
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  	}
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>
