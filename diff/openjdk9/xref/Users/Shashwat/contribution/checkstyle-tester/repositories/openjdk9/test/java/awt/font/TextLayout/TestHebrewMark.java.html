@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>TestHebrewMark xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2007, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment">/* @test</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> * @summary verify TextLayout handles Hebrew marks correctly</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @bug 6529141</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> java.awt.*;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> java.awt.font.*;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.awt.geom.*;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> TestHebrewMark {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String args[]) {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>         FontRenderContext frc = <strong class="jxr_keyword">new</strong> FontRenderContext(<strong class="jxr_keyword">null</strong>,false,false);
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>         <strong class="jxr_keyword">final</strong> String fonts[] = { <span class="jxr_string">"Arial"</span>, <span class="jxr_string">"Arial Hebrew"</span>, <span class="jxr_string">"Arial Unicode"</span>, <span class="jxr_string">"Lucida Sans"</span>, <span class="jxr_string">"Lucida Sans Regular"</span> };
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">char</strong> ALEF = '\u05D0';  <em class="jxr_comment">// a letter</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">char</strong> QAMATS = '\u05B8';  <em class="jxr_comment">// a combining mark, should show up UNDER the alef (no advance)</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>         <strong class="jxr_keyword">final</strong> String string1 = <span class="jxr_string">"\u05DE\u05B8\u05E9\u05C1\u05B0\u05DB\u05B5\u05E0\u05B4\u05D9\u05D0\u05B7\u05D7\u05B2\u05E8\u05B6\u05D9\u05DA\u05B8\u05E0\u05BC\u05B8\u05E8\u05D5\u05BC\u05E6\u05B8\u05D4\u05D4\u05B1\u05D1\u05B4\u05D9\u05D0\u05B7\u05E0\u05B4\u05D9\u05D4\u05B7\u05DE\u05BC\u05B6\u05DC\u05B6\u05DA\u05B0\u05D7\u05B2\u05D3\u05B8\u05E8\u05B8\u05D9\u05D5\u05E0\u05B8\u05D2\u05B4\u05D9\u05DC\u05B8\u05D4\u05D5\u05B0\u05E0\u05B4\u05E9\u05C2\u05B0\u05DE\u05B0\u05D7\u05B8\u05D4\u0020\u05D1\u05BC\u05B8\u05DA\u05B0\u05E0\u05B7\u05D6\u05B0\u05DB\u05BC\u05B4\u05D9\u05E8\u05B8\u05D4\u05D3\u05B9\u05D3\u05B6\u05D9\u05DA\u05B8\u05DE\u05B4\u05D9\u05BC\u05B7\u05D9\u05B4\u05DF\u05DE\u05B5\u05D9\u05E9\u05C1\u05B8\u05E8\u05B4\u05D9\u05DD\u05D0\u05B2\u05D4\u05B5\u05D1\u05D5\u05BC\u05DA\u05B8"</span>;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>         <strong class="jxr_keyword">final</strong> String string2 = string1.replaceAll(<span class="jxr_string">"\u05B8"</span>, <span class="jxr_string">""</span>); <em class="jxr_comment">// remove qamats</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>         <strong class="jxr_keyword">int</strong> string1len = string1.length();
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>         <strong class="jxr_keyword">int</strong> string2len = string2.length();
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>         System.out.println(<span class="jxr_string">"String1 has "</span> + string1len+<span class="jxr_string">" chars, and string2 (without the QAMATS) has "</span> + string2.length());
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>         <strong class="jxr_keyword">if</strong>(string1len == string2len) {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Hey, string1 and string2 are both "</span> + string1len + <span class="jxr_string">" chars long - shouldn't happen."</span>);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>         }
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>         Font f = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>         <em class="jxr_comment">// try to find a font that will work</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>         <strong class="jxr_keyword">for</strong>(String fontname : fonts ) {
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>            System.err.println(<span class="jxr_string">"trying: "</span> +fontname);
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>             Font afont = <strong class="jxr_keyword">new</strong> Font(fontname,Font.PLAIN,18);
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>             <strong class="jxr_keyword">if</strong>(!afont.getFontName().equals(fontname)) {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>               System.out.println(fontname + <span class="jxr_string">": is actually  "</span> + afont.getFontName() + <span class="jxr_string">" - skipping this font."</span>);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>               <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>             }
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>             <strong class="jxr_keyword">if</strong>(!afont.canDisplay(ALEF) || !afont.canDisplay(QAMATS)) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>               System.out.println(fontname + <span class="jxr_string">": can't display ALEF or QAMATS - skipping this font"</span>);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>               <strong class="jxr_keyword">continue</strong>;
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>             }
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>             f = afont;
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          System.err.println(<span class="jxr_string">"Might be OK: "</span> + fontname);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          System.out.println(<span class="jxr_string">"Using font "</span> + f.getFontName());
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          TextLayout tl = <strong class="jxr_keyword">new</strong> TextLayout(string1, f, frc);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          TextLayout tl2 = <strong class="jxr_keyword">new</strong> TextLayout(string2, f, frc);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          Rectangle2D tlBounds = tl.getBounds();
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          Rectangle2D tlBounds2 = tl2.getBounds();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          System.out.println(<span class="jxr_string">"tlbounds="</span>+tlBounds);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          System.out.println(<span class="jxr_string">"tl.getAdvance()="</span>+tl.getAdvance());
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          System.out.println(<span class="jxr_string">"tl2bounds="</span>+tlBounds2);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          System.out.println(<span class="jxr_string">"tl2.getAdvance()="</span>+tl2.getAdvance());
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <strong class="jxr_keyword">if</strong>(tl.getAdvance() != tl2.getAdvance()) {
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>            <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Advance of string with and without QAMATS differs: "</span> + tl.getAdvance() + <span class="jxr_string">" vs. "</span> + tl2.getAdvance());
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>            System.out.println(<span class="jxr_string">"6529141 OK, widths are same."</span>);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          }
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>         }
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>         <em class="jxr_comment">// print a notice if none of them worked.</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>         <strong class="jxr_keyword">if</strong>(f == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>             System.out.println(<span class="jxr_string">"Could not find a suitable font - skipping this test."</span>);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>             <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>         }
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>     }
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

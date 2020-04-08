@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>InfoTest xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2014, 2016, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> java.io.BufferedReader;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> java.io.UncheckedIOException;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Files;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Path;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.nio.file.Paths;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.nio.file.attribute.UserPrincipal;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.time.Duration;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.time.Instant;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.util.ArrayList;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> java.util.Objects;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> java.util.Optional;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> java.util.Random;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> java.util.concurrent.TimeUnit;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> jdk.test.lib.Platform;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">import</strong> jdk.test.lib.Utils;
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <strong class="jxr_keyword">import</strong> org.testng.Assert;
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <strong class="jxr_keyword">import</strong> org.testng.TestNG;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.Test;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_comment"> * @bug 8077350 8081566 8081567 8098852 8136597</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_comment"> * @library /test/lib</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment"> * @modules java.base/jdk.internal.misc</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_comment"> *          jdk.management</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_comment"> * @build jdk.test.lib.Platform jdk.test.lib.Utils</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_comment"> * @run testng InfoTest</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_comment"> * @summary Functions of ProcessHandle.Info</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_comment"> * @author Roger Riggs</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> InfoTest {
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">static</strong> String whoami;
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">static</strong> {
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>              <em class="jxr_comment">// Create a file and take the username from the file</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>              Path p = Paths.get(<span class="jxr_string">"OwnerName.tmp"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>              Files.createFile(p);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              UserPrincipal owner = Files.getOwner(p);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              whoami = owner.getName();
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>              Files.delete(p);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          } <strong class="jxr_keyword">catch</strong> (IOException ex) {
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              ex.printStackTrace();
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UncheckedIOException(<span class="jxr_string">"tmp file"</span>, ex);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          }
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      }
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <em class="jxr_comment">// Main can be used to run the tests from the command line with only testng.jar.</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>      @SuppressWarnings(<span class="jxr_string">"raw_types"</span>)
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          Class&lt;?&gt;[] testclass = {InfoTest.<strong class="jxr_keyword">class</strong>};
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          TestNG testng = <strong class="jxr_keyword">new</strong> TestNG();
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          testng.setTestClasses(testclass);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          testng.run();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  <em class="jxr_javadoccomment">     * Test that cputime used shows up in ProcessHandle.info</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      @Test
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> test1() {
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          System.out.println(<span class="jxr_string">"Note: when run in samevm mode the cputime of the "</span> +
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>                  <span class="jxr_string">"test runner is included."</span>);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          ProcessHandle self = ProcessHandle.current();
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          Duration someCPU = Duration.ofMillis(200L);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          Instant end = Instant.now().plus(someCPU);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <strong class="jxr_keyword">while</strong> (Instant.now().isBefore(end)) {
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              <em class="jxr_comment">// waste the cpu</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         }
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         ProcessHandle.Info info = self.info();
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         System.out.printf(<span class="jxr_string">" info: %s%n"</span>, info);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         Optional&lt;Duration&gt; totalCpu = info.totalCpuDuration();
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         <strong class="jxr_keyword">if</strong> (totalCpu.isPresent() &amp;&amp; (totalCpu.get().compareTo(someCPU) &lt; 0)) {
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>             Assert.fail(<span class="jxr_string">"reported cputime less than expected: "</span> + someCPU + <span class="jxr_string">", "</span> +
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>                     <span class="jxr_string">"actual: "</span> + info.totalCpuDuration());
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         }
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>     }
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_javadoccomment">     * Spawn a child with arguments and check they are visible via the ProcessHandle.</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>     @Test
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> test2() {
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             <strong class="jxr_keyword">long</strong> cpuLoopTime = 100;             <em class="jxr_comment">// 100 ms</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>             String[] extraArgs = {<span class="jxr_string">"pid"</span>, <span class="jxr_string">"parent"</span>, <span class="jxr_string">"stdin"</span>};
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>             JavaChild p1 = JavaChild.spawnJavaChild((Object[])extraArgs);
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>             Instant afterStart = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>             <strong class="jxr_keyword">try</strong> (BufferedReader lines = p1.outputReader()) {
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>                 <em class="jxr_comment">// Read the args line to know the subprocess has started</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>                 lines.readLine();
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                 afterStart = Instant.now();
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> 
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>                 Duration lastCpu = Duration.ofMillis(0L);
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; 10; j++) {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>                     p1.sendAction(<span class="jxr_string">"cpuloop"</span>, cpuLoopTime);
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                     p1.sendAction(<span class="jxr_string">"cputime"</span>, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                     <em class="jxr_comment">// Read cputime from child</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                     Duration childCpuTime = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                     <em class="jxr_comment">// Read lines from the child until the result from cputime is returned</em>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                     <strong class="jxr_keyword">for</strong> (String s; (s = lines.readLine()) != <strong class="jxr_keyword">null</strong>;) {
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                         String[] split = s.trim().split(<span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                         <strong class="jxr_keyword">if</strong> (split.length == 3 &amp;&amp; split[1].equals(<span class="jxr_string">"cputime"</span>)) {
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                             <strong class="jxr_keyword">long</strong> nanos = Long.valueOf(split[2]);
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                             childCpuTime = Duration.ofNanos(nanos);
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>                             <strong class="jxr_keyword">break</strong>;      <em class="jxr_comment">// found the result we're looking for</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>                         }
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>                     }
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                     <strong class="jxr_keyword">if</strong> (Platform.isAix()) {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                         <em class="jxr_comment">// Unfortunately, on AIX the usr/sys times reported through</em>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                         <em class="jxr_comment">// /proc/&lt;pid&gt;/psinfo which are used by ProcessHandle.Info</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                         <em class="jxr_comment">// are running slow compared to the corresponding times reported</em>
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>                         <em class="jxr_comment">// by the times()/getrusage() system calls which are used by</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                         <em class="jxr_comment">// OperatingSystemMXBean.getProcessCpuTime() and returned by</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                         <em class="jxr_comment">// the JavaChild for the "cputime" command.</em>
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>                         <em class="jxr_comment">// This is because /proc/&lt;pid&gt;/status is only updated once a second.</em>
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                         <em class="jxr_comment">// So we better wait a little bit to get plausible values here.</em>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                         Thread.sleep(1000);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                     }
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>                     ProcessHandle.Info info = p1.info();
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                     System.out.printf(<span class="jxr_string">" info: %s%n"</span>, info);
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>                     <strong class="jxr_keyword">if</strong> (info.user().isPresent()) {
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                         String user = info.user().get();
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>                         Assert.assertNotNull(user, <span class="jxr_string">"User name"</span>);
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>                         Assert.assertEquals(user, whoami, <span class="jxr_string">"User name"</span>);
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                     }
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                     Optional&lt;String&gt; command = info.command();
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>                     <strong class="jxr_keyword">if</strong> (command.isPresent()) {
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>                         String javaExe = System.getProperty(<span class="jxr_string">"test.jdk"</span>) +
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                                 File.separator + <span class="jxr_string">"bin"</span> + File.separator + <span class="jxr_string">"java"</span>;
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>                         String expected = Platform.isWindows() ? javaExe + <span class="jxr_string">".exe"</span> : javaExe;
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>                         Path expectedPath = Paths.get(expected);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                         Path actualPath = Paths.get(command.get());
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>                         Assert.assertTrue(Files.isSameFile(expectedPath, actualPath),
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>                                 <span class="jxr_string">"Command: expected: "</span> + javaExe + <span class="jxr_string">", actual: "</span> + command.get());
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>                     }
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>                     <strong class="jxr_keyword">if</strong> (info.arguments().isPresent()) {
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>                         String[] args = info.arguments().get();
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>                         <strong class="jxr_keyword">int</strong> offset = args.length - extraArgs.length;
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>                         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; extraArgs.length; i++) {
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>                             Assert.assertEquals(args[offset + i], extraArgs[i],
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>                                                 <span class="jxr_string">"Actual argument mismatch, index: "</span> + i);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>                         }
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>                         <em class="jxr_comment">// Now check that the first argument is not the same as the executed command</em>
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>                         <strong class="jxr_keyword">if</strong> (args.length &gt; 0) {
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>                             Assert.assertNotEquals(args[0], command,
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>                                     <span class="jxr_string">"First argument should not be the executable: args[0]: "</span>
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                                             + args[0] + <span class="jxr_string">", command: "</span> + command);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>                         }
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>                     }
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> 
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>                     <strong class="jxr_keyword">if</strong> (command.isPresent() &amp;&amp; info.arguments().isPresent()) {
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>                         <em class="jxr_comment">// If both, 'command' and 'arguments' are present,</em>
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>                         <em class="jxr_comment">// 'commandLine' is just the concatenation of the two.</em>
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>                         Assert.assertTrue(info.commandLine().isPresent(),
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>                                           <span class="jxr_string">"commandLine() must be available"</span>);
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> 
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>                         String javaExe = System.getProperty(<span class="jxr_string">"test.jdk"</span>) +
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>                                 File.separator + <span class="jxr_string">"bin"</span> + File.separator + <span class="jxr_string">"java"</span>;
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>                         String expected = Platform.isWindows() ? javaExe + <span class="jxr_string">".exe"</span> : javaExe;
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>                         Path expectedPath = Paths.get(expected);
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>                         String commandLine = info.commandLine().get();
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>                         String commandLineCmd = commandLine.split(<span class="jxr_string">" "</span>)[0];
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>                         Path commandLineCmdPath = Paths.get(commandLineCmd);
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>                         Assert.assertTrue(Files.isSameFile(commandLineCmdPath, expectedPath),
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>                                           <span class="jxr_string">"commandLine() should start with: "</span> + expectedPath +
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>                                           <span class="jxr_string">" but starts with "</span> + commandLineCmdPath);
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> 
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>                         Assert.assertTrue(commandLine.contains(command.get()),
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>                                 <span class="jxr_string">"commandLine() must contain the command: "</span> + command.get());
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>                         List&lt;String&gt; allArgs = p1.getArgs();
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>                         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 1; i &lt; allArgs.size(); i++) {
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>                             Assert.assertTrue(commandLine.contains(allArgs.get(i)),
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>                                               <span class="jxr_string">"commandLine() must contain argument: "</span> + allArgs.get(i));
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>                         }
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>                     } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (info.commandLine().isPresent() &amp;&amp;
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>                             command.isPresent() &amp;&amp;
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>                             command.get().length() &lt; info.commandLine().get().length()) {
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>                         <em class="jxr_comment">// If we only have the commandLine() we can only do some basic checks...</em>
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>                         String commandLine = info.commandLine().get();
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>                         String javaExe = <span class="jxr_string">"java"</span> + (Platform.isWindows() ? <span class="jxr_string">".exe"</span> : <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>                         <strong class="jxr_keyword">int</strong> pos = commandLine.indexOf(javaExe);
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>                         Assert.assertTrue(pos &gt; 0, <span class="jxr_string">"commandLine() should at least contain 'java'"</span>);
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> 
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>                         pos += javaExe.length() + 1; <em class="jxr_comment">// +1 for the space after the command</em>
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>                         List&lt;String&gt; allArgs = p1.getArgs();
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>                         <em class="jxr_comment">// First argument is the command - skip it here as we've already checked that.</em>
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>                         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 1; (i &lt; allArgs.size()) &amp;&amp;
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>                                         (pos + allArgs.get(i).length() &lt; commandLine.length()); i++) {
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>                             Assert.assertTrue(commandLine.contains(allArgs.get(i)),
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>                                               <span class="jxr_string">"commandLine() must contain argument: "</span> + allArgs.get(i));
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>                             pos += allArgs.get(i).length() + 1;
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>                         }
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>                     }
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>                     <strong class="jxr_keyword">if</strong> (info.totalCpuDuration().isPresent()) {
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>                         Duration totalCPU = info.totalCpuDuration().get();
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>                         Duration epsilon = Duration.ofMillis(200L);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>                         <strong class="jxr_keyword">if</strong> (childCpuTime != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>                             System.out.printf(<span class="jxr_string">" info.totalCPU: %s, childCpuTime: %s, diff: %s%n"</span>,
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>                                     totalCPU.toNanos(), childCpuTime.toNanos(),
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>                                     childCpuTime.toNanos() - totalCPU.toNanos());
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>                             Assert.assertTrue(checkEpsilon(childCpuTime, totalCPU, epsilon),
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>                                     childCpuTime + <span class="jxr_string">" should be within "</span> +
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>                                             epsilon + <span class="jxr_string">" of "</span> + totalCPU);
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>                         }
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>                         Assert.assertTrue(totalCPU.toNanos() &gt; 0L,
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>                                 <span class="jxr_string">"total cpu time expected &gt; 0ms, actual: "</span> + totalCPU);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>                         <strong class="jxr_keyword">long</strong> t = Utils.adjustTimeout(10L);  <em class="jxr_comment">// Adjusted timeout seconds</em>
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>                         Assert.assertTrue(totalCPU.toNanos() &lt; lastCpu.toNanos() + t * 1_000_000_000L,
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>                                 <span class="jxr_string">"total cpu time expected &lt; "</span> + t
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>                                         + <span class="jxr_string">" seconds more than previous iteration, actual: "</span>
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>                                         + (totalCPU.toNanos() - lastCpu.toNanos()));
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>                         lastCpu = totalCPU;
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>                     }
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> 
+<a class="jxr_linenumber" name="L257" href="#L257">257</a>                     <strong class="jxr_keyword">if</strong> (info.startInstant().isPresent()) {
+<a class="jxr_linenumber" name="L258" href="#L258">258</a>                         Instant startTime = info.startInstant().get();
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>                         Assert.assertTrue(startTime.isBefore(afterStart),
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>                                 <span class="jxr_string">"startTime after process spawn completed"</span>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>                                         + startTime + <span class="jxr_string">" + &gt; "</span> + afterStart);
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>                     }
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>                 }
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>             }
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>             p1.sendAction(<span class="jxr_string">"exit"</span>);
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>             Assert.assertTrue(p1.waitFor(Utils.adjustTimeout(30L), TimeUnit.SECONDS),
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>                     <span class="jxr_string">"timeout waiting for process to terminate"</span>);
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>         } <strong class="jxr_keyword">catch</strong> (IOException | InterruptedException ie) {
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>             ie.printStackTrace(System.out);
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>             Assert.fail(<span class="jxr_string">"unexpected exception"</span>, ie);
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>             <em class="jxr_comment">// Destroy any children that still exist</em>
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>             ProcessUtil.destroyProcessTree(ProcessHandle.current());
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>         }
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>     }
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> <em class="jxr_javadoccomment">     * Spawn a child with arguments and check they are visible via the ProcessHandle.</em>
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>     @Test
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> test3() {
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">long</strong> sleepTime : Arrays.asList(Utils.adjustTimeout(30), Utils.adjustTimeout(32))) {
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>                 Process p = spawn(<span class="jxr_string">"sleep"</span>, String.valueOf(sleepTime));
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>                 ProcessHandle.Info info = p.info();
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>                 System.out.printf(<span class="jxr_string">" info: %s%n"</span>, info);
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> 
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>                 <strong class="jxr_keyword">if</strong> (info.user().isPresent()) {
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>                     String user = info.user().get();
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>                     Assert.assertNotNull(user);
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>                     Assert.assertEquals(user, whoami);
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>                 }
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>                 <strong class="jxr_keyword">if</strong> (info.command().isPresent()) {
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>                     String command = info.command().get();
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>                     String expected = Platform.isWindows() ? <span class="jxr_string">"sleep.exe"</span> : <span class="jxr_string">"sleep"</span>;
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>                     Assert.assertTrue(command.endsWith(expected), <span class="jxr_string">"Command: expected: \'"</span> +
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>                             expected + <span class="jxr_string">"\', actual: "</span> + command);
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 
+<a class="jxr_linenumber" name="L300" href="#L300">300</a>                     <em class="jxr_comment">// Verify the command exists and is executable</em>
+<a class="jxr_linenumber" name="L301" href="#L301">301</a>                     File exe = <strong class="jxr_keyword">new</strong> File(command);
+<a class="jxr_linenumber" name="L302" href="#L302">302</a>                     Assert.assertTrue(exe.exists(), <span class="jxr_string">"command must exist: "</span> + exe);
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>                     Assert.assertTrue(exe.canExecute(), <span class="jxr_string">"command must be executable: "</span> + exe);
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>                 }
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>                 <strong class="jxr_keyword">if</strong> (info.arguments().isPresent()) {
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>                     String[] args = info.arguments().get();
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>                     <strong class="jxr_keyword">if</strong> (args.length &gt; 0) {
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>                         Assert.assertEquals(args[0], String.valueOf(sleepTime));
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>                     }
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>                 }
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>                 p.destroy();
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>                 Assert.assertTrue(p.waitFor(Utils.adjustTimeout(30), TimeUnit.SECONDS),
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>                         <span class="jxr_string">"timeout waiting for process to terminate"</span>);
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>             }
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>         } <strong class="jxr_keyword">catch</strong> (IOException | InterruptedException ex) {
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>             ex.printStackTrace(System.out);
+<a class="jxr_linenumber" name="L317" href="#L317">317</a>         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>             <em class="jxr_comment">// Destroy any children that still exist</em>
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>             ProcessUtil.destroyProcessTree(ProcessHandle.current());
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>         }
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>     }
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> <em class="jxr_javadoccomment">     * Cross check the cputime reported from java.management with that for the current process.</em>
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>     @Test
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> test4() {
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>         Duration myCputime1 = ProcessUtil.MXBeanCpuTime();
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>         <strong class="jxr_keyword">if</strong> (Platform.isAix()) {
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>             <em class="jxr_comment">// Unfortunately, on AIX the usr/sys times reported through</em>
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>             <em class="jxr_comment">// /proc/&lt;pid&gt;/psinfo which are used by ProcessHandle.Info</em>
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>             <em class="jxr_comment">// are running slow compared to the corresponding times reported</em>
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>             <em class="jxr_comment">// by the times()/getrusage() system calls which are used by</em>
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>             <em class="jxr_comment">// OperatingSystemMXBean.getProcessCpuTime() and returned by</em>
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>             <em class="jxr_comment">// the JavaChild for the "cputime" command.</em>
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>             <em class="jxr_comment">// So we better wait a little bit to get plausible values here.</em>
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>                 Thread.sleep(1000);
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>             } <strong class="jxr_keyword">catch</strong> (InterruptedException ex) {}
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>         }
+<a class="jxr_linenumber" name="L342" href="#L342">342</a>         Optional&lt;Duration&gt; dur1 = ProcessHandle.current().info().totalCpuDuration();
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 
+<a class="jxr_linenumber" name="L344" href="#L344">344</a>         Duration myCputime2 = ProcessUtil.MXBeanCpuTime();
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> 
+<a class="jxr_linenumber" name="L346" href="#L346">346</a>         <strong class="jxr_keyword">if</strong> (Platform.isAix()) {
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>                 Thread.sleep(1000);
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>             } <strong class="jxr_keyword">catch</strong> (InterruptedException ex) {}
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>         }
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>         Optional&lt;Duration&gt; dur2 = ProcessHandle.current().info().totalCpuDuration();
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> 
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>         <strong class="jxr_keyword">if</strong> (dur1.isPresent() &amp;&amp; dur2.isPresent()) {
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>             Duration total1 = dur1.get();
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>             Duration total2 = dur2.get();
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>             System.out.printf(<span class="jxr_string">" total1 vs. mbean: %s, getProcessCpuTime: %s, diff: %s%n"</span>,
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>                     Objects.toString(total1), myCputime1, myCputime1.minus(total1));
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>             System.out.printf(<span class="jxr_string">" total2 vs. mbean: %s, getProcessCpuTime: %s, diff: %s%n"</span>,
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>                     Objects.toString(total2), myCputime2, myCputime2.minus(total2));
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> 
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>             Duration epsilon = Duration.ofMillis(200L);      <em class="jxr_comment">// Epsilon is 200ms.</em>
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>             Assert.assertTrue(checkEpsilon(myCputime1, myCputime2, epsilon),
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>                     myCputime1.toNanos() + <span class="jxr_string">" should be within "</span> + epsilon
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>                             + <span class="jxr_string">" of "</span> + myCputime2.toNanos());
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>             Assert.assertTrue(checkEpsilon(total1, total2, epsilon),
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>                     total1.toNanos() + <span class="jxr_string">" should be within "</span> + epsilon
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>                             + <span class="jxr_string">" of "</span> + total2.toNanos());
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>             Assert.assertTrue(checkEpsilon(myCputime1, total1, epsilon),
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>                     myCputime1.toNanos() + <span class="jxr_string">" should be within "</span> + epsilon
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>                             + <span class="jxr_string">" of "</span> + total1.toNanos());
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>             Assert.assertTrue(checkEpsilon(total1, myCputime2, epsilon),
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>                     total1.toNanos() + <span class="jxr_string">" should be within "</span> + epsilon
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>                             + <span class="jxr_string">" of "</span> + myCputime2.toNanos());
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>             Assert.assertTrue(checkEpsilon(myCputime2, total2, epsilon),
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>                     myCputime2.toNanos() + <span class="jxr_string">" should be within "</span> + epsilon
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>                             + <span class="jxr_string">" of "</span> + total2.toNanos());
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>         }
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>     }
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> 
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>     @Test
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> test5() {
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>         ProcessHandle self = ProcessHandle.current();
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>         Random r = <strong class="jxr_keyword">new</strong> Random();
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; 30; i++) {
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>             Instant end = Instant.now().plusMillis(500L);
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>             <strong class="jxr_keyword">while</strong> (end.isBefore(Instant.now())) {
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>                 <em class="jxr_comment">// burn the cpu time checking the time</em>
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>                 <strong class="jxr_keyword">long</strong> x = r.nextLong();
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>             }
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>             <strong class="jxr_keyword">if</strong> (self.info().totalCpuDuration().isPresent()) {
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>                 Duration totalCpu = self.info().totalCpuDuration().get();
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>                 <strong class="jxr_keyword">long</strong> infoTotalCputime = totalCpu.toNanos();
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>                 <strong class="jxr_keyword">long</strong> beanCputime = ProcessUtil.MXBeanCpuTime().toNanos();
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>                 System.out.printf(<span class="jxr_string">" infoTotal: %12d, beanCpu: %12d, diff: %12d%n"</span>,
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>                         infoTotalCputime, beanCputime, beanCputime - infoTotalCputime);
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>                 <strong class="jxr_keyword">break</strong>;  <em class="jxr_comment">// nothing to compare; continue</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>             }
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>         }
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>     }
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> <em class="jxr_javadoccomment">     * Check two Durations, the second should be greater than the first or</em>
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> <em class="jxr_javadoccomment">     * within the supplied Epsilon.</em>
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> <em class="jxr_javadoccomment">     * @param d1 a Duration - presumed to be shorter</em>
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> <em class="jxr_javadoccomment">     * @param d2 a 2nd Duration - presumed to be greater (or within Epsilon)</em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> <em class="jxr_javadoccomment">     * @param epsilon Epsilon the amount of overlap allowed</em>
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> <em class="jxr_javadoccomment">     * @return true if d2 is greater than d1 or within epsilon, false otherwise</em>
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> checkEpsilon(Duration d1, Duration d2, Duration epsilon) {
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         <strong class="jxr_keyword">if</strong> (d1.toNanos() &lt;= d2.toNanos()) {
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>         }
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>         Duration diff = d1.minus(d2).abs();
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>         <strong class="jxr_keyword">return</strong> diff.compareTo(epsilon) &lt;= 0;
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>     }
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> 
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> <em class="jxr_javadoccomment">     * Spawn a native process with the provided arguments.</em>
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> <em class="jxr_javadoccomment">     * @param command the executable of native process</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> <em class="jxr_javadoccomment">     * @param args to start a new process</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> <em class="jxr_javadoccomment">     * @return the Process that was started</em>
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> <em class="jxr_javadoccomment">     * @throws IOException thrown by ProcessBuilder.start</em>
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>     <strong class="jxr_keyword">static</strong> Process spawn(String command, String... args) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>         ProcessBuilder pb = <strong class="jxr_keyword">new</strong> ProcessBuilder();
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         pb.inheritIO();
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>         List&lt;String&gt; list = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         list.add(command);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>         <strong class="jxr_keyword">for</strong> (String arg : args)
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>             list.add(arg);
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>         pb.command(list);
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>         <strong class="jxr_keyword">return</strong> pb.start();
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>     }
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

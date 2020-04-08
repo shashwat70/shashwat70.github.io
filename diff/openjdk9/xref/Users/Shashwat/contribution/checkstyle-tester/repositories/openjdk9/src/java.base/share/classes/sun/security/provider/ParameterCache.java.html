@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>ParameterCache xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2003, 2016, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.  Oracle designates this</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> * particular file as subject to the "Classpath" exception as provided</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * by Oracle in the LICENSE file that accompanied this code.</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">package</strong> sun.security.provider;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> java.util.concurrent.ConcurrentHashMap;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.math.BigInteger;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.security.*;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.security.SecureRandom;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.security.spec.*;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> javax.crypto.spec.DHParameterSpec;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> * Cache for DSA and DH parameter specs. Used by the KeyPairGenerators</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> * in the Sun, SunJCE, and SunPKCS11 provider if no parameters have been</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> * explicitly specified by the application.</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment"> * @author  Andreas Sterbenz</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment"> * @since   1.5</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> ParameterCache {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">private</strong> ParameterCache() {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <em class="jxr_comment">// empty</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      }
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <em class="jxr_comment">// cache of DSA parameters</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Map&lt;Integer,DSAParameterSpec&gt; dsaCache;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <em class="jxr_comment">// cache of DH parameters</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Map&lt;Integer,DHParameterSpec&gt; dhCache;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">     * Return cached DSA parameters for the given length combination of</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     * prime and subprime, or null if none are available in the cache.</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> DSAParameterSpec getCachedDSAParameterSpec(<strong class="jxr_keyword">int</strong> primeLen,
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>              <strong class="jxr_keyword">int</strong> subprimeLen) {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <em class="jxr_comment">// ensure the sum is unique in all cases, i.e.</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <em class="jxr_comment">// case#1: (512 &lt;= p &lt;= 1024) AND q=160</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          <em class="jxr_comment">// case#2: p=2048 AND q=224</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          <em class="jxr_comment">// case#3: p=2048 AND q=256</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <em class="jxr_comment">// case#4: p=3072 AND q=256</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">return</strong> dsaCache.get(Integer.valueOf(primeLen+subprimeLen));
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      }
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">     * Return cached DH parameters for the given keylength, or null if none</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">     * are available in the cache.</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> DHParameterSpec getCachedDHParameterSpec(<strong class="jxr_keyword">int</strong> keyLength) {
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <strong class="jxr_keyword">return</strong> dhCache.get(Integer.valueOf(keyLength));
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      }
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_javadoccomment">     * Return DSA parameters for the given primeLen. Uses cache if</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">     * possible, generates new parameters and adds them to the cache</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_javadoccomment">     * otherwise.</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> DSAParameterSpec getDSAParameterSpec(<strong class="jxr_keyword">int</strong> primeLen,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>              SecureRandom random)
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              <strong class="jxr_keyword">throws</strong> NoSuchAlgorithmException, InvalidParameterSpecException,
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>                     InvalidAlgorithmParameterException {
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          <strong class="jxr_keyword">if</strong> (primeLen &lt;= 1024) {
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <strong class="jxr_keyword">return</strong> getDSAParameterSpec(primeLen, 160, random);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (primeLen == 2048) {
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              <strong class="jxr_keyword">return</strong> getDSAParameterSpec(primeLen, 224, random);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (primeLen == 3072) {
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>              <strong class="jxr_keyword">return</strong> getDSAParameterSpec(primeLen, 256, random);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          }
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      }
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_javadoccomment">     * Return DSA parameters for the given primeLen and subprimeLen.</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * Uses cache if possible, generates new parameters and adds them to the</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * cache otherwise.</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> DSAParameterSpec getDSAParameterSpec(<strong class="jxr_keyword">int</strong> primeLen,
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>             <strong class="jxr_keyword">int</strong> subprimeLen, SecureRandom random)
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>             <strong class="jxr_keyword">throws</strong> NoSuchAlgorithmException, InvalidParameterSpecException,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                    InvalidAlgorithmParameterException {
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         DSAParameterSpec spec =
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             getCachedDSAParameterSpec(primeLen, subprimeLen);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         <strong class="jxr_keyword">if</strong> (spec != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>             <strong class="jxr_keyword">return</strong> spec;
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         }
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         spec = getNewDSAParameterSpec(primeLen, subprimeLen, random);
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         dsaCache.put(Integer.valueOf(primeLen + subprimeLen), spec);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         <strong class="jxr_keyword">return</strong> spec;
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>     }
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> 
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">     * Return DH parameters for the given keylength. Uses cache if possible,</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">     * generates new parameters and adds them to the cache otherwise.</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> DHParameterSpec getDHParameterSpec(<strong class="jxr_keyword">int</strong> keyLength,
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>             SecureRandom random)
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             <strong class="jxr_keyword">throws</strong> NoSuchAlgorithmException, InvalidParameterSpecException {
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>         DHParameterSpec spec = getCachedDHParameterSpec(keyLength);
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         <strong class="jxr_keyword">if</strong> (spec != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             <strong class="jxr_keyword">return</strong> spec;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         }
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>         AlgorithmParameterGenerator gen =
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                 AlgorithmParameterGenerator.getInstance(<span class="jxr_string">"DH"</span>);
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>         gen.init(keyLength, random);
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         AlgorithmParameters params = gen.generateParameters();
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>         spec = params.getParameterSpec(DHParameterSpec.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>         dhCache.put(Integer.valueOf(keyLength), spec);
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         <strong class="jxr_keyword">return</strong> spec;
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>     }
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> 
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment">     * Return new DSA parameters for the given length combination of prime and</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">     * sub prime. Do not lookup in cache and do not cache the newly generated</em>
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment">     * parameters. This method really only exists for the legacy method</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_javadoccomment">     * DSAKeyPairGenerator.initialize(int, boolean, SecureRandom).</em>
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> DSAParameterSpec getNewDSAParameterSpec(<strong class="jxr_keyword">int</strong> primeLen,
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>             <strong class="jxr_keyword">int</strong> subprimeLen, SecureRandom random)
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>             <strong class="jxr_keyword">throws</strong> NoSuchAlgorithmException, InvalidParameterSpecException,
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>                    InvalidAlgorithmParameterException {
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>         AlgorithmParameterGenerator gen =
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                 AlgorithmParameterGenerator.getInstance(<span class="jxr_string">"DSA"</span>);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <em class="jxr_comment">// Use init(int size, SecureRandom random) for legacy DSA key sizes</em>
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>         <strong class="jxr_keyword">if</strong> (primeLen &lt; 1024) {
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>             gen.init(primeLen, random);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>             DSAGenParameterSpec genParams =
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                 <strong class="jxr_keyword">new</strong> DSAGenParameterSpec(primeLen, subprimeLen);
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>             gen.init(genParams, random);
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>         }
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>         AlgorithmParameters params = gen.generateParameters();
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>         DSAParameterSpec spec = params.getParameterSpec(DSAParameterSpec.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>         <strong class="jxr_keyword">return</strong> spec;
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>     }
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>     <strong class="jxr_keyword">static</strong> {
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>         dhCache = <strong class="jxr_keyword">new</strong> ConcurrentHashMap&lt;Integer,DHParameterSpec&gt;();
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>         dsaCache = <strong class="jxr_keyword">new</strong> ConcurrentHashMap&lt;Integer,DSAParameterSpec&gt;();
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> <em class="jxr_comment">         * We support precomputed parameter for legacy 512, 768 bit moduli,</em>
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> <em class="jxr_comment">         * and (L, N) combinations of (1024, 160), (2048, 224), (2048, 256),</em>
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> <em class="jxr_comment">         * (3072, 256). In this file we provide both the seed and counter</em>
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> <em class="jxr_comment">         * value of the generation process for each of these seeds,</em>
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_comment">         * for validation purposes. We also include the test vectors</em>
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> <em class="jxr_comment">         * from the DSA specification, FIPS 186, and the FIPS 186</em>
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> <em class="jxr_comment">         * Change No 1, which updates the test vector using SHA-1</em>
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> <em class="jxr_comment">         * instead of SHA (for both the G function and the message</em>
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> <em class="jxr_comment">         * hash.</em>
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> <em class="jxr_comment">         * L = 512</em>
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> <em class="jxr_comment">         * SEED = b869c82b35d70e1b1ff91b28e37a62ecdc34409b</em>
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> <em class="jxr_comment">         * counter = 123</em>
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         BigInteger p512 =
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"fca682ce8e12caba26efccf7110e526db078b05edecb"</span> +
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>                            <span class="jxr_string">"cd1eb4a208f3ae1617ae01f35b91a47e6df63413c5e1"</span> +
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                            <span class="jxr_string">"2ed0899bcd132acd50d99151bdc43ee737592e17"</span>, 16);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> 
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>         BigInteger q512 =
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"962eddcc369cba8ebb260ee6b6a126d9346e38c5"</span>, 16);
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         BigInteger g512 =
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"678471b27a9cf44ee91a49c5147db1a9aaf244f05a43"</span> +
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>                            <span class="jxr_string">"4d6486931d2d14271b9e35030b71fd73da179069b32e"</span> +
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>                            <span class="jxr_string">"2935630e1c2062354d0da20a6c416e50be794ca4"</span>, 16);
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> 
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> <em class="jxr_comment">         * L = 768</em>
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> <em class="jxr_comment">         * SEED = 77d0f8c4dad15eb8c4f2f8d6726cefd96d5bb399</em>
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> <em class="jxr_comment">         * counter = 263</em>
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>         BigInteger p768 =
+<a class="jxr_linenumber" name="L204" href="#L204">204</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"e9e642599d355f37c97ffd3567120b8e25c9cd43e"</span> +
+<a class="jxr_linenumber" name="L205" href="#L205">205</a>                            <span class="jxr_string">"927b3a9670fbec5d890141922d2c3b3ad24800937"</span> +
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>                            <span class="jxr_string">"99869d1e846aab49fab0ad26d2ce6a22219d470bc"</span> +
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>                            <span class="jxr_string">"e7d777d4a21fbe9c270b57f607002f3cef8393694"</span> +
+<a class="jxr_linenumber" name="L208" href="#L208">208</a>                            <span class="jxr_string">"cf45ee3688c11a8c56ab127a3daf"</span>, 16);
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> 
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>         BigInteger q768 =
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"9cdbd84c9f1ac2f38d0f80f42ab952e7338bf511"</span>,
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>                            16);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> 
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>         BigInteger g768 =
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"30470ad5a005fb14ce2d9dcd87e38bc7d1b1c5fac"</span> +
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>                            <span class="jxr_string">"baecbe95f190aa7a31d23c4dbbcbe06174544401a"</span> +
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>                            <span class="jxr_string">"5b2c020965d8c2bd2171d3668445771f74ba084d2"</span> +
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>                            <span class="jxr_string">"029d83c1c158547f3a9f1a2715be23d51ae4d3e5a"</span> +
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>                            <span class="jxr_string">"1f6a7064f316933a346d3f529252"</span>, 16);
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> 
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> <em class="jxr_comment">         * L = 1024</em>
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> <em class="jxr_comment">         * SEED = 8d5155894229d5e689ee01e6018a237e2cae64cd</em>
+<a class="jxr_linenumber" name="L225" href="#L225">225</a> <em class="jxr_comment">         * counter = 92</em>
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>         BigInteger p1024 =
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"fd7f53811d75122952df4a9c2eece4e7f611b7523c"</span> +
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>                            <span class="jxr_string">"ef4400c31e3f80b6512669455d402251fb593d8d58"</span> +
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>                            <span class="jxr_string">"fabfc5f5ba30f6cb9b556cd7813b801d346ff26660"</span> +
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>                            <span class="jxr_string">"b76b9950a5a49f9fe8047b1022c24fbba9d7feb7c6"</span> +
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>                            <span class="jxr_string">"1bf83b57e7c6a8a6150f04fb83f6d3c51ec3023554"</span> +
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>                            <span class="jxr_string">"135a169132f675f3ae2b61d72aeff22203199dd148"</span> +
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>                            <span class="jxr_string">"01c7"</span>, 16);
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>         BigInteger q1024 =
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"9760508f15230bccb292b982a2eb840bf0581cf5"</span>,
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>                            16);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>         BigInteger g1024 =
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"f7e1a085d69b3ddecbbcab5c36b857b97994afbbfa"</span> +
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>                            <span class="jxr_string">"3aea82f9574c0b3d0782675159578ebad4594fe671"</span> +
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>                            <span class="jxr_string">"07108180b449167123e84c281613b7cf09328cc8a6"</span> +
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>                            <span class="jxr_string">"e13c167a8b547c8d28e0a3ae1e2bb3a675916ea37f"</span> +
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>                            <span class="jxr_string">"0bfa213562f1fb627a01243bcca4f1bea8519089a8"</span> +
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>                            <span class="jxr_string">"83dfe15ae59f06928b665e807b552564014c3bfecf"</span> +
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>                            <span class="jxr_string">"492a"</span>, 16);
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>         dsaCache.put(Integer.valueOf(512+160),
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>                                 <strong class="jxr_keyword">new</strong> DSAParameterSpec(p512, q512, g512));
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>         dsaCache.put(Integer.valueOf(768+160),
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>                                 <strong class="jxr_keyword">new</strong> DSAParameterSpec(p768, q768, g768));
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>         dsaCache.put(Integer.valueOf(1024+160),
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>                                 <strong class="jxr_keyword">new</strong> DSAParameterSpec(p1024, q1024, g1024));
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> <em class="jxr_comment">         * L = 2048, N = 224</em>
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> <em class="jxr_comment">         * SEED = 584236080cfa43c09b02354135f4cc5198a19efada08bd866d601ba4</em>
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> <em class="jxr_comment">         * counter = 2666</em>
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a>         BigInteger p2048_224 =
+<a class="jxr_linenumber" name="L261" href="#L261">261</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"8f7935d9b9aae9bfabed887acf4951b6f32ec59e3b"</span> +
+<a class="jxr_linenumber" name="L262" href="#L262">262</a>                            <span class="jxr_string">"af3718e8eac4961f3efd3606e74351a9c4183339b8"</span> +
+<a class="jxr_linenumber" name="L263" href="#L263">263</a>                            <span class="jxr_string">"09e7c2ae1c539ba7475b85d011adb8b47987754984"</span> +
+<a class="jxr_linenumber" name="L264" href="#L264">264</a>                            <span class="jxr_string">"695cac0e8f14b3360828a22ffa27110a3d62a99345"</span> +
+<a class="jxr_linenumber" name="L265" href="#L265">265</a>                            <span class="jxr_string">"3409a0fe696c4658f84bdd20819c3709a01057b195"</span> +
+<a class="jxr_linenumber" name="L266" href="#L266">266</a>                            <span class="jxr_string">"adcd00233dba5484b6291f9d648ef883448677979c"</span> +
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>                            <span class="jxr_string">"ec04b434a6ac2e75e9985de23db0292fc1118c9ffa"</span> +
+<a class="jxr_linenumber" name="L268" href="#L268">268</a>                            <span class="jxr_string">"9d8181e7338db792b730d7b9e349592f6809987215"</span> +
+<a class="jxr_linenumber" name="L269" href="#L269">269</a>                            <span class="jxr_string">"3915ea3d6b8b4653c633458f803b32a4c2e0f27290"</span> +
+<a class="jxr_linenumber" name="L270" href="#L270">270</a>                            <span class="jxr_string">"256e4e3f8a3b0838a1c450e4e18c1a29a37ddf5ea1"</span> +
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>                            <span class="jxr_string">"43de4b66ff04903ed5cf1623e158d487c608e97f21"</span> +
+<a class="jxr_linenumber" name="L272" href="#L272">272</a>                            <span class="jxr_string">"1cd81dca23cb6e380765f822e342be484c05763939"</span> +
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>                            <span class="jxr_string">"601cd667"</span>, 16);
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>         BigInteger q2048_224 =
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"baf696a68578f7dfdee7fa67c977c785ef32b233ba"</span> +
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>                            <span class="jxr_string">"e580c0bcd5695d"</span>, 16);
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 
+<a class="jxr_linenumber" name="L279" href="#L279">279</a>         BigInteger g2048_224 =
+<a class="jxr_linenumber" name="L280" href="#L280">280</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"16a65c58204850704e7502a39757040d34da3a3478"</span> +
+<a class="jxr_linenumber" name="L281" href="#L281">281</a>                            <span class="jxr_string">"c154d4e4a5c02d242ee04f96e61e4bd0904abdac8f"</span> +
+<a class="jxr_linenumber" name="L282" href="#L282">282</a>                            <span class="jxr_string">"37eeb1e09f3182d23c9043cb642f88004160edf9ca"</span> +
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>                            <span class="jxr_string">"09b32076a79c32a627f2473e91879ba2c4e744bd20"</span> +
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>                            <span class="jxr_string">"81544cb55b802c368d1fa83ed489e94e0fa0688e32"</span> +
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>                            <span class="jxr_string">"428a5c78c478c68d0527b71c9a3abb0b0be12c4468"</span> +
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>                            <span class="jxr_string">"9639e7d3ce74db101a65aa2b87f64c6826db3ec72f"</span> +
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>                            <span class="jxr_string">"4b5599834bb4edb02f7c90e9a496d3a55d535bebfc"</span> +
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>                            <span class="jxr_string">"45d4f619f63f3dedbb873925c2f224e07731296da8"</span> +
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>                            <span class="jxr_string">"87ec1e4748f87efb5fdeb75484316b2232dee553dd"</span> +
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>                            <span class="jxr_string">"af02112b0d1f02da30973224fe27aeda8b9d4b2922"</span> +
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>                            <span class="jxr_string">"d9ba8be39ed9e103a63c52810bc688b7e2ed4316e1"</span> +
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>                            <span class="jxr_string">"ef17dbde"</span>, 16);
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> 
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>         dsaCache.put(Integer.valueOf(2048+224),
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>                      <strong class="jxr_keyword">new</strong> DSAParameterSpec(p2048_224, q2048_224, g2048_224));
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> <em class="jxr_comment">         * L = 2048, N = 256</em>
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> <em class="jxr_comment">         * SEED = b0b4417601b59cbc9d8ac8f935cadaec \</em>
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_comment">         *        4f5fbb2f23785609ae466748d9b5a536</em>
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> <em class="jxr_comment">         * counter = 497</em>
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L303" href="#L303">303</a>         BigInteger p2048_256 =
+<a class="jxr_linenumber" name="L304" href="#L304">304</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"95475cf5d93e596c3fcd1d902add02f427f5f3c721"</span> +
+<a class="jxr_linenumber" name="L305" href="#L305">305</a>                            <span class="jxr_string">"0313bb45fb4d5bb2e5fe1cbd678cd4bbdd84c9836b"</span> +
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>                            <span class="jxr_string">"e1f31c0777725aeb6c2fc38b85f48076fa76bcd814"</span> +
+<a class="jxr_linenumber" name="L307" href="#L307">307</a>                            <span class="jxr_string">"6cc89a6fb2f706dd719898c2083dc8d896f84062e2"</span> +
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>                            <span class="jxr_string">"c9c94d137b054a8d8096adb8d51952398eeca852a0"</span> +
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>                            <span class="jxr_string">"af12df83e475aa65d4ec0c38a9560d5661186ff98b"</span> +
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>                            <span class="jxr_string">"9fc9eb60eee8b030376b236bc73be3acdbd74fd61c"</span> +
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>                            <span class="jxr_string">"1d2475fa3077b8f080467881ff7e1ca56fee066d79"</span> +
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>                            <span class="jxr_string">"506ade51edbb5443a563927dbc4ba520086746175c"</span> +
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>                            <span class="jxr_string">"8885925ebc64c6147906773496990cb714ec667304"</span> +
+<a class="jxr_linenumber" name="L314" href="#L314">314</a>                            <span class="jxr_string">"e261faee33b3cbdf008e0c3fa90650d97d3909c927"</span> +
+<a class="jxr_linenumber" name="L315" href="#L315">315</a>                            <span class="jxr_string">"5bf4ac86ffcb3d03e6dfc8ada5934242dd6d3bcca2"</span> +
+<a class="jxr_linenumber" name="L316" href="#L316">316</a>                            <span class="jxr_string">"a406cb0b"</span>, 16);
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 
+<a class="jxr_linenumber" name="L318" href="#L318">318</a>         BigInteger q2048_256 =
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"f8183668ba5fc5bb06b5981e6d8b795d30b8978d43"</span> +
+<a class="jxr_linenumber" name="L320" href="#L320">320</a>                            <span class="jxr_string">"ca0ec572e37e09939a9773"</span>, 16);
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 
+<a class="jxr_linenumber" name="L322" href="#L322">322</a>         BigInteger g2048_256 =
+<a class="jxr_linenumber" name="L323" href="#L323">323</a>             <strong class="jxr_keyword">new</strong> BigInteger(<span class="jxr_string">"42debb9da5b3d88cc956e08787ec3f3a09bba5f48b"</span> +
+<a class="jxr_linenumber" name="L324" href="#L324">324</a>                            <span class="jxr_string">"889a74aaf53174aa0fbe7e3c5b8fcd7a53bef563b0"</span> +
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>                            <span class="jxr_string">"e98560328960a9517f4014d3325fc7962bf1e04937"</span> +
+<a class="jxr_linenumber" name="L326" href="#L326">326</a>                            <span class="jxr_string">"0d76d1314a76137e792f3f0db859d095e4a5b93202"</span> +
+<a class="jxr_linenumber" name="L327" href="#L327">327</a>                            <span class="jxr_string">"4f079ecf2ef09c797452b0770e1350782ed57ddf79"</span> +
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>                            <span class="jxr_string">"4979dcef23cb96f183061965c4ebc93c9c71c56b92"</span> +
+<a class="jxr_linenumber" name="L329" href="#L329">329</a>                            <span class="jxr_string">"5955a75f94cccf1449ac43d586d0beee43251b0b22"</span> +
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>                            <span class="jxr_string">"87349d68de0d144403f13e802f4146d882e057af19"</span> +
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>                            <span class="jxr_string">"b6f6275c6676c8fa0e3ca2713a3257fd1b27d0639f"</span> +
+<a class="jxr_linenumber" name="L332" href="#L332">332</a>                            <span class="jxr_string">"695e347d8d1cf9ac819a26ca9b04cb0eb9b7b03598"</span> +
+<a class="jxr_linenumber" name="L333" href="#L333">333</a>                            <span class="jxr_string">"8d15bbac65212a55239cfc7e58fae38d7250ab9991"</span> +
+<a class="jxr_linenumber" name="L334" href="#L334">334</a>                            <span class="jxr_string">"ffbc97134025fe8ce04c4399ad96569be91a546f49"</span> +
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>                            <span class="jxr_string">"78693c7a"</span>, 16);
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> 
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>         dsaCache.put(Integer.valueOf(2048+256),
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>                 <strong class="jxr_keyword">new</strong> DSAParameterSpec(p2048_256, q2048_256, g2048_256));
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> 
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 
+<a class="jxr_linenumber" name="L341" href="#L341">341</a>         <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> <em class="jxr_comment">         * L = 3072, N = 256</em>
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> <em class="jxr_comment">         * SEED = 9fe304be4d6b9919559f39d5911d12e9 \</em>
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> <em class="jxr_comment">         *        5158d6946598cd59775b8f3b8fff3a3f</em>
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> <em class="jxr_comment">         * counter = 1186</em>
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> <em class="jxr_comment">         */</em>
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>         BigInteger p3072_256 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>                 <span class="jxr_string">"ea9cda9f5fbda66dd830494609405687ab7cf38538e058d1"</span> +
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>                 <span class="jxr_string">"e2f68dea95364866e1c05beacded24227edee28cad80bcec"</span> +
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>                 <span class="jxr_string">"ad39913be3b713267b3b96c8d9f0f6a03b5dfc9222d5cfe4"</span> +
+<a class="jxr_linenumber" name="L351" href="#L351">351</a>                 <span class="jxr_string">"afcc9982f33784f760c3b759aebe3bbe9098a6b84c96f1fd"</span> +
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>                 <span class="jxr_string">"e44ce11c084c2a082c7a76a0ef142928b4f328406ab9beb2"</span> +
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>                 <span class="jxr_string">"4f84577dd0f46ce86fd8f08488269998bf4742d6425f7a0e"</span> +
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>                 <span class="jxr_string">"c75d8660c5dd6f4e3b3d3bee81b2c21afe8c9e8b84b87192"</span> +
+<a class="jxr_linenumber" name="L355" href="#L355">355</a>                 <span class="jxr_string">"e2cc20f961d2bcd8133afcf3675ab80681cb374c78f33e29"</span> +
+<a class="jxr_linenumber" name="L356" href="#L356">356</a>                 <span class="jxr_string">"d1011083d89f9c5728b94676fccb1b57bc60288c15d85ae8"</span> +
+<a class="jxr_linenumber" name="L357" href="#L357">357</a>                 <span class="jxr_string">"38ae1941c5a20ae2b2049b3583fe30da455ddb3e6ad9b995"</span> +
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>                 <span class="jxr_string">"5cd9bb5681431622beb0f92da533fcab496cebc447aa1bb5"</span> +
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>                 <span class="jxr_string">"a8039522f2da98ff416289323a64df626ab6881870927dce"</span> +
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>                 <span class="jxr_string">"e387f13b5c9d24d6cba1d82ed375a082506ee87bc7ae3006"</span> +
+<a class="jxr_linenumber" name="L361" href="#L361">361</a>                 <span class="jxr_string">"7f4a94e2ee363d992c40f2725b5db4b3525ebde22bbbfd0f"</span> +
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>                 <span class="jxr_string">"a124a588b0f5a4acb3a86951aff09f8c8198fb5b53da0c93"</span> +
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>                 <span class="jxr_string">"1cedc598b4f835b779d04d99026c7ba08c4b27f118ac1e3d"</span>, 16);
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> 
+<a class="jxr_linenumber" name="L365" href="#L365">365</a>         BigInteger q3072_256 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L366" href="#L366">366</a>                 <span class="jxr_string">"c4eeac2bbab79bd831946d717a56a6e687547aa8e9c5494a"</span> +
+<a class="jxr_linenumber" name="L367" href="#L367">367</a>                 <span class="jxr_string">"5a4b2f4ca13d6c11"</span>, 16);
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>         BigInteger g3072_256 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>                 <span class="jxr_string">"42e5fa7844f8fa9d8998d830d004e7b15b1d276bcbe5f12c"</span> +
+<a class="jxr_linenumber" name="L371" href="#L371">371</a>                 <span class="jxr_string">"35ec90c1a25f5832018a6724bd9cdbe803b675509bed167f"</span> +
+<a class="jxr_linenumber" name="L372" href="#L372">372</a>                 <span class="jxr_string">"3d7cf8599fc865c6d5a0f79158c1bc918f00a944d0ad0f38"</span> +
+<a class="jxr_linenumber" name="L373" href="#L373">373</a>                 <span class="jxr_string">"f520fb91d85d82674d0d5f874faa5fcdfe56cd178c1afdc7"</span> +
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>                 <span class="jxr_string">"ce8795727b7dee966ed0b3c5cedcef8aca628befebf2d105"</span> +
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>                 <span class="jxr_string">"c7aff8eb0da9c9610737dd64dce1237b82c1b2bc8608d55f"</span> +
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>                 <span class="jxr_string">"fda98d7189444e65883315669c05716bde36c78b130aa3df"</span> +
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>                 <span class="jxr_string">"2e4d609914c7c8dc470f4e300187c775f81e7b1a9c0dce40"</span> +
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>                 <span class="jxr_string">"5d6eab2cbb9d9c4ef44412ba573dd403c4ed7bc2364772f5"</span> +
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>                 <span class="jxr_string">"6a30c48de78f5003f9371c55262d2c8ac2246ade3b02fdcf"</span> +
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>                 <span class="jxr_string">"cf5cbfde74fbcbfe6e0e0fdf3160764f84d311c179a40af6"</span> +
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>                 <span class="jxr_string">"79a8f47ab13c8f706893245eb11edcce451fa2ab98001998"</span> +
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>                 <span class="jxr_string">"7f125d8dc96622d419ba0d71f16c6024dce9d364c3b26d8e"</span> +
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>                 <span class="jxr_string">"c1a3c828f6c9d14b1d0333b95db77bfdbe3c6bce5337a1a5"</span> +
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>                 <span class="jxr_string">"a7ace10111219448447197e2a344cc423be768bb89e27be6"</span> +
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>                 <span class="jxr_string">"cbd22085614a5a3360be23b1bfbb6e6e6471363d32c85d31"</span>, 16);
+<a class="jxr_linenumber" name="L386" href="#L386">386</a> 
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>         dsaCache.put(Integer.valueOf(3072+256),
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>                 <strong class="jxr_keyword">new</strong> DSAParameterSpec(p3072_256, q3072_256, g3072_256));
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> 
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>         <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>         <em class="jxr_comment">// Diffie-Hellman Groups</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> 
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>         <em class="jxr_comment">// the common generator</em>
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>         BigInteger dhG = BigInteger.TWO;
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> 
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>         <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>         <em class="jxr_comment">// From RFC 7296</em>
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> 
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>         <em class="jxr_comment">// The prime is: 2^768 - 2 ^704 - 1 + 2^64 * { [2^638 pi] + 149686 }</em>
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>         BigInteger dhP768 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A63A3620FFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> 
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>         <em class="jxr_comment">// The prime is 2^1024 - 2^960 - 1 + 2^64 * { [2^894 pi] + 129093 }</em>
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>         BigInteger dhP1024 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED"</span> +
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>                 <span class="jxr_string">"EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE65381"</span> +
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> 
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>         <em class="jxr_comment">//</em>
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>         <em class="jxr_comment">// From RFC 3526</em>
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> 
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>         <em class="jxr_comment">// The prime is: 2^1536 - 2^1472 - 1 + 2^64 * { [2^1406 pi] + 741804 }</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>         BigInteger dhP1536 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED"</span> +
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>                 <span class="jxr_string">"EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3D"</span> +
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>                 <span class="jxr_string">"C2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F"</span> +
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>                 <span class="jxr_string">"83655D23DCA3AD961C62F356208552BB9ED529077096966D"</span> +
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>                 <span class="jxr_string">"670C354E4ABC9804F1746C08CA237327FFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> 
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>         <em class="jxr_comment">// This prime is: 2^2048 - 2^1984 - 1 + 2^64 * { [2^1918 pi] + 124476 }</em>
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>         BigInteger dhP2048 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED"</span> +
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>                 <span class="jxr_string">"EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3D"</span> +
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>                 <span class="jxr_string">"C2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F"</span> +
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>                 <span class="jxr_string">"83655D23DCA3AD961C62F356208552BB9ED529077096966D"</span> +
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>                 <span class="jxr_string">"670C354E4ABC9804F1746C08CA18217C32905E462E36CE3B"</span> +
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>                 <span class="jxr_string">"E39E772C180E86039B2783A2EC07A28FB5C55DF06F4C52C9"</span> +
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>                 <span class="jxr_string">"DE2BCBF6955817183995497CEA956AE515D2261898FA0510"</span> +
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>                 <span class="jxr_string">"15728E5A8AACAA68FFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> 
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>         <em class="jxr_comment">// This prime is: 2^3072 - 2^3008 - 1 + 2^64 * { [2^2942 pi] + 1690314 }</em>
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>         BigInteger dhP3072 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED"</span> +
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>                 <span class="jxr_string">"EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3D"</span> +
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>                 <span class="jxr_string">"C2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F"</span> +
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>                 <span class="jxr_string">"83655D23DCA3AD961C62F356208552BB9ED529077096966D"</span> +
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>                 <span class="jxr_string">"670C354E4ABC9804F1746C08CA18217C32905E462E36CE3B"</span> +
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>                 <span class="jxr_string">"E39E772C180E86039B2783A2EC07A28FB5C55DF06F4C52C9"</span> +
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>                 <span class="jxr_string">"DE2BCBF6955817183995497CEA956AE515D2261898FA0510"</span> +
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>                 <span class="jxr_string">"15728E5A8AAAC42DAD33170D04507A33A85521ABDF1CBA64"</span> +
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>                 <span class="jxr_string">"ECFB850458DBEF0A8AEA71575D060C7DB3970F85A6E1E4C7"</span> +
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>                 <span class="jxr_string">"ABF5AE8CDB0933D71E8C94E04A25619DCEE3D2261AD2EE6B"</span> +
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>                 <span class="jxr_string">"F12FFA06D98A0864D87602733EC86A64521F2B18177B200C"</span> +
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>                 <span class="jxr_string">"BBE117577A615D6C770988C0BAD946E208E24FA074E5AB31"</span> +
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>                 <span class="jxr_string">"43DB5BFCE0FD108E4B82D120A93AD2CAFFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L462" href="#L462">462</a> 
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>         <em class="jxr_comment">// This prime is: 2^4096 - 2^4032 - 1 + 2^64 * { [2^3966 pi] + 240904 }</em>
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>         BigInteger dhP4096 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED"</span> +
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>                 <span class="jxr_string">"EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3D"</span> +
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>                 <span class="jxr_string">"C2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F"</span> +
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>                 <span class="jxr_string">"83655D23DCA3AD961C62F356208552BB9ED529077096966D"</span> +
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>                 <span class="jxr_string">"670C354E4ABC9804F1746C08CA18217C32905E462E36CE3B"</span> +
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>                 <span class="jxr_string">"E39E772C180E86039B2783A2EC07A28FB5C55DF06F4C52C9"</span> +
+<a class="jxr_linenumber" name="L474" href="#L474">474</a>                 <span class="jxr_string">"DE2BCBF6955817183995497CEA956AE515D2261898FA0510"</span> +
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>                 <span class="jxr_string">"15728E5A8AAAC42DAD33170D04507A33A85521ABDF1CBA64"</span> +
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>                 <span class="jxr_string">"ECFB850458DBEF0A8AEA71575D060C7DB3970F85A6E1E4C7"</span> +
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>                 <span class="jxr_string">"ABF5AE8CDB0933D71E8C94E04A25619DCEE3D2261AD2EE6B"</span> +
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>                 <span class="jxr_string">"F12FFA06D98A0864D87602733EC86A64521F2B18177B200C"</span> +
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>                 <span class="jxr_string">"BBE117577A615D6C770988C0BAD946E208E24FA074E5AB31"</span> +
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>                 <span class="jxr_string">"43DB5BFCE0FD108E4B82D120A92108011A723C12A787E6D7"</span> +
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>                 <span class="jxr_string">"88719A10BDBA5B2699C327186AF4E23C1A946834B6150BDA"</span> +
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>                 <span class="jxr_string">"2583E9CA2AD44CE8DBBBC2DB04DE8EF92E8EFC141FBECAA6"</span> +
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>                 <span class="jxr_string">"287C59474E6BC05D99B2964FA090C3A2233BA186515BE7ED"</span> +
+<a class="jxr_linenumber" name="L484" href="#L484">484</a>                 <span class="jxr_string">"1F612970CEE2D7AFB81BDD762170481CD0069127D5B05AA9"</span> +
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>                 <span class="jxr_string">"93B4EA988D8FDDC186FFB7DC90A6C08F4DF435C934063199"</span> +
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L487" href="#L487">487</a> 
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>         <em class="jxr_comment">// This prime is: 2^6144 - 2^6080 - 1 + 2^64 * { [2^6014 pi] + 929484 }</em>
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>         BigInteger dhP6144 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E08"</span> +
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>                 <span class="jxr_string">"8A67CC74020BBEA63B139B22514A08798E3404DDEF9519B3CD3A431B"</span> +
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>                 <span class="jxr_string">"302B0A6DF25F14374FE1356D6D51C245E485B576625E7EC6F44C42E9"</span> +
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>                 <span class="jxr_string">"A637ED6B0BFF5CB6F406B7EDEE386BFB5A899FA5AE9F24117C4B1FE6"</span> +
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>                 <span class="jxr_string">"49286651ECE45B3DC2007CB8A163BF0598DA48361C55D39A69163FA8"</span> +
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>                 <span class="jxr_string">"FD24CF5F83655D23DCA3AD961C62F356208552BB9ED529077096966D"</span> +
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>                 <span class="jxr_string">"670C354E4ABC9804F1746C08CA18217C32905E462E36CE3BE39E772C"</span> +
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>                 <span class="jxr_string">"180E86039B2783A2EC07A28FB5C55DF06F4C52C9DE2BCBF695581718"</span> +
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>                 <span class="jxr_string">"3995497CEA956AE515D2261898FA051015728E5A8AAAC42DAD33170D"</span> +
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>                 <span class="jxr_string">"04507A33A85521ABDF1CBA64ECFB850458DBEF0A8AEA71575D060C7D"</span> +
+<a class="jxr_linenumber" name="L500" href="#L500">500</a>                 <span class="jxr_string">"B3970F85A6E1E4C7ABF5AE8CDB0933D71E8C94E04A25619DCEE3D226"</span> +
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>                 <span class="jxr_string">"1AD2EE6BF12FFA06D98A0864D87602733EC86A64521F2B18177B200C"</span> +
+<a class="jxr_linenumber" name="L502" href="#L502">502</a>                 <span class="jxr_string">"BBE117577A615D6C770988C0BAD946E208E24FA074E5AB3143DB5BFC"</span> +
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>                 <span class="jxr_string">"E0FD108E4B82D120A92108011A723C12A787E6D788719A10BDBA5B26"</span> +
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>                 <span class="jxr_string">"99C327186AF4E23C1A946834B6150BDA2583E9CA2AD44CE8DBBBC2DB"</span> +
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>                 <span class="jxr_string">"04DE8EF92E8EFC141FBECAA6287C59474E6BC05D99B2964FA090C3A2"</span> +
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>                 <span class="jxr_string">"233BA186515BE7ED1F612970CEE2D7AFB81BDD762170481CD0069127"</span> +
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>                 <span class="jxr_string">"D5B05AA993B4EA988D8FDDC186FFB7DC90A6C08F4DF435C934028492"</span> +
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>                 <span class="jxr_string">"36C3FAB4D27C7026C1D4DCB2602646DEC9751E763DBA37BDF8FF9406"</span> +
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>                 <span class="jxr_string">"AD9E530EE5DB382F413001AEB06A53ED9027D831179727B0865A8918"</span> +
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>                 <span class="jxr_string">"DA3EDBEBCF9B14ED44CE6CBACED4BB1BDB7F1447E6CC254B33205151"</span> +
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>                 <span class="jxr_string">"2BD7AF426FB8F401378CD2BF5983CA01C64B92ECF032EA15D1721D03"</span> +
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>                 <span class="jxr_string">"F482D7CE6E74FEF6D55E702F46980C82B5A84031900B1C9E59E7C97F"</span> +
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>                 <span class="jxr_string">"BEC7E8F323A97A7E36CC88BE0F1D45B7FF585AC54BD407B22B4154AA"</span> +
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>                 <span class="jxr_string">"CC8F6D7EBF48E1D814CC5ED20F8037E0A79715EEF29BE32806A1D58B"</span> +
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>                 <span class="jxr_string">"B7C5DA76F550AA3D8A1FBFF0EB19CCB1A313D55CDA56C9EC2EF29632"</span> +
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>                 <span class="jxr_string">"387FE8D76E3C0468043E8F663F4860EE12BF2D5B0B7474D6E694F91E"</span> +
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>                 <span class="jxr_string">"6DCC4024FFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L518" href="#L518">518</a> 
+<a class="jxr_linenumber" name="L519" href="#L519">519</a>         <em class="jxr_comment">// This prime is: 2^8192 - 2^8128 - 1 + 2^64 * { [2^8062 pi] + 4743158 }</em>
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>         BigInteger dhP8192 = <strong class="jxr_keyword">new</strong> BigInteger(
+<a class="jxr_linenumber" name="L521" href="#L521">521</a>                 <span class="jxr_string">"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1"</span> +
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>                 <span class="jxr_string">"29024E088A67CC74020BBEA63B139B22514A08798E3404DD"</span> +
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>                 <span class="jxr_string">"EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245"</span> +
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>                 <span class="jxr_string">"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED"</span> +
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>                 <span class="jxr_string">"EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3D"</span> +
+<a class="jxr_linenumber" name="L526" href="#L526">526</a>                 <span class="jxr_string">"C2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F"</span> +
+<a class="jxr_linenumber" name="L527" href="#L527">527</a>                 <span class="jxr_string">"83655D23DCA3AD961C62F356208552BB9ED529077096966D"</span> +
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>                 <span class="jxr_string">"670C354E4ABC9804F1746C08CA18217C32905E462E36CE3B"</span> +
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>                 <span class="jxr_string">"E39E772C180E86039B2783A2EC07A28FB5C55DF06F4C52C9"</span> +
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>                 <span class="jxr_string">"DE2BCBF6955817183995497CEA956AE515D2261898FA0510"</span> +
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>                 <span class="jxr_string">"15728E5A8AAAC42DAD33170D04507A33A85521ABDF1CBA64"</span> +
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>                 <span class="jxr_string">"ECFB850458DBEF0A8AEA71575D060C7DB3970F85A6E1E4C7"</span> +
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>                 <span class="jxr_string">"ABF5AE8CDB0933D71E8C94E04A25619DCEE3D2261AD2EE6B"</span> +
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>                 <span class="jxr_string">"F12FFA06D98A0864D87602733EC86A64521F2B18177B200C"</span> +
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>                 <span class="jxr_string">"BBE117577A615D6C770988C0BAD946E208E24FA074E5AB31"</span> +
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>                 <span class="jxr_string">"43DB5BFCE0FD108E4B82D120A92108011A723C12A787E6D7"</span> +
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>                 <span class="jxr_string">"88719A10BDBA5B2699C327186AF4E23C1A946834B6150BDA"</span> +
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>                 <span class="jxr_string">"2583E9CA2AD44CE8DBBBC2DB04DE8EF92E8EFC141FBECAA6"</span> +
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>                 <span class="jxr_string">"287C59474E6BC05D99B2964FA090C3A2233BA186515BE7ED"</span> +
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>                 <span class="jxr_string">"1F612970CEE2D7AFB81BDD762170481CD0069127D5B05AA9"</span> +
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>                 <span class="jxr_string">"93B4EA988D8FDDC186FFB7DC90A6C08F4DF435C934028492"</span> +
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>                 <span class="jxr_string">"36C3FAB4D27C7026C1D4DCB2602646DEC9751E763DBA37BD"</span> +
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>                 <span class="jxr_string">"F8FF9406AD9E530EE5DB382F413001AEB06A53ED9027D831"</span> +
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>                 <span class="jxr_string">"179727B0865A8918DA3EDBEBCF9B14ED44CE6CBACED4BB1B"</span> +
+<a class="jxr_linenumber" name="L545" href="#L545">545</a>                 <span class="jxr_string">"DB7F1447E6CC254B332051512BD7AF426FB8F401378CD2BF"</span> +
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>                 <span class="jxr_string">"5983CA01C64B92ECF032EA15D1721D03F482D7CE6E74FEF6"</span> +
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>                 <span class="jxr_string">"D55E702F46980C82B5A84031900B1C9E59E7C97FBEC7E8F3"</span> +
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>                 <span class="jxr_string">"23A97A7E36CC88BE0F1D45B7FF585AC54BD407B22B4154AA"</span> +
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>                 <span class="jxr_string">"CC8F6D7EBF48E1D814CC5ED20F8037E0A79715EEF29BE328"</span> +
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>                 <span class="jxr_string">"06A1D58BB7C5DA76F550AA3D8A1FBFF0EB19CCB1A313D55C"</span> +
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>                 <span class="jxr_string">"DA56C9EC2EF29632387FE8D76E3C0468043E8F663F4860EE"</span> +
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>                 <span class="jxr_string">"12BF2D5B0B7474D6E694F91E6DBE115974A3926F12FEE5E4"</span> +
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>                 <span class="jxr_string">"38777CB6A932DF8CD8BEC4D073B931BA3BC832B68D9DD300"</span> +
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>                 <span class="jxr_string">"741FA7BF8AFC47ED2576F6936BA424663AAB639C5AE4F568"</span> +
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>                 <span class="jxr_string">"3423B4742BF1C978238F16CBE39D652DE3FDB8BEFC848AD9"</span> +
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>                 <span class="jxr_string">"22222E04A4037C0713EB57A81A23F0C73473FC646CEA306B"</span> +
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>                 <span class="jxr_string">"4BCBC8862F8385DDFA9D4B7FA2C087E879683303ED5BDD3A"</span> +
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>                 <span class="jxr_string">"062B3CF5B3A278A66D2A13F83F44F82DDF310EE074AB6A36"</span> +
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>                 <span class="jxr_string">"4597E899A0255DC164F31CC50846851DF9AB48195DED7EA1"</span> +
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>                 <span class="jxr_string">"B1D510BD7EE74D73FAF36BC31ECFA268359046F4EB879F92"</span> +
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>                 <span class="jxr_string">"4009438B481C6CD7889A002ED5EE382BC9190DA6FC026E47"</span> +
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>                 <span class="jxr_string">"9558E4475677E9AA9E3050E2765694DFC81F56E880B96E71"</span> +
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>                 <span class="jxr_string">"60C980DD98EDD3DFFFFFFFFFFFFFFFFF"</span>, 16);
+<a class="jxr_linenumber" name="L564" href="#L564">564</a> 
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>         <em class="jxr_comment">// use DSA parameters for DH for sizes not defined in RFC 7296, 3526</em>
+<a class="jxr_linenumber" name="L566" href="#L566">566</a>         dhCache.put(Integer.valueOf(512), <strong class="jxr_keyword">new</strong> DHParameterSpec(p512, g512));
+<a class="jxr_linenumber" name="L567" href="#L567">567</a> 
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>         dhCache.put(Integer.valueOf(768), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP768, dhG));
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>         dhCache.put(Integer.valueOf(1024), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP1024, dhG));
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>         dhCache.put(Integer.valueOf(1536), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP1536, dhG));
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>         dhCache.put(Integer.valueOf(2048), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP2048, dhG));
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>         dhCache.put(Integer.valueOf(3072), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP3072, dhG));
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>         dhCache.put(Integer.valueOf(4096), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP4096, dhG));
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>         dhCache.put(Integer.valueOf(6144), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP6144, dhG));
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>         dhCache.put(Integer.valueOf(8192), <strong class="jxr_keyword">new</strong> DHParameterSpec(dhP8192, dhG));
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>     }
+<a class="jxr_linenumber" name="L577" href="#L577">577</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">WhitespaceAfter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												tokens
+												
+													<li>COMMA, SEMI, TYPECAST, LITERAL_IF, LITERAL_ELSE,             LITERAL_WHILE, LITERAL_DO, LITERAL_FOR, DO_WHILE</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">316</td>
+							<td id="totalPatch">15 (15 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">15 (15 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">11 files with differences</td>
+							<td id="totalDiff">15 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">15 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckModuleStatisticsPatch">15 (15 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckModuleNumDiff">15</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">15</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\samples\spring-hibernate\src\org\jsecurity\samples\sprhib\party\User.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;for&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\samples\spring-hibernate\src\org\jsecurity\samples\sprhib\party\User.java.html#L393">393</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\samples\spring\src\org\jsecurity\samples\spring\web\LogoutController.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\samples\spring\src\org\jsecurity\samples\spring\web\LogoutController.java.html#L46">46</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\SimpleAccount.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\SimpleAccount.java.html#L204">204</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\pam\AbstractAuthenticationStrategy.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\pam\AbstractAuthenticationStrategy.java.html#L61">61</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;typecast&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\pam\AbstractAuthenticationStrategy.java.html#L62">62</a></td>
+								
+								
+									
+									<td class="keepWidth">41</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\pam\AllSuccessfulModularAuthenticationStrategy.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\pam\AllSuccessfulModularAuthenticationStrategy.java.html#L80">80</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;typecast&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\authc\pam\AllSuccessfulModularAuthenticationStrategy.java.html#L81">81</a></td>
+								
+								
+									
+									<td class="keepWidth">41</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\config\ReflectionBuilder.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\config\ReflectionBuilder.java.html#L102">102</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\realm\activedirectory\ActiveDirectoryRealm.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\realm\activedirectory\ActiveDirectoryRealm.java.html#L168">168</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\realm\text\TextConfigurationRealm.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\realm\text\TextConfigurationRealm.java.html#L179">179</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\subject\AbstractRememberMeManager.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\subject\AbstractRememberMeManager.java.html#L220">220</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\util\AntPathMatcher.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\util\AntPathMatcher.java.html#L268">268</a></td>
+								
+								
+									
+									<td class="keepWidth">37</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\util\AntPathMatcher.java.html#L284">284</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\util\AntPathMatcher.java.html#L305">305</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\web\SavedRequest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\apache-jsecurity\src\org\jsecurity\web\SavedRequest.java.html#L60">60</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

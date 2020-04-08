@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Resources_ko xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.  Oracle designates this</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> * particular file as subject to the "Classpath" exception as provided</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * by Oracle in the LICENSE file that accompanied this code.</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">package</strong> sun.security.util;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> * This class represents the &lt;code&gt;ResourceBundle&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * for javax.security.auth and sun.security.</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Resources_ko <strong class="jxr_keyword">extends</strong> java.util.ListResourceBundle {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Object[][] contents = {
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <em class="jxr_comment">// javax.security.auth.PrivateCredentialPermission</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          {<span class="jxr_string">"invalid.null.input.s."</span>, <span class="jxr_string">"\uB110 \uC785\uB825\uAC12\uC774 \uBD80\uC801\uD569\uD569\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          {<span class="jxr_string">"actions.can.only.be.read."</span>, <span class="jxr_string">"\uC791\uC5C5\uC740 '\uC77D\uAE30' \uC804\uC6A9\uC785\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          {<span class="jxr_string">"permission.name.name.syntax.invalid."</span>,
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>                  <span class="jxr_string">"\uAD8C\uD55C \uC774\uB984 [{0}] \uAD6C\uBB38\uC774 \uBD80\uC801\uD569\uD568: "</span>},
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          {<span class="jxr_string">"Credential.Class.not.followed.by.a.Principal.Class.and.Name"</span>,
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>                  <span class="jxr_string">"\uC778\uC99D\uC11C \uD074\uB798\uC2A4 \uB2E4\uC74C\uC5D0 \uC8FC\uCCB4 \uD074\uB798\uC2A4\uC640 \uC774\uB984\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          {<span class="jxr_string">"Principal.Class.not.followed.by.a.Principal.Name"</span>,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>                  <span class="jxr_string">"\uC8FC\uCCB4 \uD074\uB798\uC2A4 \uB2E4\uC74C\uC5D0 \uC8FC\uCCB4 \uC774\uB984\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          {<span class="jxr_string">"Principal.Name.must.be.surrounded.by.quotes"</span>,
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>                  <span class="jxr_string">"\uC8FC\uCCB4 \uC774\uB984\uC740 \uB530\uC634\uD45C\uB85C \uBB36\uC5B4\uC57C \uD569\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          {<span class="jxr_string">"Principal.Name.missing.end.quote"</span>,
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>                  <span class="jxr_string">"\uC8FC\uCCB4 \uC774\uB984\uC5D0 \uB2EB\uB294 \uB530\uC634\uD45C\uAC00 \uB204\uB77D\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          {<span class="jxr_string">"PrivateCredentialPermission.Principal.Class.can.not.be.a.wildcard.value.if.Principal.Name.is.not.a.wildcard.value"</span>,
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>                  <span class="jxr_string">"\uC8FC\uCCB4 \uC774\uB984\uC774 \uC640\uC77C\uB4DC \uCE74\uB4DC \uBB38\uC790(*) \uAC12\uC774 \uC544\uB2CC \uACBD\uC6B0 PrivateCredentialPermission \uC8FC\uCCB4 \uD074\uB798\uC2A4\uB294 \uC640\uC77C\uB4DC \uCE74\uB4DC \uBB38\uC790(*) \uAC12\uC77C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          {<span class="jxr_string">"CredOwner.Principal.Class.class.Principal.Name.name"</span>,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                  <span class="jxr_string">"CredOwner:\n\t\uC8FC\uCCB4 \uD074\uB798\uC2A4 = {0}\n\t\uC8FC\uCCB4 \uC774\uB984 = {1}"</span>},
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <em class="jxr_comment">// javax.security.auth.x500</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          {<span class="jxr_string">"provided.null.name"</span>, <span class="jxr_string">"\uB110 \uC774\uB984\uC744 \uC81C\uACF5\uD588\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          {<span class="jxr_string">"provided.null.keyword.map"</span>, <span class="jxr_string">"\uB110 \uD0A4\uC6CC\uB4DC \uB9F5\uC744 \uC81C\uACF5\uD588\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          {<span class="jxr_string">"provided.null.OID.map"</span>, <span class="jxr_string">"\uB110 OID \uB9F5\uC744 \uC81C\uACF5\uD588\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <em class="jxr_comment">// javax.security.auth.Subject</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          {<span class="jxr_string">"NEWLINE"</span>, <span class="jxr_string">"\n"</span>},
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          {<span class="jxr_string">"invalid.null.AccessControlContext.provided"</span>,
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                  <span class="jxr_string">"\uBD80\uC801\uD569\uD55C \uB110 AccessControlContext\uAC00 \uC81C\uACF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          {<span class="jxr_string">"invalid.null.action.provided"</span>, <span class="jxr_string">"\uBD80\uC801\uD569\uD55C \uB110 \uC791\uC5C5\uC774 \uC81C\uACF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          {<span class="jxr_string">"invalid.null.Class.provided"</span>, <span class="jxr_string">"\uBD80\uC801\uD569\uD55C \uB110 \uD074\uB798\uC2A4\uAC00 \uC81C\uACF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          {<span class="jxr_string">"Subject."</span>, <span class="jxr_string">"\uC81C\uBAA9:\n"</span>},
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          {<span class="jxr_string">".Principal."</span>, <span class="jxr_string">"&#92;&#92;\uC8FC\uCCB4: "</span>},
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          {<span class="jxr_string">".Public.Credential."</span>, <span class="jxr_string">"\t\uACF5\uC6A9 \uC778\uC99D\uC11C: "</span>},
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          {<span class="jxr_string">".Private.Credentials.inaccessible."</span>,
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                  <span class="jxr_string">"\t\uC804\uC6A9 \uC778\uC99D\uC11C\uC5D0 \uC561\uC138\uC2A4\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.\n"</span>},
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          {<span class="jxr_string">".Private.Credential."</span>, <span class="jxr_string">"\t\uC804\uC6A9 \uC778\uC99D\uC11C: "</span>},
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          {<span class="jxr_string">".Private.Credential.inaccessible."</span>,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                  <span class="jxr_string">"\t\uC804\uC6A9 \uC778\uC99D\uC11C\uC5D0 \uC561\uC138\uC2A4\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.\n"</span>},
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          {<span class="jxr_string">"Subject.is.read.only"</span>, <span class="jxr_string">"\uC81C\uBAA9\uC774 \uC77D\uAE30 \uC804\uC6A9\uC785\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          {<span class="jxr_string">"attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"</span>,
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                  <span class="jxr_string">"java.security.Principal\uC758 \uC778\uC2A4\uD134\uC2A4\uAC00 \uC544\uB2CC \uAC1D\uCCB4\uB97C \uC81C\uBAA9\uC758 \uC8FC\uCCB4 \uC9D1\uD569\uC5D0 \uCD94\uAC00\uD558\uB824\uACE0 \uC2DC\uB3C4\uD558\uB294 \uC911"</span>},
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          {<span class="jxr_string">"attempting.to.add.an.object.which.is.not.an.instance.of.class"</span>,
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>                  <span class="jxr_string">"{0}\uC758 \uC778\uC2A4\uD134\uC2A4\uAC00 \uC544\uB2CC \uAC1D\uCCB4\uB97C \uCD94\uAC00\uD558\uB824\uACE0 \uC2DC\uB3C4\uD558\uB294 \uC911"</span>},
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <em class="jxr_comment">// javax.security.auth.login.AppConfigurationEntry</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          {<span class="jxr_string">"LoginModuleControlFlag."</span>, <span class="jxr_string">"LoginModuleControlFlag: "</span>},
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <em class="jxr_comment">// javax.security.auth.login.LoginContext</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          {<span class="jxr_string">"Invalid.null.input.name"</span>, <span class="jxr_string">"\uBD80\uC801\uD569\uD55C \uB110 \uC785\uB825\uAC12: \uC774\uB984"</span>},
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          {<span class="jxr_string">"No.LoginModules.configured.for.name"</span>,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>           <span class="jxr_string">"{0}\uC5D0 \uB300\uD574 \uAD6C\uC131\uB41C LoginModules\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          {<span class="jxr_string">"invalid.null.Subject.provided"</span>, <span class="jxr_string">"\uBD80\uC801\uD569\uD55C \uB110 \uC81C\uBAA9\uC774 \uC81C\uACF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          {<span class="jxr_string">"invalid.null.CallbackHandler.provided"</span>,
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>                  <span class="jxr_string">"\uBD80\uC801\uD569\uD55C \uB110 CallbackHandler\uAC00 \uC81C\uACF5\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          {<span class="jxr_string">"null.subject.logout.called.before.login"</span>,
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>                  <span class="jxr_string">"\uB110 \uC81C\uBAA9 - \uB85C\uADF8\uC778 \uC804\uC5D0 \uB85C\uADF8\uC544\uC6C3\uC774 \uD638\uCD9C\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          {<span class="jxr_string">"unable.to.instantiate.LoginModule.module.because.it.does.not.provide.a.no.argument.constructor"</span>,
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>                  <span class="jxr_string">"\uC778\uC218\uAC00 \uC5C6\uB294 \uC0DD\uC131\uC790\uB97C \uC81C\uACF5\uD558\uC9C0 \uC54A\uC544 LoginModule {0}\uC744(\uB97C) \uC778\uC2A4\uD134\uC2A4\uD654\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          {<span class="jxr_string">"unable.to.instantiate.LoginModule"</span>,
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>                  <span class="jxr_string">"LoginModule\uC744 \uC778\uC2A4\uD134\uC2A4\uD654\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          {<span class="jxr_string">"unable.to.instantiate.LoginModule."</span>,
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>                  <span class="jxr_string">"LoginModule\uC744 \uC778\uC2A4\uD134\uC2A4\uD654\uD560 \uC218 \uC5C6\uC74C: "</span>},
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          {<span class="jxr_string">"unable.to.find.LoginModule.class."</span>,
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>                  <span class="jxr_string">"LoginModule \uD074\uB798\uC2A4\uB97C \uCC3E\uC744 \uC218 \uC5C6\uC74C: "</span>},
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         {<span class="jxr_string">"unable.to.access.LoginModule."</span>,
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>                 <span class="jxr_string">"LoginModule\uC5D0 \uC561\uC138\uC2A4\uD560 \uC218 \uC5C6\uC74C: "</span>},
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         {<span class="jxr_string">"Login.Failure.all.modules.ignored"</span>,
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>                 <span class="jxr_string">"\uB85C\uADF8\uC778 \uC2E4\uD328: \uBAA8\uB4E0 \uBAA8\uB4C8\uC774 \uBB34\uC2DC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         <em class="jxr_comment">// sun.security.provider.PolicyFile</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> 
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         {<span class="jxr_string">"java.security.policy.error.parsing.policy.message"</span>,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>                 <span class="jxr_string">"java.security.policy: {0}\uC758 \uAD6C\uBB38\uC744 \uBD84\uC11D\uD558\uB294 \uC911 \uC624\uB958 \uBC1C\uC0DD:\n\t{1}"</span>},
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         {<span class="jxr_string">"java.security.policy.error.adding.Permission.perm.message"</span>,
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>                 <span class="jxr_string">"java.security.policy: {0} \uAD8C\uD55C\uC744 \uCD94\uAC00\uD558\uB294 \uC911 \uC624\uB958 \uBC1C\uC0DD:\n\t{1}"</span>},
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         {<span class="jxr_string">"java.security.policy.error.adding.Entry.message"</span>,
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>                 <span class="jxr_string">"java.security.policy: \uD56D\uBAA9\uC744 \uCD94\uAC00\uD558\uB294 \uC911 \uC624\uB958 \uBC1C\uC0DD:\n\t{0}"</span>},
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         {<span class="jxr_string">"alias.name.not.provided.pe.name."</span>, <span class="jxr_string">"\uBCC4\uCE6D \uC774\uB984\uC774 \uC81C\uACF5\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4({0})."</span>},
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         {<span class="jxr_string">"unable.to.perform.substitution.on.alias.suffix"</span>,
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>                 <span class="jxr_string">"{0} \uBCC4\uCE6D\uC744 \uB300\uCCB4\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         {<span class="jxr_string">"substitution.value.prefix.unsupported"</span>,
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>                 <span class="jxr_string">"\uB300\uCCB4 \uAC12 {0}\uC740(\uB294) \uC9C0\uC6D0\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         {<span class="jxr_string">"LPARAM"</span>, <span class="jxr_string">"("</span>},
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         {<span class="jxr_string">"RPARAM"</span>, <span class="jxr_string">")"</span>},
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         {<span class="jxr_string">"type.can.t.be.null"</span>,<span class="jxr_string">"\uC720\uD615\uC740 \uB110\uC77C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> 
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>         <em class="jxr_comment">// sun.security.provider.PolicyParser</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>         {<span class="jxr_string">"keystorePasswordURL.can.not.be.specified.without.also.specifying.keystore"</span>,
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                 <span class="jxr_string">"\uD0A4 \uC800\uC7A5\uC18C\uB97C \uC9C0\uC815\uD558\uC9C0 \uC54A\uACE0 keystorePasswordURL\uC744 \uC9C0\uC815\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         {<span class="jxr_string">"expected.keystore.type"</span>, <span class="jxr_string">"\uD0A4 \uC800\uC7A5\uC18C \uC720\uD615\uC774 \uD544\uC694\uD569\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>         {<span class="jxr_string">"expected.keystore.provider"</span>, <span class="jxr_string">"\uD0A4 \uC800\uC7A5\uC18C \uC81C\uACF5\uC790\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         {<span class="jxr_string">"multiple.Codebase.expressions"</span>,
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>                 <span class="jxr_string">"Codebase \uD45C\uD604\uC2DD\uC774 \uC5EC\uB7EC \uAC1C\uC785\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         {<span class="jxr_string">"multiple.SignedBy.expressions"</span>,<span class="jxr_string">"SignedBy \uD45C\uD604\uC2DD\uC774 \uC5EC\uB7EC \uAC1C\uC785\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>         {<span class="jxr_string">"duplicate.keystore.domain.name"</span>,<span class="jxr_string">"\uC911\uBCF5\uB41C \uD0A4 \uC800\uC7A5\uC18C \uB3C4\uBA54\uC778 \uC774\uB984: {0}"</span>},
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>         {<span class="jxr_string">"duplicate.keystore.name"</span>,<span class="jxr_string">"\uC911\uBCF5\uB41C \uD0A4 \uC800\uC7A5\uC18C \uC774\uB984: {0}"</span>},
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>         {<span class="jxr_string">"SignedBy.has.empty.alias"</span>,<span class="jxr_string">"SignedBy\uC758 \uBCC4\uCE6D\uC774 \uBE44\uC5B4 \uC788\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         {<span class="jxr_string">"can.not.specify.Principal.with.a.wildcard.class.without.a.wildcard.name"</span>,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                 <span class="jxr_string">"\uC640\uC77C\uB4DC \uCE74\uB4DC \uBB38\uC790 \uC774\uB984 \uC5C6\uC774 \uC640\uC77C\uB4DC \uCE74\uB4DC \uBB38\uC790 \uD074\uB798\uC2A4\uB97C \uC0AC\uC6A9\uD558\uB294 \uC8FC\uCCB4\uB97C \uC9C0\uC815\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>         {<span class="jxr_string">"expected.codeBase.or.SignedBy.or.Principal"</span>,
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                 <span class="jxr_string">"codeBase, SignedBy \uB610\uB294 \uC8FC\uCCB4\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>         {<span class="jxr_string">"expected.permission.entry"</span>, <span class="jxr_string">"\uAD8C\uD55C \uD56D\uBAA9\uC774 \uD544\uC694\uD569\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>         {<span class="jxr_string">"number."</span>, <span class="jxr_string">"\uC22B\uC790 "</span>},
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         {<span class="jxr_string">"expected.expect.read.end.of.file."</span>,
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>                 <span class="jxr_string">"[{0}]\uC774(\uAC00) \uD544\uC694\uD558\uC9C0\uB9CC [\uD30C\uC77C\uC758 \uB05D]\uAE4C\uC9C0 \uC77D\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>         {<span class="jxr_string">"expected.read.end.of.file."</span>,
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>                 <span class="jxr_string">"[;]\uC774 \uD544\uC694\uD558\uC9C0\uB9CC [\uD30C\uC77C\uC758 \uB05D]\uAE4C\uC9C0 \uC77D\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>         {<span class="jxr_string">"line.number.msg"</span>, <span class="jxr_string">"{0} \uD589: {1}"</span>},
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         {<span class="jxr_string">"line.number.expected.expect.found.actual."</span>,
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                 <span class="jxr_string">"{0} \uD589: [{1}]\uC774(\uAC00) \uD544\uC694\uD558\uC9C0\uB9CC [{2}]\uC774(\uAC00) \uBC1C\uACAC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>         {<span class="jxr_string">"null.principalClass.or.principalName"</span>,
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                 <span class="jxr_string">"principalClass \uB610\uB294 principalName\uC774 \uB110\uC785\uB2C8\uB2E4."</span>},
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>         <em class="jxr_comment">// sun.security.pkcs11.SunPKCS11</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         {<span class="jxr_string">"PKCS11.Token.providerName.Password."</span>,
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>                 <span class="jxr_string">"PKCS11 \uD1A0\uD070 [{0}] \uBE44\uBC00\uBC88\uD638: "</span>},
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>         <em class="jxr_comment">/* --- DEPRECATED --- */</em>
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>         <em class="jxr_comment">// javax.security.auth.Policy</em>
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         {<span class="jxr_string">"unable.to.instantiate.Subject.based.policy"</span>,
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                 <span class="jxr_string">"\uC81C\uBAA9 \uAE30\uBC18 \uC815\uCC45\uC744 \uC778\uC2A4\uD134\uC2A4\uD654\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."</span>}
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     };
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> <em class="jxr_javadoccomment">     * Returns the contents of this &lt;code&gt;ResourceBundle&lt;/code&gt;.</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_javadoccomment">     * @return the contents of this &lt;code&gt;ResourceBundle&lt;/code&gt;.</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>     @Override
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>     <strong class="jxr_keyword">public</strong> Object[][] getContents() {
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>         <strong class="jxr_keyword">return</strong> contents;
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>     }
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> }
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

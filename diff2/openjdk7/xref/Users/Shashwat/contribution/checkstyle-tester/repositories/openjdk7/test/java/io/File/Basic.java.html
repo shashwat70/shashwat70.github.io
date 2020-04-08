@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Basic xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 1998, 2010, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/* @test</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment">   @bug 4165666 4203706 4288670 4290024</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment">   @summary Basic heartbeat test for File methods that access the filesystem</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment">   @build Basic</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment">   @run shell basic.sh</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.io.PrintStream;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.io.RandomAccessFile;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Basic {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">static</strong> PrintStream out = System.err;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      <strong class="jxr_keyword">static</strong> File nonExistantFile = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.non"</span>);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">static</strong> File rwFile = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.rw"</span>);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      <strong class="jxr_keyword">static</strong> File bigFile = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.big"</span>);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">static</strong> File roFile = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.ro"</span>);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">static</strong> File thisDir = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"."</span>);
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">static</strong> File dir = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.dir"</span>);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">static</strong> File nonDir = <strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.nonDir"</span>);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> showBoolean(String what, <strong class="jxr_keyword">boolean</strong> value) {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          out.println(<span class="jxr_string">"  "</span> + what + <span class="jxr_string">": "</span> + value);
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      }
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> showLong(String what, <strong class="jxr_keyword">long</strong> value) {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          out.println(<span class="jxr_string">"  "</span> + what + <span class="jxr_string">": "</span> + value);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      }
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> show(File f) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          out.println(f + <span class="jxr_string">": "</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          showBoolean(<span class="jxr_string">"exists"</span>, f.exists());
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          showBoolean(<span class="jxr_string">"isFile"</span>, f.isFile());
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          showBoolean(<span class="jxr_string">"isDirectory"</span>, f.isDirectory());
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          showBoolean(<span class="jxr_string">"canRead"</span>, f.canRead());
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          showBoolean(<span class="jxr_string">"canWrite"</span>, f.canWrite());
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          showLong(<span class="jxr_string">"lastModified"</span>, f.lastModified());
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          showLong(<span class="jxr_string">"length"</span>, f.length());
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      }
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> testFile(File f, <strong class="jxr_keyword">boolean</strong> writeable, <strong class="jxr_keyword">long</strong> length)
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          <strong class="jxr_keyword">throws</strong> Exception
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      {
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <strong class="jxr_keyword">if</strong> (!f.exists()) fail(f, <span class="jxr_string">"does not exist"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <strong class="jxr_keyword">if</strong> (!f.isFile()) fail(f, <span class="jxr_string">"is not a file"</span>);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <strong class="jxr_keyword">if</strong> (f.isDirectory()) fail(f, <span class="jxr_string">"is a directory"</span>);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">if</strong> (!f.canRead()) fail(f, <span class="jxr_string">"is not readable"</span>);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <strong class="jxr_keyword">if</strong> (f.canWrite() != writeable)
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>              fail(f, writeable ? <span class="jxr_string">"is not writeable"</span> : <span class="jxr_string">"is writeable"</span>);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          <strong class="jxr_keyword">int</strong> rwLen = 6;
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">if</strong> (f.length() != length) fail(f, <span class="jxr_string">"has wrong length"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      }
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> fail(File f, String why) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(f + <span class="jxr_string">" "</span> + why);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      }
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          show(nonExistantFile);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          <strong class="jxr_keyword">if</strong> (nonExistantFile.exists()) fail(nonExistantFile, <span class="jxr_string">"exists"</span>);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          show(rwFile);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          testFile(rwFile, <strong class="jxr_keyword">true</strong>, 6);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          rwFile.delete();
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          <strong class="jxr_keyword">if</strong> (rwFile.exists())
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>              fail(rwFile, <span class="jxr_string">"could not delete"</span>);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          show(roFile);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          testFile(roFile, false, 0);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         show(thisDir);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         <strong class="jxr_keyword">if</strong> (!thisDir.exists()) fail(thisDir, <span class="jxr_string">"does not exist"</span>);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         <strong class="jxr_keyword">if</strong> (thisDir.isFile()) fail(thisDir, <span class="jxr_string">"is a file"</span>);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         <strong class="jxr_keyword">if</strong> (!thisDir.isDirectory()) fail(thisDir, <span class="jxr_string">"is not a directory"</span>);
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         <strong class="jxr_keyword">if</strong> (!thisDir.canRead()) fail(thisDir, <span class="jxr_string">"is readable"</span>);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         <strong class="jxr_keyword">if</strong> (!thisDir.canWrite()) fail(thisDir, <span class="jxr_string">"is writeable"</span>);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         String[] fs = thisDir.list();
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         <strong class="jxr_keyword">if</strong> (fs == <strong class="jxr_keyword">null</strong>) fail(thisDir, <span class="jxr_string">"list() returned null"</span>);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>         out.print(<span class="jxr_string">"  ["</span> + fs.length + <span class="jxr_string">"]"</span>);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; fs.length; i++)
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>             out.print(<span class="jxr_string">" "</span> + fs[i]);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         out.println();
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         <strong class="jxr_keyword">if</strong> (fs.length == 0) fail(thisDir, <span class="jxr_string">"is empty"</span>);
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> 
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         <strong class="jxr_keyword">if</strong> (!nonExistantFile.createNewFile())
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             fail(nonExistantFile, <span class="jxr_string">"could not create"</span>);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         nonExistantFile.deleteOnExit();
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         <strong class="jxr_keyword">if</strong> (!nonDir.mkdir())
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>             fail(nonDir, <span class="jxr_string">"could not create"</span>);
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         <strong class="jxr_keyword">if</strong> (!dir.renameTo(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"x.Basic.dir2"</span>)))
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>             fail(dir, <span class="jxr_string">"failed to rename"</span>);
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>         <strong class="jxr_keyword">if</strong> (System.getProperty(<span class="jxr_string">"os.name"</span>).equals(<span class="jxr_string">"SunOS"</span>)
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>             &amp;&amp; System.getProperty(<span class="jxr_string">"os.version"</span>).compareTo(<span class="jxr_string">"5.6"</span>) &gt;= 0) {
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>             <strong class="jxr_keyword">if</strong> (bigFile.exists()) {
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>                 bigFile.delete();
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>                 <strong class="jxr_keyword">if</strong> (bigFile.exists())
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>                     fail(bigFile, <span class="jxr_string">"could not delete"</span>);
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             }
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>             RandomAccessFile raf = <strong class="jxr_keyword">new</strong> RandomAccessFile(bigFile, <span class="jxr_string">"rw"</span>);
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>             <strong class="jxr_keyword">long</strong> big = ((<strong class="jxr_keyword">long</strong>)Integer.MAX_VALUE) * 2;
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                 raf.seek(big);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                 raf.write('x');
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                 show(bigFile);
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                 testFile(bigFile, <strong class="jxr_keyword">true</strong>, big + 1);
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                 raf.close();
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>             }
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             bigFile.delete();
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>             <strong class="jxr_keyword">if</strong> (bigFile.exists())
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>                 fail(bigFile, <span class="jxr_string">"could not delete"</span>);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>             System.err.println(<span class="jxr_string">"NOTE: Large files not supported on this system"</span>);
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>         }
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>     }
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

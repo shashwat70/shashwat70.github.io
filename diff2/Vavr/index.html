@@ -1,0 +1,1539 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">WhitespaceAfter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												tokens
+												
+													<li>COMMA, SEMI, TYPECAST, LITERAL_IF, LITERAL_ELSE,             LITERAL_WHILE, LITERAL_DO, LITERAL_FOR, DO_WHILE</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">289</td>
+							<td id="totalPatch">52 (52 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">52 (52 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">29 files with differences</td>
+							<td id="totalDiff">52 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">52 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckModuleStatisticsPatch">52 (52 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheckModuleNumDiff">52</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">52</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\main\java\io\vavr\test\Arbitrary.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\main\java\io\vavr\test\Arbitrary.java.html#L245">245</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;typecast&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java.html#L945">945</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;typecast&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java.html#L950">950</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction0Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction0Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction1Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction1Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction2Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction2Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">56</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction3Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction3Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">60</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction4Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction4Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">64</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction5Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction5Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">68</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction6Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction6Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">72</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction7Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction7Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">76</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction8Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\CheckedFunction8Test.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">80</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function0Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function0Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function1Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function1Test.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">45</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function2Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function2Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">49</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function3Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function3Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">53</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function4Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function4Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">57</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function5Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function5Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">61</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function6Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function6Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">65</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function7Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function7Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">69</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function8Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;while&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Function8Test.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">73</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Tuple2Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\Tuple2Test.java.html#L99">99</a></td>
+								
+								
+									
+									<td class="keepWidth">58</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\control\Try.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;if&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\control\Try.java.html#L734">734</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L420">420</a></td>
+								
+								
+									
+									<td class="keepWidth">101</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L421">421</a></td>
+								
+								
+									
+									<td class="keepWidth">101</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1376">1376</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1380">1380</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1389">1389</a></td>
+								
+								
+									
+									<td class="keepWidth">117</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1390">1390</a></td>
+								
+								
+									
+									<td class="keepWidth">34</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L414">414</a></td>
+								
+								
+									
+									<td class="keepWidth">102</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L415">415</a></td>
+								
+								
+									
+									<td class="keepWidth">102</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L1117">1117</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L1121">1121</a></td>
+								
+								
+									
+									<td class="keepWidth">59</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L1130">1130</a></td>
+								
+								
+									
+									<td class="keepWidth">98</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L1131">1131</a></td>
+								
+								
+									
+									<td class="keepWidth">34</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java.html#L252">252</a></td>
+								
+								
+									
+									<td class="keepWidth">104</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java.html#L275">275</a></td>
+								
+								
+									
+									<td class="keepWidth">97</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L770">770</a></td>
+								
+								
+									
+									<td class="keepWidth">35</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1835">1835</a></td>
+								
+								
+									
+									<td class="keepWidth">71</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1842">1842</a></td>
+								
+								
+									
+									<td class="keepWidth">71</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L84">84</a></td>
+								
+								
+									
+									<td class="keepWidth">118</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L107">107</a></td>
+								
+								
+									
+									<td class="keepWidth">111</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;,&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L2562">2562</a></td>
+								
+								
+									
+									<td class="keepWidth">81</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler45Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;typecast&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler45Test.java.html#L68">68</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L95">95</a></td>
+								
+								
+									
+									<td class="keepWidth">64</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L105">105</a></td>
+								
+								
+									
+									<td class="keepWidth">64</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L113">113</a></td>
+								
+								
+									
+									<td class="keepWidth">84</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L114">114</a></td>
+								
+								
+									
+									<td class="keepWidth">79</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L856">856</a></td>
+								
+								
+									
+									<td class="keepWidth">47</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L861">861</a></td>
+								
+								
+									
+									<td class="keepWidth">78</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L861">861</a></td>
+								
+								
+									
+									<td class="keepWidth">160</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>WhitespaceAfter</td>
+								<td>&#39;;&#39; is not followed by whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\control\TryTest.java.html#L874">874</a></td>
+								
+								
+									
+									<td class="keepWidth">74</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
