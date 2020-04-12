@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Base64Test xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2014, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment"> * @bug 8035807</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> * @summary Confirm that old and new Base64 encodings are compatible.</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> java.io.*;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.util.*;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> javax.naming.*;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> javax.naming.directory.*;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_comment"> * RFC 2713 specifies an encoding for Java objects stored in an LDAP directory.</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_comment"> * Section 3.6 specifies how a binary-valued JNDI RefAddr object is encoded</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_comment"> * in the value of a javaReferenceAttribute LDAP attribute: first the RefAddr</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_comment"> * object is serialized and then it is encoded using Base64.</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_comment"> * Since JDK 9, the JNDI/LDAP provider uses the public Base64 encoder which</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_comment"> * adheres strictly to the MIME encoding rules. The encoder inserts '\r\n'</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_comment"> * as the line separator at intervals of 76 characters. Previously the</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_comment"> * JNDI/LDAP provider used a private Base64 encoder which inserted '\n'</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_comment"> * as the line separator. It is a compatible change.</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_comment"> * This test demonstrates that there is no compatability problem when</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_comment"> * decoding using the new Base64 coder:</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_comment"> *   encoded bytes captured from s.m.BASE64Encoder, decode with j.u.Base64.Decoder =&gt; OK</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  <em class="jxr_comment"> *   encoded bytes captured from j.u.Base64.Encoder, decode with j.u.Base64.Decoder =&gt; OK</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_comment"> * NOTE: The two Base64 encodings used in this test were captured from</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_comment"> *       LDAP protocol exchanges during attempts by the JNDI/LDAP provider</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_comment"> *       to store a JNDI Reference test object.</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Base64Test {
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>      <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_comment">     * The old Base64 encoding uses '\n' as the line separator at 76 character</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_comment">     * intervals:</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_comment">     *</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_comment">     * 0000: 72 4F 30 41 42 58 4E 79 41 42 70 71 59 58 5A 68  rO0ABXNyABpqYXZh</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_comment">     * 0010: 65 43 35 75 59 57 31 70 62 6D 63 75 51 6D 6C 75  eC5uYW1pbmcuQmlu</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_comment">     * 0020: 59 58 4A 35 55 6D 56 6D 51 57 52 6B 63 74 43 61  YXJ5UmVmQWRkctCa</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_comment">     * 0030: 6B 37 4C 65 73 34 68 48 41 67 41 42 57 77 41 44  k7Les4hHAgABWwAD</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_comment">     * 0040: 59 6E 56 6D 64 41 41 43 57 30 4A 34 0A 63 67 41  YnVmdAACW0J4.cgA &lt;</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_comment">     * 0050: 55 61 6D 46 32 59 58 67 75 62 6D 46 74 61 57 35  UamF2YXgubmFtaW5</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_comment">     * 0060: 6E 4C 6C 4A 6C 5A 6B 46 6B 5A 48 4C 72 6F 41 65  nLlJlZkFkZHLroAe</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  <em class="jxr_comment">     * 0070: 61 41 6A 69 76 53 67 49 41 41 55 77 41 43 47 46  aAjivSgIAAUwACGF</em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_comment">     * 0080: 6B 5A 48 4A 55 65 58 42 6C 64 41 41 53 54 47 70  kZHJUeXBldAASTGp</em>
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_comment">     * 0090: 68 64 6D 45 76 62 47 46 75 0A 5A 79 39 54 64 48  hdmEvbGFu.Zy9TdH &lt;</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_comment">     * 00A0: 4A 70 62 6D 63 37 65 48 42 30 41 41 52 30 5A 58  Jpbmc7eHB0AAR0ZX</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_comment">     * 00B0: 4E 30 64 58 49 41 41 6C 74 43 72 50 4D 58 2B 41  N0dXIAAltCrPMX+A</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_comment">     * 00C0: 59 49 56 4F 41 43 41 41 42 34 63 41 41 41 41 49  YIVOACAAB4cAAAAI</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_comment">     * 00D0: 41 41 41 51 49 44 42 41 55 47 42 77 67 4A 43 67  AAAQIDBAUGBwgJCg</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_comment">     * 00E0: 73 4D 44 51 34 50 0A 45 42 45 53 45 78 51 56 46  sMDQ4P.EBESExQVF &lt;</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_comment">     * 00F0: 68 63 59 47 52 6F 62 48 42 30 65 48 79 41 68 49  hcYGRobHB0eHyAhI</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_comment">     * 0100: 69 4D 6B 4A 53 59 6E 4B 43 6B 71 4B 79 77 74 4C  iMkJSYnKCkqKywtL</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  <em class="jxr_comment">     * 0110: 69 38 77 4D 54 49 7A 4E 44 55 32 4E 7A 67 35 4F  i8wMTIzNDU2Nzg5O</em>
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_comment">     * 0120: 6A 73 38 50 54 34 2F 51 45 46 43 51 30 52 46 52  js8PT4/QEFCQ0RFR</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_comment">     * 0130: 6B 64 49 0A 53 55 70 4C 54 45 31 4F 54 31 42 52  kdI.SUpLTE1OT1BR &lt;</em>
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_comment">     * 0140: 55 6C 4E 55 56 56 5A 58 57 46 6C 61 57 31 78 64  UlNUVVZXWFlaW1xd</em>
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_comment">     * 0150: 58 6C 39 67 59 57 4A 6A 5A 47 56 6D 5A 32 68 70  Xl9gYWJjZGVmZ2hp</em>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  <em class="jxr_comment">     * 0160: 61 6D 74 73 62 57 35 76 63 48 46 79 63 33 52 31  amtsbW5vcHFyc3R1</em>
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  <em class="jxr_comment">     * 0170: 64 6E 64 34 65 58 70 37 66 48 31 2B 66 77 3D 3D  dnd4eXp7fH1+fw==</em>
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  <em class="jxr_comment">     * 0180: 0A                                                                &lt;</em>
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String OLD_ENCODING = <span class="jxr_string">"rO0ABXNyABpqYXZheC5uYW1pbmcuQmluYXJ5UmVmQWRkctCak7Les4hHAgABWwADYnVmdAACW0J4\ncgAUamF2YXgubmFtaW5nLlJlZkFkZHLroAeaAjivSgIAAUwACGFkZHJUeXBldAASTGphdmEvbGFu\nZy9TdHJpbmc7eHB0AAR0ZXN0dXIAAltCrPMX+AYIVOACAAB4cAAAAIAAAQIDBAUGBwgJCgsMDQ4P\nEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdI\nSUpLTE1OT1BRUlNUVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1+fw==\n"</span>;
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_comment">     * The new Base64 encoding uses '\r\n' as the line separator at 76 character</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_comment">     * intervals:</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_comment">     *</em>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  <em class="jxr_comment">     * 0000: 72 4F 30 41 42 58 4E 79 41 42 70 71 59 58 5A 68  rO0ABXNyABpqYXZh</em>
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  <em class="jxr_comment">     * 0010: 65 43 35 75 59 57 31 70 62 6D 63 75 51 6D 6C 75  eC5uYW1pbmcuQmlu</em>
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  <em class="jxr_comment">     * 0020: 59 58 4A 35 55 6D 56 6D 51 57 52 6B 63 74 43 61  YXJ5UmVmQWRkctCa</em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  <em class="jxr_comment">     * 0030: 6B 37 4C 65 73 34 68 48 41 67 41 42 57 77 41 44  k7Les4hHAgABWwAD</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> <em class="jxr_comment">     * 0040: 59 6E 56 6D 64 41 41 43 57 30 4A 34 0D 0A 63 67  YnVmdAACW0J4..cg &lt;</em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_comment">     * 0050: 41 55 61 6D 46 32 59 58 67 75 62 6D 46 74 61 57  AUamF2YXgubmFtaW</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_comment">     * 0060: 35 6E 4C 6C 4A 6C 5A 6B 46 6B 5A 48 4C 72 6F 41  5nLlJlZkFkZHLroA</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_comment">     * 0070: 65 61 41 6A 69 76 53 67 49 41 41 55 77 41 43 47  eaAjivSgIAAUwACG</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_comment">     * 0080: 46 6B 5A 48 4A 55 65 58 42 6C 64 41 41 53 54 47  FkZHJUeXBldAASTG</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_comment">     * 0090: 70 68 64 6D 45 76 62 47 46 75 0D 0A 5A 79 39 54  phdmEvbGFu..Zy9T &lt;</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_comment">     * 00A0: 64 48 4A 70 62 6D 63 37 65 48 42 30 41 41 52 30  dHJpbmc7eHB0AAR0</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_comment">     * 00B0: 5A 58 4E 30 64 58 49 41 41 6C 74 43 72 50 4D 58  ZXN0dXIAAltCrPMX</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_comment">     * 00C0: 2B 41 59 49 56 4F 41 43 41 41 42 34 63 41 41 41  +AYIVOACAAB4cAAA</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_comment">     * 00D0: 41 49 41 41 41 51 49 44 42 41 55 47 42 77 67 4A  AIAAAQIDBAUGBwgJ</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_comment">     * 00E0: 43 67 73 4D 44 51 34 50 0D 0A 45 42 45 53 45 78  CgsMDQ4P..EBESEx &lt;</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_comment">     * 00F0: 51 56 46 68 63 59 47 52 6F 62 48 42 30 65 48 79  QVFhcYGRobHB0eHy</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_comment">     * 0100: 41 68 49 69 4D 6B 4A 53 59 6E 4B 43 6B 71 4B 79  AhIiMkJSYnKCkqKy</em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_comment">     * 0110: 77 74 4C 69 38 77 4D 54 49 7A 4E 44 55 32 4E 7A  wtLi8wMTIzNDU2Nz</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <em class="jxr_comment">     * 0120: 67 35 4F 6A 73 38 50 54 34 2F 51 45 46 43 51 30  g5Ojs8PT4/QEFCQ0</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <em class="jxr_comment">     * 0130: 52 46 52 6B 64 49 0D 0A 53 55 70 4C 54 45 31 4F  RFRkdI..SUpLTE1O &lt;</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> <em class="jxr_comment">     * 0140: 54 31 42 52 55 6C 4E 55 56 56 5A 58 57 46 6C 61  T1BRUlNUVVZXWFla</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_comment">     * 0150: 57 31 78 64 58 6C 39 67 59 57 4A 6A 5A 47 56 6D  W1xdXl9gYWJjZGVm</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_comment">     * 0160: 5A 32 68 70 61 6D 74 73 62 57 35 76 63 48 46 79  Z2hpamtsbW5vcHFy</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_comment">     * 0170: 63 33 52 31 64 6E 64 34 65 58 70 37 66 48 31 2B  c3R1dnd4eXp7fH1+</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_comment">     * 0180: 66 77 3D 3D</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String NEW_ENCODING = <span class="jxr_string">"rO0ABXNyABpqYXZheC5uYW1pbmcuQmluYXJ5UmVmQWRkctCak7Les4hHAgABWwADYnVmdAACW0J4\r\ncgAUamF2YXgubmFtaW5nLlJlZkFkZHLroAeaAjivSgIAAUwACGFkZHJUeXBldAASTGphdmEvbGFu\r\nZy9TdHJpbmc7eHB0AAR0ZXN0dXIAAltCrPMX+AYIVOACAAB4cAAAAIAAAQIDBAUGBwgJCgsMDQ4P\r\nEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdI\r\nSUpLTE1OT1BRUlNUVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1+fw=="</span>;
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_comment">     * Binary-valued JNDI RefAddr test object</em>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> RefAddr BINARY_REF_ADDR =
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>         <strong class="jxr_keyword">new</strong> BinaryRefAddr(<span class="jxr_string">"test"</span>, <strong class="jxr_keyword">new</strong> byte[] {
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>         0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>         0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23,
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>         0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2E, 0x2F,
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x3B,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>         0x3C, 0x3D, 0x3E, 0x3F, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47,
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>         0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53,
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F,
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>         0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B,
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>         0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77,
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>         0x78, 0x79, 0x7A, 0x7B, 0x7C, 0x7D, 0x7E, 0x7F
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>     });
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         System.out.println(<span class="jxr_string">"\nOriginal RefAddr object:\n"</span> + BINARY_REF_ADDR);
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>         System.out.println(<span class="jxr_string">"Old Base64 encoded serialized RefAddr object:\n"</span> +
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                 OLD_ENCODING + <span class="jxr_string">"\n"</span>);
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>         System.out.println(<span class="jxr_string">"Decode using new Base64 decoder..."</span>);
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>         deserialize(Base64.getMimeDecoder().decode(OLD_ENCODING));
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         System.out.println(<span class="jxr_string">"----"</span>);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>         System.out.println(<span class="jxr_string">"\nOriginal RefAddr object:\n"</span> + BINARY_REF_ADDR);
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>         System.out.println(<span class="jxr_string">"New Base64 encoded serialized RefAddr object:\n"</span> +
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             NEW_ENCODING + <span class="jxr_string">"\n"</span>);
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         System.out.println(<span class="jxr_string">"Decode using new Base64 decoder..."</span>);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         deserialize(Base64.getMimeDecoder().decode(NEW_ENCODING));
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>         System.out.println(<span class="jxr_string">"----"</span>);
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>     }
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_comment">     * Deserialize the decoded Base64 bytes to recover the BinaryRefAddr object.</em>
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> deserialize(byte[] bytes) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>         <em class="jxr_comment">//System.out.println("\nSerialized RefAddr object: ");</em>
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>         <em class="jxr_comment">//System.out.println(new sun.security.util.HexDumpEncoder().encode(bytes));</em>
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> 
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>         ObjectInputStream objectStream =
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>             <strong class="jxr_keyword">new</strong> ObjectInputStream(<strong class="jxr_keyword">new</strong> ByteArrayInputStream(bytes));
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>         Object object = objectStream.readObject();
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>         <strong class="jxr_keyword">if</strong> (!BINARY_REF_ADDR.equals(object)) {
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Recovered object does not match the original"</span>);
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>         }
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>         System.out.println(<span class="jxr_string">"Recovered RefAddr object:\n"</span> + object);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>     }
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>     <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> <em class="jxr_comment">     * Dumps the encoding of a JNDI Reference object during an attempt to store</em>
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> <em class="jxr_comment">     * in an LDAP directory.</em>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> <em class="jxr_comment">     */</em>
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> storeObjectInLDAP() {
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         Hashtable env = <strong class="jxr_keyword">new</strong> Hashtable();
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>         env.put(Context.REFERRAL, <span class="jxr_string">"follow"</span>); <em class="jxr_comment">// omit an LDAP control</em>
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>         env.put(<span class="jxr_string">"java.naming.ldap.version"</span>, <span class="jxr_string">"3"</span>); <em class="jxr_comment">// omit LDAP bind operation</em>
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>         env.put(<span class="jxr_string">"com.sun.jndi.ldap.trace.ber"</span>, System.err); <em class="jxr_comment">// dump protocol</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>             DirContext ctx = <strong class="jxr_keyword">new</strong> InitialDirContext(env);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>             Reference reference = <strong class="jxr_keyword">new</strong> Reference(<span class="jxr_string">"test"</span>, BINARY_REF_ADDR);
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>             ctx.bind(<span class="jxr_string">"ldap://ldap.example.com/cn=test"</span>, reference);
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>         } <strong class="jxr_keyword">catch</strong> (NamingException ignore) {
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>         }
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>     }
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

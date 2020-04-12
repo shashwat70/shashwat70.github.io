@@ -1,0 +1,5494 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AbbreviationAsWordInName</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												tokens
+												
+													<li>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF</li>
+												
+												<br/>
+											
+												ignoreFinal
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowedAbbreviationLength
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">225</td>
+							<td id="totalPatch">293 (293 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">293 (293 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">18 files with differences</td>
+							<td id="totalDiff">293 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">293 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleStatisticsPatch">293 (293 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumDiff">293</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">293</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreeBuilder.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;AUTO_REMOVABLE_BUBBLING_FLAGS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreeBuilder.java.html#L177">177</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreePrinter.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DEFAULTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreePrinter.java.html#L305">305</a></td>
+								
+								
+									
+									<td class="keepWidth">56</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreeVisitor.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;visitOR_OR_Expression&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreeVisitor.java.html#L475">475</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;visitAND_AND_Expression&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\ecjTransformer\lombok\ast\ecj\EcjTreeVisitor.java.html#L675">675</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\IntegralLiteral.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;newLT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\IntegralLiteral.java.html#L220">220</a></td>
+								
+								
+									
+									<td class="keepWidth">29</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;otherPLevel&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L531">531</a></td>
+								
+								
+									
+									<td class="keepWidth">35</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;otherPLevel&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L556">556</a></td>
+								
+								
+									
+									<td class="keepWidth">29</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;VOID&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L635">635</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BOOLEAN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L640">640</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L645">645</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LONG&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L650">650</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SHORT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L655">655</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BYTE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L660">660</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CHAR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L665">665</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DOUBLE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L670">670</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FLOAT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L675">675</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;STATIC&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L1005">1005</a></td>
+								
+								
+									
+									<td class="keepWidth">32</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PUBLIC&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L1010">1010</a></td>
+								
+								
+									
+									<td class="keepWidth">32</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PROTECTED&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L1015">1015</a></td>
+								
+								
+									
+									<td class="keepWidth">32</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PRIVATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L1020">1020</a></td>
+								
+								
+									
+									<td class="keepWidth">32</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FINAL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\Templates.java.html#L1025">1025</a></td>
+								
+								
+									
+									<td class="keepWidth">32</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONVERSIONS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L554">554</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NORMALIZATION&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L569">569</a></td>
+								
+								
+									
+									<td class="keepWidth">52</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LEGAL_FINAL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L574">574</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TO_LOMBOK&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L576">576</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TO_ECJ&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L577">577</a></td>
+								
+								
+									
+									<td class="keepWidth">61</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TO_JAVAC&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L578">578</a></td>
+								
+								
+									
+									<td class="keepWidth">61</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TO_TEXT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\app\Main.java.html#L579">579</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\BasicsParser.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;optWS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\BasicsParser.java.html#L52">52</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mandatoryWS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\BasicsParser.java.html#L60">60</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\ExpressionsParser.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;assignmentLHS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\ExpressionsParser.java.html#L433">433</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\LiteralsParser.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;hexFP&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\LiteralsParser.java.html#L185">185</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\Source.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atCR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\Source.java.html#L125">125</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\TypesActions.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;childPNode&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\src\main\lombok\ast\grammar\TypesActions.java.html#L77">77</a></td>
+								
+								
+									
+									<td class="keepWidth">47</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\alias\B005_ArrayTypes.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;generifiedArraysAreABadIdeaButLegal&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\alias\B005_ArrayTypes.java.html#L12">12</a></td>
+								
+								
+									
+									<td class="keepWidth">35</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\alias\ZComplex1.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ZComplex1&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\alias\ZComplex1.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ZComplex1Extra&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\alias\ZComplex1.java.html#L16">16</a></td>
+								
+								
+									
+									<td class="keepWidth">7</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\idempotency\B005_ArrayTypes.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;generifiedArraysAreABadIdeaButLegal&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\idempotency\B005_ArrayTypes.java.html#L10">10</a></td>
+								
+								
+									
+									<td class="keepWidth">34</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\idempotency\ZComplex1.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ZComplex1&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\idempotency\ZComplex1.java.html#L7">7</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ZComplex1Extra&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\idempotency\ZComplex1.java.html#L16">16</a></td>
+								
+								
+									
+									<td class="keepWidth">7</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L406">406</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L436">436</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L466">466</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OUPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L496">496</a></td>
+								
+								
+									
+									<td class="keepWidth">18</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DUPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L709">709</a></td>
+								
+								
+									
+									<td class="keepWidth">18</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LUPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L923">923</a></td>
+								
+								
+									
+									<td class="keepWidth">18</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L1137">1137</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L1318">1318</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L1496">1496</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ORPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L1677">1677</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DRPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L1859">1859</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LRPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2039">2039</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2221">2221</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2251">2251</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2280">2280</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OUOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2311">2311</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DUOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2373">2373</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LUOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2435">2435</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2498">2498</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2581">2581</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFOMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2670">2670</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OROMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2753">2753</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DROMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2834">2834</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LROMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L2923">2923</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3006">3006</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3038">3038</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3069">3069</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OUOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3102">3102</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DUOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3164">3164</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LUOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3226">3226</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3290">3290</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3372">3372</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFOCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3452">3452</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OROCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3533">3533</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DROCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3615">3615</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LROCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3695">3695</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ODMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3777">3777</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3807">3807</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3837">3837</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OUDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3869">3869</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DUDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3929">3929</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LUDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L3989">3989</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4051">4051</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4130">4130</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4208">4208</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ORDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4287">4287</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DRDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4366">4366</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LRDMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4444">4444</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ODCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4523">4523</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4555">4555</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4586">4586</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OUDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4618">4618</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DUDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4678">4678</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LUDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4737">4737</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4798">4798</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4878">4878</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A97" href = "#A97">#A97</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L4957">4957</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A98" href = "#A98">#A98</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ORDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5036">5036</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A99" href = "#A99">#A99</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DRDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5116">5116</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A100" href = "#A100">#A100</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LRDCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5195">5195</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A101" href = "#A101">#A101</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5274">5274</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A102" href = "#A102">#A102</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5303">5303</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A103" href = "#A103">#A103</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5333">5333</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A104" href = "#A104">#A104</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OULMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5364">5364</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A105" href = "#A105">#A105</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DULMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5423">5423</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A106" href = "#A106">#A106</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LULMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5485">5485</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A107" href = "#A107">#A107</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5545">5545</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A108" href = "#A108">#A108</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5626">5626</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A109" href = "#A109">#A109</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5706">5706</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A110" href = "#A110">#A110</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ORLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5785">5785</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A111" href = "#A111">#A111</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DRLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5866">5866</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A112" href = "#A112">#A112</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LRLMPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L5946">5946</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A113" href = "#A113">#A113</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6025">6025</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A114" href = "#A114">#A114</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6056">6056</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A115" href = "#A115">#A115</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6087">6087</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A116" href = "#A116">#A116</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OULCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6119">6119</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A117" href = "#A117">#A117</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DULCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6178">6178</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A118" href = "#A118">#A118</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LULCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6238">6238</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A119" href = "#A119">#A119</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OFLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6298">6298</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A120" href = "#A120">#A120</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DFLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6380">6380</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A121" href = "#A121">#A121</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LFLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6460">6460</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A122" href = "#A122">#A122</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ORLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6540">6540</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A123" href = "#A123">#A123</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DRLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6622">6622</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A124" href = "#A124">#A124</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LRLCPap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\AbstractParallelAnyArray.java.html#L6702">6702</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A125" href = "#A125">#A125</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PAS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L18">18</a></td>
+								
+								
+									
+									<td class="keepWidth">7</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A126" href = "#A126">#A126</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJBase&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L59">59</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A127" href = "#A127">#A127</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOApply&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L106">106</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A128" href = "#A128">#A128</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDApply&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L121">121</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A129" href = "#A129">#A129</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLApply&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L136">136</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A130" href = "#A130">#A130</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOReduce&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L153">153</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A131" href = "#A131">#A131</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDReduce&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L173">173</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A132" href = "#A132">#A132</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLReduce&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L193">193</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A133" href = "#A133">#A133</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L215">215</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A134" href = "#A134">#A134</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L232">232</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A135" href = "#A135">#A135</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L249">249</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A136" href = "#A136">#A136</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOTransform&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L268">268</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A137" href = "#A137">#A137</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDTransform&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L283">283</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A138" href = "#A138">#A138</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLTransform&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L298">298</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A139" href = "#A139">#A139</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOIndexMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L315">315</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A140" href = "#A140">#A140</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDIndexMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L330">330</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A141" href = "#A141">#A141</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLIndexMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L345">345</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A142" href = "#A142">#A142</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOBinaryIndexMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L362">362</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A143" href = "#A143">#A143</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDBinaryIndexMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L377">377</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A144" href = "#A144">#A144</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLBinaryIndexMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L392">392</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A145" href = "#A145">#A145</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOGenerate&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L410">410</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A146" href = "#A146">#A146</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDGenerate&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L425">425</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A147" href = "#A147">#A147</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLGenerate&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L440">440</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A148" href = "#A148">#A148</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOFill&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L457">457</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A149" href = "#A149">#A149</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDFill&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L472">472</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A150" href = "#A150">#A150</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLFill&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L487">487</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A151" href = "#A151">#A151</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOCombineInPlace&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L504">504</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A152" href = "#A152">#A152</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDCombineInPlace&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L525">525</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A153" href = "#A153">#A153</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLCombineInPlace&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L546">546</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A154" href = "#A154">#A154</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOPACombineInPlace&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L567">567</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A155" href = "#A155">#A155</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDPACombineInPlace&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L589">589</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A156" href = "#A156">#A156</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLPACombineInPlace&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L611">611</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A157" href = "#A157">#A157</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOStats&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L635">635</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A158" href = "#A158">#A158</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDStats&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L712">712</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A159" href = "#A159">#A159</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLStats&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L796">796</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A160" href = "#A160">#A160</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJCountSelected&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L883">883</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A161" href = "#A161">#A161</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJSearchBase&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L909">909</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A162" href = "#A162">#A162</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJSelectAny&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L959">959</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A163" href = "#A163">#A163</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOIndexOf&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L981">981</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A164" href = "#A164">#A164</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDIndexOf&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1005">1005</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A165" href = "#A165">#A165</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLIndexOf&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1029">1029</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A166" href = "#A166">#A166</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJSelectAll&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1062">1062</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A167" href = "#A167">#A167</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJSelectAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1137">1137</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A168" href = "#A168">#A168</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOSelectAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1161">1161</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A169" href = "#A169">#A169</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDSelectAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1176">1176</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A170" href = "#A170">#A170</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLSelectAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1189">1189</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A171" href = "#A171">#A171</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOAppendAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1202">1202</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A172" href = "#A172">#A172</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDAppendAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1224">1224</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A173" href = "#A173">#A173</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLAppendAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1245">1245</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A174" href = "#A174">#A174</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJRemoveAllDriver&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1274">1274</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A175" href = "#A175">#A175</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJRemoveAll&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1343">1343</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A176" href = "#A176">#A176</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOUniquifier&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1387">1387</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A177" href = "#A177">#A177</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDUniquifier&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1406">1406</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A178" href = "#A178">#A178</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLUniquifier&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1425">1425</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A179" href = "#A179">#A179</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1646">1646</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A180" href = "#A180">#A180</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOCSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1688">1688</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A181" href = "#A181">#A181</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1724">1724</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A182" href = "#A182">#A182</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDCSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1761">1761</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A183" href = "#A183">#A183</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1797">1797</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A184" href = "#A184">#A184</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLCSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1835">1835</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A185" href = "#A185">#A185</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJSubSorter&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1873">1873</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A186" href = "#A186">#A186</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOMerger&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1899">1899</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A187" href = "#A187">#A187</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOCMerger&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L1978">1978</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A188" href = "#A188">#A188</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDMerger&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2043">2043</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A189" href = "#A189">#A189</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDCMerger&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2109">2109</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A190" href = "#A190">#A190</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLMerger&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2174">2174</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A191" href = "#A191">#A191</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLCMerger&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2240">2240</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A192" href = "#A192">#A192</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJScan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2657">2657</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A193" href = "#A193">#A193</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOScan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2786">2786</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A194" href = "#A194">#A194</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDScan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2798">2798</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A195" href = "#A195">#A195</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLScan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2811">2811</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A196" href = "#A196">#A196</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJScanOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2826">2826</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A197" href = "#A197">#A197</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOScanOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2843">2843</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A198" href = "#A198">#A198</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOCumulateOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2871">2871</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A199" href = "#A199">#A199</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJOPrecumulateOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2900">2900</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A200" href = "#A200">#A200</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDScanOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2933">2933</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A201" href = "#A201">#A201</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDCumulateOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2961">2961</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A202" href = "#A202">#A202</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDPrecumulateOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L2990">2990</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A203" href = "#A203">#A203</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLScanOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3023">3023</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A204" href = "#A204">#A204</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLCumulateOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3051">3051</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A205" href = "#A205">#A205</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLPrecumulateOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3080">3080</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A206" href = "#A206">#A206</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDScanPlusOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3115">3115</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A207" href = "#A207">#A207</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDCumulatePlusOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3137">3137</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A208" href = "#A208">#A208</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJDPrecumulatePlusOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3165">3165</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A209" href = "#A209">#A209</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLScanPlusOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3197">3197</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A210" href = "#A210">#A210</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLCumulatePlusOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3221">3221</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A211" href = "#A211">#A211</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FJLPrecumulatePlusOp&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\resources\performance\extra166y\PAS.java.html#L3249">3249</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A212" href = "#A212">#A212</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ASSERT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L893">893</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A213" href = "#A213">#A213</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BREAK&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L894">894</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A214" href = "#A214">#A214</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CASE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L895">895</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A215" href = "#A215">#A215</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CATCH&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L896">896</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A216" href = "#A216">#A216</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CLASS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L897">897</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A217" href = "#A217">#A217</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTINUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L898">898</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A218" href = "#A218">#A218</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DEFAULT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L899">899</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A219" href = "#A219">#A219</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DO&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L900">900</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A220" href = "#A220">#A220</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELSE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L901">901</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A221" href = "#A221">#A221</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ENUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L902">902</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A222" href = "#A222">#A222</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXTENDS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L903">903</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A223" href = "#A223">#A223</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FINALLY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L904">904</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A224" href = "#A224">#A224</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FINAL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L905">905</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A225" href = "#A225">#A225</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FOR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L906">906</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A226" href = "#A226">#A226</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;IF&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L907">907</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A227" href = "#A227">#A227</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;IMPLEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L908">908</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A228" href = "#A228">#A228</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;IMPORT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L909">909</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A229" href = "#A229">#A229</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INTERFACE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L910">910</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A230" href = "#A230">#A230</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INSTANCEOF&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L911">911</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A231" href = "#A231">#A231</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NEW&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L912">912</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A232" href = "#A232">#A232</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PACKAGE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L913">913</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A233" href = "#A233">#A233</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;RETURN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L914">914</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A234" href = "#A234">#A234</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;STATIC&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L915">915</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A235" href = "#A235">#A235</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SUPER&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L916">916</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A236" href = "#A236">#A236</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SWITCH&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L917">917</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A237" href = "#A237">#A237</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SYNCHRONIZED&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L918">918</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A238" href = "#A238">#A238</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;THIS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L919">919</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A239" href = "#A239">#A239</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;THROWS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L920">920</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A240" href = "#A240">#A240</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;THROW&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L921">921</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A241" href = "#A241">#A241</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TRY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L922">922</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A242" href = "#A242">#A242</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;VOID&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L923">923</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A243" href = "#A243">#A243</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;WHILE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L924">924</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A244" href = "#A244">#A244</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;AT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1054">1054</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A245" href = "#A245">#A245</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;AND&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1055">1055</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A246" href = "#A246">#A246</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ANDAND&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1056">1056</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A247" href = "#A247">#A247</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ANDEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1057">1057</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A248" href = "#A248">#A248</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BANG&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1058">1058</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A249" href = "#A249">#A249</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BSR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1059">1059</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A250" href = "#A250">#A250</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BSREQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1060">1060</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A251" href = "#A251">#A251</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;COLON&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1061">1061</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A252" href = "#A252">#A252</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;COMMA&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1062">1062</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A253" href = "#A253">#A253</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DEC&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1063">1063</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A254" href = "#A254">#A254</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DIV&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1064">1064</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A255" href = "#A255">#A255</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DIVEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1065">1065</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A256" href = "#A256">#A256</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DOT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1066">1066</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A257" href = "#A257">#A257</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELLIPSIS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1067">1067</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A258" href = "#A258">#A258</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1068">1068</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A259" href = "#A259">#A259</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EQUAL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1069">1069</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A260" href = "#A260">#A260</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;GE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1070">1070</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A261" href = "#A261">#A261</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;GT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1071">1071</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A262" href = "#A262">#A262</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;HAT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1072">1072</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A263" href = "#A263">#A263</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;HATEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1073">1073</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A264" href = "#A264">#A264</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INC&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1074">1074</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A265" href = "#A265">#A265</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LBRK&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1075">1075</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A266" href = "#A266">#A266</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1076">1076</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A267" href = "#A267">#A267</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LPAR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1077">1077</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A268" href = "#A268">#A268</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LPOINT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1078">1078</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A269" href = "#A269">#A269</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1079">1079</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A270" href = "#A270">#A270</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LWING&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1080">1080</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A271" href = "#A271">#A271</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;MINUS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1081">1081</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A272" href = "#A272">#A272</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;MINUSEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1082">1082</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A273" href = "#A273">#A273</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;MOD&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1083">1083</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A274" href = "#A274">#A274</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;MODEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1084">1084</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A275" href = "#A275">#A275</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NOTEQUAL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1085">1085</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A276" href = "#A276">#A276</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1086">1086</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A277" href = "#A277">#A277</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OREQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1087">1087</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A278" href = "#A278">#A278</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OROR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1088">1088</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A279" href = "#A279">#A279</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PLUS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1089">1089</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A280" href = "#A280">#A280</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PLUSEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1090">1090</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A281" href = "#A281">#A281</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;QUERY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1091">1091</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A282" href = "#A282">#A282</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;RBRK&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1092">1092</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A283" href = "#A283">#A283</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;RPAR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1093">1093</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A284" href = "#A284">#A284</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;RPOINT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1094">1094</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A285" href = "#A285">#A285</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;RWING&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1095">1095</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A286" href = "#A286">#A286</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SEMI&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1096">1096</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A287" href = "#A287">#A287</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1097">1097</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A288" href = "#A288">#A288</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SLEQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1098">1098</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A289" href = "#A289">#A289</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1099">1099</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A290" href = "#A290">#A290</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SREQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1100">1100</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A291" href = "#A291">#A291</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;STAR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1101">1101</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A292" href = "#A292">#A292</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;STAREQU&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1102">1102</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A293" href = "#A293">#A293</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TILDA&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\lombok-ast\test\src\lombok\ast\grammar\ParboiledJavaGrammar.java.html#L1103">1103</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

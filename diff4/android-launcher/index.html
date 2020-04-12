@@ -1,0 +1,957 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AbbreviationAsWordInName</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												tokens
+												
+													<li>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF</li>
+												
+												<br/>
+											
+												ignoreFinal
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowedAbbreviationLength
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">39</td>
+							<td id="totalPatch">36 (36 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">36 (36 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">6 files with differences</td>
+							<td id="totalDiff">36 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">36 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleStatisticsPatch">36 (36 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumDiff">36</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">36</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mCellXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L54">54</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L181">181</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bestXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L563">563</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L564">564</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;targetXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L608">608</a></td>
+								
+								
+									
+									<td class="keepWidth">40</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellHSpan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L778">778</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellVSpan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L784">784</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellHSpan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L812">812</a></td>
+								
+								
+									
+									<td class="keepWidth">55</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellVSpan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L812">812</a></td>
+								
+								
+									
+									<td class="keepWidth">70</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;myCellHSpan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L823">823</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;myCellVSpan&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L824">824</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;maxVacantSpanXSpanY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L904">904</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;maxVacantSpanYSpanX&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L906">906</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L949">949</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXY&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\CellLayout.java.html#L953">953</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;fromXType&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L233">233</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;fromXValue&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L233">233</a></td>
+								
+								
+									
+									<td class="keepWidth">60</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;toXType&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L233">233</a></td>
+								
+								
+									
+									<td class="keepWidth">76</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;toXValue&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L233">233</a></td>
+								
+								
+									
+									<td class="keepWidth">91</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;fromYType&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L234">234</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;fromYValue&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L234">234</a></td>
+								
+								
+									
+									<td class="keepWidth">38</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;toYType&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L234">234</a></td>
+								
+								
+									
+									<td class="keepWidth">54</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;toYValue&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\DeleteZone.java.html#L234">234</a></td>
+								
+								
+									
+									<td class="keepWidth">69</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\InstallShortcutReceiver.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\InstallShortcutReceiver.java.html#L96">96</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellYIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\InstallShortcutReceiver.java.html#L97">97</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;spanXIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\InstallShortcutReceiver.java.html#L98">98</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;spanYIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\InstallShortcutReceiver.java.html#L99">99</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java.html#L784">784</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellYIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java.html#L785">785</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;spanXIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java.html#L786">786</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;spanYIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java.html#L787">787</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java.html#L1366">1366</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellYIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherModel.java.html#L1367">1367</a></td>
+								
+								
+									
+									<td class="keepWidth">27</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherProvider.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellXIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherProvider.java.html#L299">299</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;cellYIndex&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\LauncherProvider.java.html#L300">300</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\Search.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TAG&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\android-launcher\src\com\android\launcher\Search.java.html#L52">52</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

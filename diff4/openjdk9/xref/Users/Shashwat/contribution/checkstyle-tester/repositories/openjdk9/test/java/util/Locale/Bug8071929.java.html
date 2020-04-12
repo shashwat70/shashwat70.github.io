@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Bug8071929 xref</title>
+<link type="text/css" rel="stylesheet" href="../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment"> * Copyright (c) 2016, Oracle and/or its affiliates. All rights reserved.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment"> * This code is free software; you can redistribute it and/or modify it</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment"> * under the terms of the GNU General Public License version 2 only, as</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment"> * published by the Free Software Foundation.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment"> * version 2 for more details (a copy is included in the LICENSE file that</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment"> * accompanied this code).</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> * You should have received a copy of the GNU General Public License version</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment"> * 2 along with this work; if not, write to the Free Software Foundation,</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment"> *</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment"> * or visit www.oracle.com if you need additional information or have any</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> * questions.</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_comment"> * @test</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment"> * @bug 8071929</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment"> * @summary Test obsolete ISO3166-1 alpha-2 country codes should not be retrieved.</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment"> * ISO3166-1 alpha-2, ISO3166-1 alpha-3, ISO3166-3 country codes</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment"> * from overloaded getISOCountries(Iso3166 type) are retrieved correctly.</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> java.util.HashSet;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> java.util.Locale;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> java.util.Locale.IsoCountryCode;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> java.util.Set;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> java.util.stream.Collectors;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Bug8071929 {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> List&lt;String&gt; ISO3166_1_ALPHA2_OBSOLETE_CODES = List.of(<span class="jxr_string">"AN"</span>, <span class="jxr_string">"BU"</span>, <span class="jxr_string">"CS"</span>,
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              <span class="jxr_string">"NT"</span>, <span class="jxr_string">"SF"</span>, <span class="jxr_string">"TP"</span>, <span class="jxr_string">"YU"</span>, <span class="jxr_string">"ZR"</span>);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Set&lt;String&gt; ISO3166_3EXPECTED = Set.of(
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>              <span class="jxr_string">"AIDJ"</span>, <span class="jxr_string">"ANHH"</span>, <span class="jxr_string">"BQAQ"</span>, <span class="jxr_string">"BUMM"</span>, <span class="jxr_string">"BYAA"</span>, <span class="jxr_string">"CSHH"</span>, <span class="jxr_string">"CSXX"</span>, <span class="jxr_string">"CTKI"</span>, <span class="jxr_string">"DDDE"</span>,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>              <span class="jxr_string">"DYBJ"</span>, <span class="jxr_string">"FQHH"</span>, <span class="jxr_string">"FXFR"</span>, <span class="jxr_string">"GEHH"</span>, <span class="jxr_string">"HVBF"</span>, <span class="jxr_string">"JTUM"</span>, <span class="jxr_string">"MIUM"</span>, <span class="jxr_string">"NHVU"</span>, <span class="jxr_string">"NQAQ"</span>,
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              <span class="jxr_string">"NTHH"</span>, <span class="jxr_string">"PCHH"</span>, <span class="jxr_string">"PUUM"</span>, <span class="jxr_string">"PZPA"</span>, <span class="jxr_string">"RHZW"</span>, <span class="jxr_string">"SKIN"</span>, <span class="jxr_string">"SUHH"</span>, <span class="jxr_string">"TPTL"</span>, <span class="jxr_string">"VDVN"</span>,
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>              <span class="jxr_string">"WKUM"</span>, <span class="jxr_string">"YDYE"</span>, <span class="jxr_string">"YUCS"</span>, <span class="jxr_string">"ZRCD"</span>);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Set&lt;String&gt; ISO3166_1_ALPHA3_EXPECTED
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>              = Set.of(<span class="jxr_string">"ABW"</span>, <span class="jxr_string">"AFG"</span>, <span class="jxr_string">"AGO"</span>, <span class="jxr_string">"AIA"</span>, <span class="jxr_string">"ALA"</span>, <span class="jxr_string">"ALB"</span>, <span class="jxr_string">"AND"</span>,
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>                      <span class="jxr_string">"ARE"</span>, <span class="jxr_string">"ARG"</span>, <span class="jxr_string">"ARM"</span>, <span class="jxr_string">"ASM"</span>, <span class="jxr_string">"ATA"</span>, <span class="jxr_string">"ATF"</span>, <span class="jxr_string">"ATG"</span>,
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>                      <span class="jxr_string">"AUS"</span>, <span class="jxr_string">"AUT"</span>, <span class="jxr_string">"AZE"</span>, <span class="jxr_string">"BDI"</span>, <span class="jxr_string">"BEL"</span>, <span class="jxr_string">"BEN"</span>, <span class="jxr_string">"BES"</span>, <span class="jxr_string">"BFA"</span>,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>                      <span class="jxr_string">"BGD"</span>, <span class="jxr_string">"BGR"</span>, <span class="jxr_string">"BHR"</span>, <span class="jxr_string">"BHS"</span>, <span class="jxr_string">"BIH"</span>, <span class="jxr_string">"BLM"</span>, <span class="jxr_string">"BLR"</span>, <span class="jxr_string">"BLZ"</span>,
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>                      <span class="jxr_string">"BMU"</span>, <span class="jxr_string">"BOL"</span>, <span class="jxr_string">"BRA"</span>, <span class="jxr_string">"BRB"</span>, <span class="jxr_string">"BRN"</span>, <span class="jxr_string">"BTN"</span>, <span class="jxr_string">"BVT"</span>, <span class="jxr_string">"BWA"</span>, <span class="jxr_string">"CAF"</span>, <span class="jxr_string">"CAN"</span>,
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>                      <span class="jxr_string">"CCK"</span>, <span class="jxr_string">"CHE"</span>, <span class="jxr_string">"CHL"</span>, <span class="jxr_string">"CHN"</span>, <span class="jxr_string">"CIV"</span>, <span class="jxr_string">"CMR"</span>, <span class="jxr_string">"COD"</span>, <span class="jxr_string">"COG"</span>, <span class="jxr_string">"COK"</span>, <span class="jxr_string">"COL"</span>,
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>                      <span class="jxr_string">"COM"</span>, <span class="jxr_string">"CPV"</span>, <span class="jxr_string">"CRI"</span>, <span class="jxr_string">"CUB"</span>, <span class="jxr_string">"CUW"</span>, <span class="jxr_string">"CXR"</span>, <span class="jxr_string">"CYM"</span>, <span class="jxr_string">"CYP"</span>, <span class="jxr_string">"CZE"</span>, <span class="jxr_string">"DEU"</span>,
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>                      <span class="jxr_string">"DJI"</span>, <span class="jxr_string">"DMA"</span>, <span class="jxr_string">"DNK"</span>, <span class="jxr_string">"DOM"</span>, <span class="jxr_string">"DZA"</span>, <span class="jxr_string">"ECU"</span>, <span class="jxr_string">"EGY"</span>, <span class="jxr_string">"ERI"</span>, <span class="jxr_string">"ESH"</span>, <span class="jxr_string">"ESP"</span>,
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>                      <span class="jxr_string">"EST"</span>, <span class="jxr_string">"ETH"</span>, <span class="jxr_string">"FIN"</span>, <span class="jxr_string">"FJI"</span>, <span class="jxr_string">"FLK"</span>, <span class="jxr_string">"FRA"</span>, <span class="jxr_string">"FRO"</span>, <span class="jxr_string">"FSM"</span>, <span class="jxr_string">"GAB"</span>, <span class="jxr_string">"GBR"</span>,
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>                      <span class="jxr_string">"GEO"</span>, <span class="jxr_string">"GGY"</span>, <span class="jxr_string">"GHA"</span>, <span class="jxr_string">"GIB"</span>, <span class="jxr_string">"GIN"</span>, <span class="jxr_string">"GLP"</span>, <span class="jxr_string">"GMB"</span>, <span class="jxr_string">"GNB"</span>, <span class="jxr_string">"GNQ"</span>,
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>                      <span class="jxr_string">"GRC"</span>, <span class="jxr_string">"GRD"</span>, <span class="jxr_string">"GRL"</span>, <span class="jxr_string">"GTM"</span>, <span class="jxr_string">"GUF"</span>, <span class="jxr_string">"GUM"</span>, <span class="jxr_string">"GUY"</span>, <span class="jxr_string">"HKG"</span>, <span class="jxr_string">"HMD"</span>, <span class="jxr_string">"HND"</span>,
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>                      <span class="jxr_string">"HRV"</span>, <span class="jxr_string">"HTI"</span>, <span class="jxr_string">"HUN"</span>, <span class="jxr_string">"IDN"</span>, <span class="jxr_string">"IMN"</span>, <span class="jxr_string">"IND"</span>, <span class="jxr_string">"IOT"</span>, <span class="jxr_string">"IRL"</span>, <span class="jxr_string">"IRN"</span>, <span class="jxr_string">"IRQ"</span>,
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>                      <span class="jxr_string">"ISL"</span>, <span class="jxr_string">"ISR"</span>, <span class="jxr_string">"ITA"</span>, <span class="jxr_string">"JAM"</span>, <span class="jxr_string">"JEY"</span>, <span class="jxr_string">"JOR"</span>, <span class="jxr_string">"JPN"</span>, <span class="jxr_string">"KAZ"</span>, <span class="jxr_string">"KEN"</span>, <span class="jxr_string">"KGZ"</span>,
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>                      <span class="jxr_string">"KHM"</span>, <span class="jxr_string">"KIR"</span>, <span class="jxr_string">"KNA"</span>, <span class="jxr_string">"KOR"</span>, <span class="jxr_string">"KWT"</span>, <span class="jxr_string">"LAO"</span>, <span class="jxr_string">"LBN"</span>, <span class="jxr_string">"LBR"</span>, <span class="jxr_string">"LBY"</span>, <span class="jxr_string">"LCA"</span>,
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                      <span class="jxr_string">"LIE"</span>, <span class="jxr_string">"LKA"</span>, <span class="jxr_string">"LSO"</span>, <span class="jxr_string">"LTU"</span>, <span class="jxr_string">"LUX"</span>, <span class="jxr_string">"LVA"</span>, <span class="jxr_string">"MAC"</span>, <span class="jxr_string">"MAF"</span>, <span class="jxr_string">"MAR"</span>, <span class="jxr_string">"MCO"</span>,
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                      <span class="jxr_string">"MDA"</span>, <span class="jxr_string">"MDG"</span>, <span class="jxr_string">"MDV"</span>, <span class="jxr_string">"MEX"</span>, <span class="jxr_string">"MHL"</span>, <span class="jxr_string">"MKD"</span>, <span class="jxr_string">"MLI"</span>, <span class="jxr_string">"MLT"</span>, <span class="jxr_string">"MMR"</span>, <span class="jxr_string">"MNE"</span>,
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>                      <span class="jxr_string">"MNG"</span>, <span class="jxr_string">"MNP"</span>, <span class="jxr_string">"MOZ"</span>, <span class="jxr_string">"MRT"</span>, <span class="jxr_string">"MSR"</span>, <span class="jxr_string">"MTQ"</span>, <span class="jxr_string">"MUS"</span>, <span class="jxr_string">"MWI"</span>, <span class="jxr_string">"MYS"</span>, <span class="jxr_string">"MYT"</span>,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>                      <span class="jxr_string">"NAM"</span>, <span class="jxr_string">"NCL"</span>, <span class="jxr_string">"NER"</span>, <span class="jxr_string">"NFK"</span>, <span class="jxr_string">"NGA"</span>, <span class="jxr_string">"NIC"</span>, <span class="jxr_string">"NIU"</span>, <span class="jxr_string">"NLD"</span>, <span class="jxr_string">"NOR"</span>, <span class="jxr_string">"NPL"</span>,
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>                      <span class="jxr_string">"NRU"</span>, <span class="jxr_string">"NZL"</span>, <span class="jxr_string">"OMN"</span>, <span class="jxr_string">"PAK"</span>, <span class="jxr_string">"PAN"</span>, <span class="jxr_string">"PCN"</span>, <span class="jxr_string">"PER"</span>, <span class="jxr_string">"PHL"</span>, <span class="jxr_string">"PLW"</span>, <span class="jxr_string">"PNG"</span>,
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>                      <span class="jxr_string">"POL"</span>, <span class="jxr_string">"PRI"</span>, <span class="jxr_string">"PRK"</span>, <span class="jxr_string">"PRT"</span>, <span class="jxr_string">"PRY"</span>, <span class="jxr_string">"PSE"</span>, <span class="jxr_string">"PYF"</span>, <span class="jxr_string">"QAT"</span>, <span class="jxr_string">"REU"</span>, <span class="jxr_string">"ROU"</span>,
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>                      <span class="jxr_string">"RUS"</span>, <span class="jxr_string">"RWA"</span>, <span class="jxr_string">"SAU"</span>, <span class="jxr_string">"SDN"</span>, <span class="jxr_string">"SEN"</span>, <span class="jxr_string">"SGP"</span>, <span class="jxr_string">"SGS"</span>, <span class="jxr_string">"SHN"</span>, <span class="jxr_string">"SJM"</span>, <span class="jxr_string">"SLB"</span>,
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>                      <span class="jxr_string">"SLE"</span>, <span class="jxr_string">"SLV"</span>, <span class="jxr_string">"SMR"</span>, <span class="jxr_string">"SOM"</span>, <span class="jxr_string">"SPM"</span>, <span class="jxr_string">"SRB"</span>, <span class="jxr_string">"SSD"</span>, <span class="jxr_string">"STP"</span>, <span class="jxr_string">"SUR"</span>, <span class="jxr_string">"SVK"</span>,
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>                      <span class="jxr_string">"SVN"</span>, <span class="jxr_string">"SWE"</span>, <span class="jxr_string">"SWZ"</span>, <span class="jxr_string">"SXM"</span>, <span class="jxr_string">"SYC"</span>, <span class="jxr_string">"SYR"</span>, <span class="jxr_string">"TCA"</span>, <span class="jxr_string">"TCD"</span>, <span class="jxr_string">"TGO"</span>, <span class="jxr_string">"THA"</span>,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>                      <span class="jxr_string">"TJK"</span>, <span class="jxr_string">"TKL"</span>, <span class="jxr_string">"TKM"</span>, <span class="jxr_string">"TLS"</span>, <span class="jxr_string">"TON"</span>, <span class="jxr_string">"TTO"</span>, <span class="jxr_string">"TUN"</span>, <span class="jxr_string">"TUR"</span>, <span class="jxr_string">"TUV"</span>, <span class="jxr_string">"TWN"</span>,
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                      <span class="jxr_string">"TZA"</span>, <span class="jxr_string">"UGA"</span>, <span class="jxr_string">"UKR"</span>, <span class="jxr_string">"UMI"</span>, <span class="jxr_string">"URY"</span>, <span class="jxr_string">"USA"</span>, <span class="jxr_string">"UZB"</span>, <span class="jxr_string">"VAT"</span>, <span class="jxr_string">"VCT"</span>, <span class="jxr_string">"VEN"</span>,
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>                      <span class="jxr_string">"VGB"</span>, <span class="jxr_string">"VIR"</span>, <span class="jxr_string">"VNM"</span>, <span class="jxr_string">"VUT"</span>, <span class="jxr_string">"WLF"</span>, <span class="jxr_string">"WSM"</span>, <span class="jxr_string">"YEM"</span>, <span class="jxr_string">"ZAF"</span>, <span class="jxr_string">"ZMB"</span>, <span class="jxr_string">"ZWE"</span>);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  <em class="jxr_javadoccomment">     * This method checks that obsolete ISO3166-1 alpha-2 country codes are not</em>
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  <em class="jxr_javadoccomment">     * retrieved in output of getISOCountries() method.</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkISO3166_1_Alpha2ObsoleteCodes() {
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          Set&lt;String&gt; unexpectedCodes = ISO3166_1_ALPHA2_OBSOLETE_CODES.stream().
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>                  filter(Set.of(Locale.getISOCountries())::contains).collect(Collectors.toSet());
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          <strong class="jxr_keyword">if</strong> (!unexpectedCodes.isEmpty()) {
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Obsolete ISO3166-1 alpha2 two letter"</span>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>                      + <span class="jxr_string">" country Codes "</span> + unexpectedCodes + <span class="jxr_string">" in output of getISOCountries() method"</span>);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          }
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      }
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  <em class="jxr_javadoccomment">     * This method checks that ISO3166-3 country codes which are PART3 of</em>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment">     * IsoCountryCode enum, are retrieved correctly.</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkISO3166_3Codes() {
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          Set&lt;String&gt; iso3166_3Codes = Locale.getISOCountries(IsoCountryCode.PART3);
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          <strong class="jxr_keyword">if</strong> (!iso3166_3Codes.equals(ISO3166_3EXPECTED)) {
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>              reportDifference(iso3166_3Codes, ISO3166_3EXPECTED);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          }
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>      }
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * This method checks that ISO3166-1 alpha-3 country codes which are</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * PART1_ALPHA3 of IsoCountryCode enum, are retrieved correctly.</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkISO3166_1_Alpha3Codes() {
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         Set&lt;String&gt; iso3166_1_Alpha3Codes = Locale.getISOCountries(IsoCountryCode.PART1_ALPHA3);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         <strong class="jxr_keyword">if</strong> (!iso3166_1_Alpha3Codes.equals(ISO3166_1_ALPHA3_EXPECTED)) {
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             reportDifference(iso3166_1_Alpha3Codes, ISO3166_1_ALPHA3_EXPECTED);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         }
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     }
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment">     * This method checks that ISO3166-1 alpha-2 country codes, which are</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <em class="jxr_javadoccomment">     * PART1_ALPHA2 of IsoCountryCode enum, are retrieved correctly.</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkISO3166_1_Alpha2Codes() {
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         Set&lt;String&gt; iso3166_1_Alpha2Codes = Locale.getISOCountries(IsoCountryCode.PART1_ALPHA2);
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>         Set&lt;String&gt; ISO3166_1_ALPHA2_EXPECTED = Set.of(Locale.getISOCountries());
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>         <strong class="jxr_keyword">if</strong> (!iso3166_1_Alpha2Codes.equals(ISO3166_1_ALPHA2_EXPECTED)) {
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>             reportDifference(iso3166_1_Alpha2Codes, ISO3166_1_ALPHA2_EXPECTED);
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>         }
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>     }
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> reportDifference(Set&lt;String&gt; retrievedCountrySet, Set&lt;String&gt; expectedCountrySet) {
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>         Set&lt;String&gt; retrievedSet = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(retrievedCountrySet);
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>         Set&lt;String&gt; expectedSet = <strong class="jxr_keyword">new</strong> HashSet&lt;&gt;(expectedCountrySet);
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         retrievedSet.removeAll(expectedCountrySet);
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>         expectedSet.removeAll(retrievedCountrySet);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         <strong class="jxr_keyword">if</strong> ((retrievedSet.size() &gt; 0) &amp;&amp; (expectedSet.size() &gt; 0)) {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Retrieved country codes set contains extra codes "</span>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                     + retrievedSet + <span class="jxr_string">" and missing codes "</span> + expectedSet);
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>         }
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>         <strong class="jxr_keyword">if</strong> (retrievedSet.size() &gt; 0) {
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Retrieved country codes set contains extra codes "</span>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                     + retrievedSet);
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>         }
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>         <strong class="jxr_keyword">if</strong> (expectedSet.size() &gt; 0) {
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> RuntimeException(<span class="jxr_string">"Retrieved country codes set is missing codes "</span>
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                     + expectedSet);
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>         }
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>     }
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>         checkISO3166_1_Alpha2ObsoleteCodes();
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>         checkISO3166_1_Alpha2Codes();
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>         checkISO3166_1_Alpha3Codes();
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>         checkISO3166_3Codes();
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>     }
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

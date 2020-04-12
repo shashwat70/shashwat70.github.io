@@ -1,0 +1,2451 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AbbreviationAsWordInName</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												tokens
+												
+													<li>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF</li>
+												
+												<br/>
+											
+												ignoreFinal
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowedAbbreviationLength
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">409</td>
+							<td id="totalPatch">100 (100 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">100 (100 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">35 files with differences</td>
+							<td id="totalDiff">100 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">100 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleStatisticsPatch">100 (100 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumDiff">100</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">100</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\internal\operators\OperatorMerge.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DRAIN_ACTION&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\internal\operators\OperatorMerge.java.html#L408">408</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\internal\operators\OperatorPublish.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;THRESHOLD&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\internal\operators\OperatorPublish.java.html#L126">126</a></td>
+								
+								
+									
+									<td class="keepWidth">28</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\plugins\RxJavaSchedulersHook.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;getIOScheduler&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\plugins\RxJavaSchedulersHook.java.html#L59">59</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\subscriptions\RefCountSubscription.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;unsubscribeAChild&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\main\java\rx\subscriptions\RefCountSubscription.java.html#L116">116</a></td>
+								
+								
+									
+									<td class="keepWidth">10</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicIntCASSuccess&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L144">144</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicLongCASSuccess&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L151">151</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicIntCASCheckSuccess&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L158">158</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicLongCASCheckSuccess&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L167">167</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicIntCASFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L176">176</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicLongCASFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L182">182</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicIntCASCheckFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L188">188</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicLongCASCheckFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L196">196</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicIntFieldCASSuccess&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L243">243</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicLongFieldCASSuccess&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L250">250</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicIntFieldCASFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L257">257</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;atomicLongFieldCASFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\internal\AtomicPerf.java.html#L263">263</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\operators\OperatorMergePerf.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeNSyncStreamsOfN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\operators\OperatorMergePerf.java.html#L75">75</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeNAsyncStreamsOfN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\operators\OperatorMergePerf.java.html#L90">90</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeNSyncStreamsOf1&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\operators\OperatorMergePerf.java.html#L113">113</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\schedulers\IOSchedulerPerf.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;IOSchedulerPerf&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\perf\java\rx\schedulers\IOSchedulerPerf.java.html#L34">34</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L60">60</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L85">85</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L106">106</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L128">128</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L151">151</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L173">173</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L196">196</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L223">223</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L252">252</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L282">282</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L423">423</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L449">449</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L484">484</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L507">507</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\BackpressureTests.java.html#L536">536</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\CovarianceTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SORT_FUNCTION&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\CovarianceTest.java.html#L53">53</a></td>
+								
+								
+									
+									<td class="keepWidth">38</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TVSeason&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\CovarianceTest.java.html#L236">236</a></td>
+								
+								
+									
+									<td class="keepWidth">18</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\ObservableTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testCountAFewItems&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\ObservableTests.java.html#L143">143</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\BlockingOperatorNextTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;COUNT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\BlockingOperatorNextTest.java.html#L236">236</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\BlockingOperatorToFutureTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testGetWithASingleNullItem&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\BlockingOperatorToFutureTest.java.html#L129">129</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\BufferUntilSubscriberTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NITERS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\BufferUntilSubscriberTest.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnBackpressureBlockTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_VALUES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnBackpressureBlockTest.java.html#L88">88</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeCombineLatestTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;test1ToNSources&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeCombineLatestTest.java.html#L472">472</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;test1ToNSourcesScheduled&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeCombineLatestTest.java.html#L504">504</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeCombineLatestTest.java.html#L803">803</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeCombineLatestTest.java.html#L822">822</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeGroupJoinTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;PPF&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OnSubscribeGroupJoinTest.java.html#L141">141</a></td>
+								
+								
+									
+									<td class="keepWidth">11</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bufferWithBONormal1&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java.html#L397">397</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bufferWithBOEmptyLastViaBoundary&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java.html#L433">433</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bufferWithBOEmptyLastViaSource&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java.html#L453">453</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bufferWithBOEmptyLastViaBoth&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java.html#L473">473</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bufferWithBOSourceThrows&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java.html#L494">494</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;bufferWithBOBoundaryThrows&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorBufferTest.java.html#L511">511</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorDistinctTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TO_UPPER_WITH_EXCEPTION&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorDistinctTest.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorDistinctUntilChangedTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TO_UPPER_WITH_EXCEPTION&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorDistinctUntilChangedTest.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorGroupByTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ASYNC_INFINITE_OBSERVABLE_OF_EVENT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorGroupByTest.java.html#L976">976</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SYNC_INFINITE_OBSERVABLE_OF_EVENT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorGroupByTest.java.html#L980">980</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeDelayErrorTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TestASynchronousObservable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeDelayErrorTest.java.html#L328">328</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TestASynchronous1sDelayedObservable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeDelayErrorTest.java.html#L527">527</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeMaxConcurrentTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testMergeALotOfSourcesOneByOneSynchronously&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeMaxConcurrentTest.java.html#L127">127</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testMergeALotOfSourcesOneByOneSynchronouslyTakeHalf&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeMaxConcurrentTest.java.html#L142">142</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TestASynchronousObservable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeTest.java.html#L353">353</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeNAsyncStreamsOfN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeTest.java.html#L898">898</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeNSyncStreamsOfN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorMergeTest.java.html#L955">955</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRepeatTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRepeatTest.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_RETRIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L117">117</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_RETRIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L137">137</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_RETRIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L169">169</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_RETRIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L284">284</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_FAILURES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L285">285</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_FAILURES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L304">304</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_FAILURES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L324">324</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_RETRIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L687">687</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_RETRIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L711">711</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_MSG&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L815">815</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM_MSG&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorRetryTest.java.html#L856">856</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorSerializeTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testMultiThreadedWithNPE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorSerializeTest.java.html#L93">93</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testMultiThreadedWithNPEinMiddle&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorSerializeTest.java.html#L122">122</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorUnsubscribeOnTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;UI_EVENT_LOOP&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorUnsubscribeOnTest.java.html#L42">42</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;UI_EVENT_LOOP&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorUnsubscribeOnTest.java.html#L83">83</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;UIEventLoopScheduler&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorUnsubscribeOnTest.java.html#L154">154</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorZipTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVABLE_OF_5_INTEGERS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorZipTest.java.html#L1174">1174</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVABLE_OF_5_INTEGERS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorZipTest.java.html#L1176">1176</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ASYNC_OBSERVABLE_OF_INFINITE_INTEGERS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\operators\OperatorZipTest.java.html#L1195">1195</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\util\IndexedRingBufferTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LSubscription&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\util\IndexedRingBufferTest.java.html#L404">404</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\util\JCToolsQueueTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;JCToolsQueueTests&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\internal\util\JCToolsQueueTests.java.html#L24">24</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_SUCCESS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L312">312</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_SUCCESS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L333">333</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_ONNEXT_FAIL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L354">354</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_ONNEXT_ONERROR_FAIL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L375">375</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_ONERROR_FAIL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L396">396</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_ONERROR_NOTIMPLEMENTED&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L417">417</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;OBSERVER_ONCOMPLETED_FAIL&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SafeObserverTest.java.html#L438">438</a></td>
+								
+								
+									
+									<td class="keepWidth">39</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SerializedObserverTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testMultiThreadedWithNPE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SerializedObserverTest.java.html#L108">108</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testMultiThreadedWithNPEinMiddle&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\observers\SerializedObserverTest.java.html#L139">139</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\schedulers\CachedThreadSchedulerTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A97" href = "#A97">#A97</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testIOScheduler&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\schedulers\CachedThreadSchedulerTest.java.html#L43">43</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A98" href = "#A98">#A98</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;memoryMXBean&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\schedulers\CachedThreadSchedulerTest.java.html#L86">86</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\schedulers\ComputationSchedulerTests.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A99" href = "#A99">#A99</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;NUM&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\schedulers\ComputationSchedulerTests.java.html#L44">44</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\subscriptions\RefCountSubscriptionTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A100" href = "#A100">#A100</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;testRCSUnsubscribeBeforeClient&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\RxJava\src\test\java\rx\subscriptions\RefCountSubscriptionTest.java.html#L55">55</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

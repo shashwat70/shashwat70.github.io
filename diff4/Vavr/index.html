@@ -1,0 +1,3431 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">AbbreviationAsWordInName</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												tokens
+												
+													<li>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF</li>
+												
+												<br/>
+											
+												ignoreFinal
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowedAbbreviationLength
+												
+													<li>0</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">289</td>
+							<td id="totalPatch">156 (156 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">156 (156 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">37 files with differences</td>
+							<td id="totalDiff">156 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">156 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleStatisticsPatch">156 (156 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheckModuleNumDiff">156</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">156</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\JmhRunner.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CLASSES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\JmhRunner.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ArrayBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ArrayBenchmark.java.html#L45">45</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ArrayBenchmark.java.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ArrayBenchmark.java.html#L48">48</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\BitSetBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\BitSetBenchmark.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\BitSetBenchmark.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\BitSetBenchmark.java.html#L40">40</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DISTINCT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\BitSetBenchmark.java.html#L41">41</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\CharSeqBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\CharSeqBenchmark.java.html#L45">45</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\CharSeqBenchmark.java.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\CharSeqBenchmark.java.html#L48">48</a></td>
+								
+								
+									
+									<td class="keepWidth">16</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\HashSetBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\HashSetBenchmark.java.html#L35">35</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\HashSetBenchmark.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\HashSetBenchmark.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SET&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\HashSetBenchmark.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\IteratorBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\IteratorBenchmark.java.html#L37">37</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\IteratorBenchmark.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ListBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ListBenchmark.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ListBenchmark.java.html#L51">51</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\ListBenchmark.java.html#L52">52</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\PriorityQueueBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\PriorityQueueBenchmark.java.html#L51">51</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\PriorityQueueBenchmark.java.html#L53">53</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\PriorityQueueBenchmark.java.html#L54">54</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java.html#L64">64</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EXPECTED_AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java.html#L66">66</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java.html#L67">67</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INT_ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java.html#L68">68</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;RANDOMIZED_INDICES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java.html#L69">69</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;BYTE_ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\collection\VectorBenchmark.java.html#L101">101</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\control\LazyBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\control\LazyBenchmark.java.html#L36">36</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;EAGERS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\control\LazyBenchmark.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">19</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INITED_LAZIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\control\LazyBenchmark.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">33</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;LAZIES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\control\LazyBenchmark.java.html#L58">58</a></td>
+								
+								
+									
+									<td class="keepWidth">37</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\ForBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CONTAINER_SIZE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\ForBenchmark.java.html#L47">47</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;AGGREGATE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\ForBenchmark.java.html#L48">48</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ELEMENTS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\ForBenchmark.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;AGGREGATOR&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\ForBenchmark.java.html#L51">51</a></td>
+								
+								
+									
+									<td class="keepWidth">53</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\PatternMatchingBenchmark.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;VALUES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\PatternMatchingBenchmark.java.html#L45">45</a></td>
+								
+								
+									
+									<td class="keepWidth">15</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;INSTANCES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\PatternMatchingBenchmark.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;CASES&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-benchmark\src\test\java\io\vavr\idiom\PatternMatchingBenchmark.java.html#L50">50</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-match\src\main\java\io\vavr\match\generator\ImportManager.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;FQN&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-match\src\main\java\io\vavr\match\generator\ImportManager.java.html#L121">121</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\test\java\io\vavr\test\CheckResultTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHaveASampleWhenIsFalsified&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\test\java\io\vavr\test\CheckResultTest.java.html#L142">142</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\test\java\io\vavr\test\GenTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A43" href = "#A43">#A43</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowWhenChooseDoubleAndMinIsNotANumber&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\test\java\io\vavr\test\GenTest.java.html#L120">120</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A44" href = "#A44">#A44</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowWhenChooseDoubleAndMaxIsNotANumber&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\test\java\io\vavr\test\GenTest.java.html#L135">135</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A45" href = "#A45">#A45</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldChooseFromASingleArray&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr-test\src\test\java\io\vavr\test\GenTest.java.html#L154">154</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\main\java\io\vavr\API.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A46" href = "#A46">#A46</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;API&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\main\java\io\vavr\API.java.html#L89">89</a></td>
+								
+								
+									
+									<td class="keepWidth">20</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A47" href = "#A47">#A47</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TODO&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\main\java\io\vavr\API.java.html#L116">116</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A48" href = "#A48">#A48</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;TODO&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\main\java\io\vavr\API.java.html#L139">139</a></td>
+								
+								
+									
+									<td class="keepWidth">25</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A49" href = "#A49">#A49</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;APITest&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java.html#L29">29</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A50" href = "#A50">#A50</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCompileTODOAndThrowDefaultMessageAtRuntime&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A51" href = "#A51">#A51</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCompileTODOAndThrowGivenMessageAtRuntime&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src-gen\test\java\io\vavr\APITest.java.html#L49">49</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\collection\RedBlackTree.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A52" href = "#A52">#A52</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;joinGT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\collection\RedBlackTree.java.html#L706">706</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A53" href = "#A53">#A53</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;joinLT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\collection\RedBlackTree.java.html#L715">715</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A54" href = "#A54">#A54</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeEQ&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\collection\RedBlackTree.java.html#L746">746</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A55" href = "#A55">#A55</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeGT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\collection\RedBlackTree.java.html#L767">767</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A56" href = "#A56">#A56</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;mergeLT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\main\java\io\vavr\collection\RedBlackTree.java.html#L776">776</a></td>
+								
+								
+									
+									<td class="keepWidth">36</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\AbstractValueTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A57" href = "#A57">#A57</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowWhenCallingGetOrElseTryOnEmptyValueAndTryIsAFailure&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\AbstractValueTest.java.html#L155">155</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A58" href = "#A58">#A58</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHaveAReasonableToString&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\AbstractValueTest.java.html#L929">929</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\LazyTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A59" href = "#A59">#A59</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldContainASingleValue&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\LazyTest.java.html#L173">173</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A60" href = "#A60">#A60</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldReturnTuple2SetOfANonEmptyMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L585">585</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A61" href = "#A61">#A61</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldTabulateTheSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1113">1113</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A62" href = "#A62">#A62</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldFillTheSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1132">1132</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A63" href = "#A63">#A63</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldReturnOptionOfKeyWhenAccessingPresentKeysInAMapWithNulls&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1248">1248</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A64" href = "#A64">#A64</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldReturnNoneWhenAccessingAbsentKeysInAMapWithNulls&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1254">1254</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A65" href = "#A65">#A65</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldGetAPresentNullValueWhenPutFirstHavingTwoEntries&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1317">1317</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A66" href = "#A66">#A66</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldGetAPresentNullValueWhenPutLastHavingTwoEntries&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMapTest.java.html#L1323">1323</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A67" href = "#A67">#A67</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldReturnTuple2SetOfANonEmptyMap&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L532">532</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A68" href = "#A68">#A68</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldTabulateTheSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L967">967</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A69" href = "#A69">#A69</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldFillTheSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractMultimapTest.java.html#L986">986</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A70" href = "#A70">#A70</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfEmptyList&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java.html#L283">283</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A71" href = "#A71">#A71</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfNonEmptyList&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java.html#L289">289</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A72" href = "#A72">#A72</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfNegativeK&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractSeqTest.java.html#L294">294</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A73" href = "#A73">#A73</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L99">99</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A74" href = "#A74">#A74</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L106">106</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A75" href = "#A75">#A75</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedByWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L221">221</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A76" href = "#A76">#A76</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedByWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L249">249</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A77" href = "#A77">#A77</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L300">300</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A78" href = "#A78">#A78</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L307">307</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A79" href = "#A79">#A79</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeByWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L423">423</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A80" href = "#A80">#A80</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeByWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableRangeTest.java.html#L451">451</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A81" href = "#A81">#A81</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenMaxOfNullAndInt&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1110">1110</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A82" href = "#A82">#A82</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenMaxOfIntAndNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1115">1115</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A83" href = "#A83">#A83</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenMinOfNullAndInt&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1239">1239</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A84" href = "#A84">#A84</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenMinOfIntAndNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1244">1244</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A85" href = "#A85">#A85</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHandleStderrIOException&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1898">1898</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A86" href = "#A86">#A86</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHandleStdoutIOException&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1922">1922</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A87" href = "#A87">#A87</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHandlePrintStreamIOException&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1945">1945</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A88" href = "#A88">#A88</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHandlePrintWriterIOException&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L1962">1962</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A89" href = "#A89">#A89</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldTabulateTheSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L2625">2625</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A90" href = "#A90">#A90</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldFillTheSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\AbstractTraversableTest.java.html#L2642">2642</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A91" href = "#A91">#A91</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L334">334</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A92" href = "#A92">#A92</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L339">339</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A93" href = "#A93">#A93</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedByWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L376">376</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A94" href = "#A94">#A94</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeClosedByWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L384">384</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A95" href = "#A95">#A95</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L409">409</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A96" href = "#A96">#A96</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L414">414</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A97" href = "#A97">#A97</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeByWhereFromAndToEqualMIN_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L449">449</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A98" href = "#A98">#A98</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateRangeByWhereFromAndToEqualMAX_VALUE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L457">457</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A99" href = "#A99">#A99</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldFillTheCharSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L754">754</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A100" href = "#A100">#A100</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHandleStderrIOException&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L1665">1665</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A101" href = "#A101">#A101</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldHandleStdoutIOException&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L1683">1683</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A102" href = "#A102">#A102</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldTabulateTheCharSeqWith0ElementsWhenNIsNegative&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L1727">1727</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A103" href = "#A103">#A103</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfEmptyList&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L2138">2138</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A104" href = "#A104">#A104</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfNonEmptyList&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L2143">2143</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A105" href = "#A105">#A105</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfNegativeK&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\CharSeqTest.java.html#L2148">2148</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\ComparatorsTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A106" href = "#A106">#A106</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenComparingNullAndIntegerUsingNaturalOrder&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\ComparatorsTest.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A107" href = "#A107">#A107</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenComparingIntegerAndNullUsingNaturalOrder&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\ComparatorsTest.java.html#L28">28</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\HashArrayMappedTrieTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A108" href = "#A108">#A108</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldEqualSameHAMTInstance&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\HashArrayMappedTrieTest.java.html#L137">137</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A109" href = "#A109">#A109</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldRecognizeNonEqualityOfHAMTOfSameSize&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\HashArrayMappedTrieTest.java.html#L163">163</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A110" href = "#A110">#A110</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldRecognizeNonEqualityOfHAMTOfDifferentSize&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\HashArrayMappedTrieTest.java.html#L168">168</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A111" href = "#A111">#A111</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCalculateDifferentHashCodesForDifferentHAMT&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\HashArrayMappedTrieTest.java.html#L211">211</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A112" href = "#A112">#A112</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenAddingAllNullCollectionToEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L224">224</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A113" href = "#A113">#A113</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenAddingAllNullCollectionToNonEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L229">229</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A114" href = "#A114">#A114</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenAddingAllNullCollectionAtFirstIndexToEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L274">274</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A115" href = "#A115">#A115</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenAddingAllNullCollectionAtFirstIndexToNonEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L280">280</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A116" href = "#A116">#A116</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldRecognizeThatNWhenEmptyListViewContainElement&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L370">370</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A117" href = "#A117">#A117</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingContainsAllNullWhenEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L410">410</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A118" href = "#A118">#A118</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingContainsAllNullWhenNotEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L416">416</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A119" href = "#A119">#A119</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingRemoveAllNullWhenEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L1834">1834</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A120" href = "#A120">#A120</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingRemoveAllNullWhenNotEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L1840">1840</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A121" href = "#A121">#A121</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingRetainAllNullWhenEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L1928">1928</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A122" href = "#A122">#A122</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingRetainAllNullWhenNotEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L1934">1934</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A123" href = "#A123">#A123</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingToArrayNullWhenEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L2210">2210</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A124" href = "#A124">#A124</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallingToArrayNullWhenNotEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\JavaConvertersTest.java.html#L2216">2216</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\RedBlackTreeTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A125" href = "#A125">#A125</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldReturnTheSameInstanceWhenInsertingAnAlreadyContainedELement&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\RedBlackTreeTest.java.html#L135">135</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\StreamTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A126" href = "#A126">#A126</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfEmptyStream&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\StreamTest.java.html#L356">356</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A127" href = "#A127">#A127</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldComputeKCombinationsOfNonEmptyStream&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\StreamTest.java.html#L361">361</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\StringTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A128" href = "#A128">#A128</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;substringBE&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\StringTest.java.html#L179">179</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\TreeMapTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A129" href = "#A129">#A129</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldReturnATreeMapWithCorrectComparatorWhenFlatMappingToEmpty&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\TreeMapTest.java.html#L374">374</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\TreeTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A130" href = "#A130">#A130</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateANodeWithoutChildren&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\TreeTest.java.html#L227">227</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A131" href = "#A131">#A131</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCalculateSizeOfALeaf&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\TreeTest.java.html#L251">251</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A132" href = "#A132">#A132</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldIGetChildrenOfNil&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\TreeTest.java.html#L322">322</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler41Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A133" href = "#A133">#A133</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;largestNPandigitalPrime&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler41Test.java.html#L39">39</a></td>
+								
+								
+									
+									<td class="keepWidth">24</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler43Test.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A134" href = "#A134">#A134</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;ALL_DIGITS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler43Test.java.html#L55">55</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A135" href = "#A135">#A135</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;DIVISORS&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\collection\euler\Euler43Test.java.html#L56">56</a></td>
+								
+								
+									
+									<td class="keepWidth">29</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A136" href = "#A136">#A136</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndFailAFutureUsingForkJoinPool&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L100">100</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A137" href = "#A137">#A137</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndFailAFutureUsingTrivialExecutorService&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L109">109</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A138" href = "#A138">#A138</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldFindFirstValueThatSatisfiesAPredicateUsingForkJoinPool&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L188">188</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A139" href = "#A139">#A139</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingTrivialExecutorService&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L264">264</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A140" href = "#A140">#A140</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCompleteOneFuturesUsingAThreadPoolExecutorLimitedToOneThread&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L285">285</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A141" href = "#A141">#A141</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCompleteThreeFuturesUsingAThreadPoolExecutorLimitedToOneThread&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L295">295</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A142" href = "#A142">#A142</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingTrivialExecutorServiceAndSupplier&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L313">313</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A143" href = "#A143">#A143</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenExecutorIsNullUsingSupplier&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L320">320</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A144" href = "#A144">#A144</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenSupplierIsNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L325">325</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A145" href = "#A145">#A145</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingDefaultExecutorServiceAndSupplier&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L330">330</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A146" href = "#A146">#A146</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEUsingDefaultExecutorWhenSupplierIsNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L338">338</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A147" href = "#A147">#A147</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingTrivialExecutorServiceAndCallable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L345">345</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A148" href = "#A148">#A148</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenExecutorIsNullUsingCallable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L352">352</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A149" href = "#A149">#A149</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenCallableIsNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L357">357</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A150" href = "#A150">#A150</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingDefaultExecutorServiceAndCallable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L362">362</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A151" href = "#A151">#A151</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEUsingDefaultExecutorWhenCallableIsNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L370">370</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A152" href = "#A152">#A152</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingTrivialExecutorServiceAndRunnable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L377">377</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A153" href = "#A153">#A153</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenExecutorIsNullUsingRunnable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L386">386</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A154" href = "#A154">#A154</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEWhenRunnableIsNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L391">391</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A155" href = "#A155">#A155</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldCreateAndCompleteAFutureUsingDefaultExecutorServiceAndRunnable&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L396">396</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A156" href = "#A156">#A156</a></td>
+								<td>warning</td>
+								<td>AbbreviationAsWordInName</td>
+								<td>Abbreviation in name &#39;shouldThrowNPEUsingDefaultExecutorWhenRunnableIsNull&#39; must contain no more than &#39;1&#39; consecutive capital letters.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\Vavr\vavr\src\test\java\io\vavr\concurrent\FutureTest.java.html#L405">405</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
