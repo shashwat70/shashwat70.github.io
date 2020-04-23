@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>TestConditionalOperator xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../stylesheet.css" />
+</head>
+<body>
+<pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> fr.inria.spoon.dataflow.testcases;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> TestConditionalOperator
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   {
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>       <strong class="jxr_keyword">void</strong> testConditionalOperator1()
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>       {
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>           <strong class="jxr_keyword">int</strong> x = 3;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>           <strong class="jxr_keyword">int</strong> y = (x == 3) ? 5 : 2; <em class="jxr_comment">//@ALWAYS_TRUE</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>           <strong class="jxr_keyword">if</strong> (y == 5) {} <em class="jxr_comment">//@ALWAYS_TRUE</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      }
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>      <strong class="jxr_keyword">void</strong> testConditionalOperator2()
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      {
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>          <strong class="jxr_keyword">int</strong> x = 3;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>          <strong class="jxr_keyword">int</strong> z = (x == 3) ? ++x : --x; <em class="jxr_comment">//@ALWAYS_TRUE</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>          <strong class="jxr_keyword">if</strong> (z == 4) {} <em class="jxr_comment">//@ALWAYS_TRUE</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          <strong class="jxr_keyword">if</strong> (x == 4) {} <em class="jxr_comment">//@ALWAYS_TRUE</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      }
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">void</strong> testConditionalOperator3(<strong class="jxr_keyword">int</strong> x)
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      {
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>          <strong class="jxr_keyword">boolean</strong> z = x &gt; 3 ? x == 1 : x == 0; <em class="jxr_comment">//@ALWAYS_FALSE</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      }
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      <strong class="jxr_keyword">void</strong> testConditionalOperator4(<strong class="jxr_keyword">boolean</strong> cond)
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          Object x = cond ? <strong class="jxr_keyword">new</strong> Integer(42) : <strong class="jxr_keyword">new</strong> Double(14.0);
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">if</strong> (x == <strong class="jxr_keyword">null</strong>) {} <em class="jxr_comment">//@ALWAYS_FALSE</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          <strong class="jxr_keyword">if</strong> ((Integer) x == 42) {}
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      }
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  }
+</pre>
+<hr/>
+<div id="footer"></div>
+</body>
+</html>

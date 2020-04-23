@@ -1,0 +1,1235 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+										</td>
+										
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">WhitespaceAround</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												allowEmptyConstructors
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ws.notPreceded
+												
+													<li>WhitespaceAround: &#39;&#39;{0}&#39;&#39; is not preceded with whitespace.</li>
+												
+												<br/>
+											
+												ignoreEnhancedForColon
+												
+													<li>false</li>
+												
+												<br/>
+											
+												allowEmptyLambdas
+												
+													<li>true</li>
+												
+												<br/>
+											
+												allowEmptyMethods
+												
+													<li>true</li>
+												
+												<br/>
+											
+												ws.notFollowed
+												
+													<li>WhitespaceAround: &#39;&#39;{0}&#39;&#39; is not followed by whitespace. Empty blocks may only be represented as &#39;{}&#39; when not part of a multi-block statement (4.1.3)</li>
+												
+												<br/>
+											
+												allowEmptyLoops
+												
+													<li>true</li>
+												
+												<br/>
+											
+												tokens
+												
+													<li>ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR, BSR_ASSIGN, BXOR,                     BXOR_ASSIGN, COLON, DIV, DIV_ASSIGN, DO_WHILE, EQUAL, GE, GT, LAMBDA, LAND,                     LCURLY, LE, LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY,                     LITERAL_FOR, LITERAL_IF, LITERAL_RETURN, LITERAL_SWITCH, LITERAL_SYNCHRONIZED,                      LITERAL_TRY, LITERAL_WHILE, LOR, LT, MINUS, MINUS_ASSIGN, MOD, MOD_ASSIGN,                      NOT_EQUAL, PLUS, PLUS_ASSIGN, QUESTION, RCURLY, SL, SLIST, SL_ASSIGN, SR,                      SR_ASSIGN, STAR, STAR_ASSIGN, LITERAL_ASSERT, TYPE_EXTENSION_AND</li>
+												
+												<br/>
+											
+												allowEmptyTypes
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										
+										<td> </td>
+										<td class="a">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">0</td>
+							<td id="totalBase">0</td>
+							
+								<td id="warningSeverityNumBase">0</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">2656</td>
+							<td id="totalPatch">42 (42 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">42 (42 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">16 files with differences</td>
+							<td id="totalDiff">42 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">42 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckModuleNumBase">0</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckModuleStatisticsPatch">42 (42 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheckModuleNumDiff">42</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">42</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\.mvn\wrapper\MavenWrapperDownloader.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;if&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\.mvn\wrapper\MavenWrapperDownloader.java.html#L57">57</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;if&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\.mvn\wrapper\MavenWrapperDownloader.java.html#L68">68</a></td>
+								
+								
+									
+									<td class="keepWidth">21</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;if&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\.mvn\wrapper\MavenWrapperDownloader.java.html#L79">79</a></td>
+								
+								
+									
+									<td class="keepWidth">9</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;if&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\.mvn\wrapper\MavenWrapperDownloader.java.html#L80">80</a></td>
+								
+								
+									
+									<td class="keepWidth">13</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-core\src\main\java\net\sourceforge\pmd\benchmark\Benchmarker.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-core\src\main\java\net\sourceforge\pmd\benchmark\Benchmarker.java.html#L179">179</a></td>
+								
+								
+									
+									<td class="keepWidth">23</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\bestpractices\AccessorMethodGenerationRule.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\bestpractices\AccessorMethodGenerationRule.java.html#L72">72</a></td>
+								
+								
+									
+									<td class="keepWidth">53</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\bestpractices\AccessorMethodGenerationRule.java.html#L78">78</a></td>
+								
+								
+									
+									<td class="keepWidth">43</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\bestpractices\AccessorMethodGenerationRule.java.html#L80">80</a></td>
+								
+								
+									
+									<td class="keepWidth">61</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\bestpractices\AccessorMethodGenerationRule.java.html#L116">116</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\bestpractices\AccessorMethodGenerationRule.java.html#L127">127</a></td>
+								
+								
+									
+									<td class="keepWidth">38</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\multithreading\UnsynchronizedStaticFormatterRule.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\main\java\net\sourceforge\pmd\lang\java\rule\multithreading\UnsynchronizedStaticFormatterRule.java.html#L68">68</a></td>
+								
+								
+									
+									<td class="keepWidth">30</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\LambdaBug1470.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;=&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\LambdaBug1470.java.html#L14">14</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;=&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\LambdaBug1470.java.html#L14">14</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;=&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\LambdaBug1470.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;=&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\LambdaBug1470.java.html#L23">23</a></td>
+								
+								
+									
+									<td class="keepWidth">22</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;{&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases.java.html#L127">127</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases17.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;|&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases17.java.html#L169">169</a></td>
+								
+								
+									
+									<td class="keepWidth">37</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;|&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases17.java.html#L169">169</a></td>
+								
+								
+									
+									<td class="keepWidth">37</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases18.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A19" href = "#A19">#A19</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;if&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases18.java.html#L142">142</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A20" href = "#A20">#A20</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;if&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases18.java.html#L152">152</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A21" href = "#A21">#A21</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;{&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\ParserCornerCases18.java.html#L176">176</a></td>
+								
+								
+									
+									<td class="keepWidth">41</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\jdkversiontests\assert_test3.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A22" href = "#A22">#A22</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;==&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\jdkversiontests\assert_test3.java.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">12</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A23" href = "#A23">#A23</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;==&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\jdkversiontests\assert_test3.java.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">12</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\jdkversiontests\assert_test4.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A24" href = "#A24">#A24</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;==&#39; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\jdkversiontests\assert_test4.java.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">12</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A25" href = "#A25">#A25</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;==&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-java\src\test\resources\net\sourceforge\pmd\lang\java\ast\jdkversiontests\assert_test4.java.html#L3">3</a></td>
+								
+								
+									
+									<td class="keepWidth">12</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A26" href = "#A26">#A26</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L67">67</a></td>
+								
+								
+									
+									<td class="keepWidth">35</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A27" href = "#A27">#A27</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L100">100</a></td>
+								
+								
+									
+									<td class="keepWidth">53</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A28" href = "#A28">#A28</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L131">131</a></td>
+								
+								
+									
+									<td class="keepWidth">38</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A29" href = "#A29">#A29</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L136">136</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A30" href = "#A30">#A30</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L137">137</a></td>
+								
+								
+									
+									<td class="keepWidth">51</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A31" href = "#A31">#A31</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L144">144</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A32" href = "#A32">#A32</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L148">148</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A33" href = "#A33">#A33</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L154">154</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A34" href = "#A34">#A34</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaClassDeclaration.java.html#L158">158</a></td>
+								
+								
+									
+									<td class="keepWidth">46</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaComponentDeclaration.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A35" href = "#A35">#A35</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaComponentDeclaration.java.html#L210">210</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A36" href = "#A36">#A36</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaComponentDeclaration.java.html#L214">214</a></td>
+								
+								
+									
+									<td class="keepWidth">31</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaSourceFileScope.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A37" href = "#A37">#A37</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ModelicaSourceFileScope.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">38</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ResolutionContext.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A38" href = "#A38">#A38</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ResolutionContext.java.html#L74">74</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A39" href = "#A39">#A39</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\ResolutionContext.java.html#L79">79</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\RootScope.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A40" href = "#A40">#A40</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\RootScope.java.html#L26">26</a></td>
+								
+								
+									
+									<td class="keepWidth">50</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A41" href = "#A41">#A41</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\resolver\RootScope.java.html#L38">38</a></td>
+								
+								
+									
+									<td class="keepWidth">48</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>C:\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\rule\AmbiguousResolutionRule.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A42" href = "#A42">#A42</a></td>
+								<td>warning</td>
+								<td>WhitespaceAround</td>
+								<td>WhitespaceAround: &#39;:&#39; is not preceded with whitespace.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref\Users\Shashwat\contribution\checkstyle-tester\repositories\pmd\pmd-modelica\src\main\java\net\sourceforge\pmd\lang\modelica\rule\AmbiguousResolutionRule.java.html#L18">18</a></td>
+								
+								
+									
+									<td class="keepWidth">44</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
