@@ -1,0 +1,32 @@
+.heading {
+    text-align: center;
+    font: bolder;
+    font-size: 6vw;
+    font-family: cursive;
+    padding-top: 0px;
+    text-shadow: 2px 2px 8px black;
+    color: palegoldenrod;
+}
+
+body {
+    background-image: url(images/starry.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    width: 80%;
+    table-layout: initial;
+
+}
+td {
+    font-size: 60%;
+    text-align: center;
+    width: 25%;
+}
