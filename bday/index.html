@@ -7,27 +7,33 @@
     <title>Document</title>
 </head>
 <body id="body">
-    <div class="heading">
-        <p>
-            Something Coming Up!
-        </p>
+    <div class="container">
+        <div class="heading">
+            <p id="main">
+                Something's Coming Up!
+            </p>
+        </div>
+        <div class=heading>
+            <table>
+                <tr>
+                    <td id="days">00</td>
+                    <td id="hours">00</td>
+                    <td id="minutes">00</td>
+                    <td id="seconds">00</td>                
+                </tr>
+                <tr>
+                    <td>Days</td>
+                    <td>Hours</td>
+                    <td>Minutes</td>
+                    <td>Seconds</td>                
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class=heading>
-        <table>
-            <tr>
-                <td id="days">00</td>
-                <td id="hours">00</td>
-                <td id="minutes">00</td>
-                <td id="seconds">00</td>                
-            </tr>
-            <tr>
-                <td>Days</td>
-                <td>Hours</td>
-                <td>Minutes</td>
-                <td>Seconds</td>                
-            </tr>
-        </table>
-    </div>
+    <audio id="music">
+        <source src="tune.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <script src="./script.js"></script>
 </body>
 </html>

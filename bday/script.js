@@ -6,13 +6,12 @@ const seconds = document.getElementById("seconds")
 const currentTime = new Date()
 let yearOfTheEvent = currentTime.getFullYear()
 let eventDate = new Date( yearOfTheEvent, 04, 16 )
-const isItMay16th = currentTime.getMonth() === 04 && currentTime.getDate() === 16
 
 var backgrounds = new Array(
     'url(images/starry.jpg)',
-    'url(images/confetti.jpg)',
-    'url(images/aurora.jpg)',
-    'url(images/unnamed.jpg)',
+    'url(images/moon.jpg)',
+    'url(images/lights.jpg)',
+    'url(images/snow.jpg)',
 )
 document.addEventListener('DOMContentLoaded', () => {
     const now = new Date()
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTime = now.getTime()
     const eventTime = eventDate.getTime()
     const remainingTime = eventTime - currentTime
-
 
     let s = Math.floor( remainingTime / 1000 )
     let m = Math.floor( s / 60 )
@@ -42,6 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     minutes.innerHTML = m
     seconds.innerHTML = s
 
+    if(remainingTime.toString().length>10) {
+        days.innerHTML=0
+        hours.innerHTML=0
+        minutes.innerHTML=0
+        seconds.innerHTML=0
+    }
     setInterval(() => {
         // decrease seconds
         if (seconds.innerHTML == 0) {
@@ -49,6 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(hours.innerHTML == 0) {
                     if(days.innerHTML == 0) {
                         // surprise
+                        document.getElementById('main').innerHTML='Happy Birthday, Aastha!'
+                        var m = document.getElementById('music')
+                        m.volume = 1
+                        document.getElementById('body').style.backgroundImage='url(images/one.gif)'
+                        m.play()
                     }
                     else {
                         days.innerHTML--
@@ -73,7 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     },1000)
     setInterval(() => {
-        nextBackground()
+        if(seconds.innerHTML!=0||minutes.innerHTML!=0||hours.innerHTML!=0||days.innerHTML!=0)
+            nextBackground()
     }, 3000)
 })
 
