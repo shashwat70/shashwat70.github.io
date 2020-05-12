@@ -7,7 +7,7 @@
 .heading1 {
     text-align: center;
     font: bolder;
-    font-size: 7vw;
+    font-size: 8vw;
     font-family: Alex Brush;
     padding-top: 0px;
     text-shadow: 2px 2px 8px black;
@@ -26,12 +26,11 @@
 }
 
 body {
-    background-image: url(images/starry.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    background: url(images/starry.jpg) no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
+    transition: 2s;
+    background-blend-mode: darken;
 }
 
 table {
@@ -43,7 +42,7 @@ table {
 
 }
 td {
-    font-size: 40%;
+    font-size: 60%;
     text-align: center;
     width: 25%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
