@@ -54,6 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
         minutes.innerHTML=0
         seconds.innerHTML=0
     }
+
+    if(days.innerHTML == 1)
+        document.getElementById('daysHead').innerHTML = 'Day'
+    if(hours.innerHTML == 1)
+        document.getElementById('hoursHead').innerHTML = 'Hour'
+    if(minutes.innerHTML == 1)
+        document.getElementById('minutesHead').innerHTML = 'Minute'
+    if(seconds.innerHTML == 1)
+        document.getElementById('secondsHead').innerHTML = 'Second'
+
     setInterval(() => {
         // decrease seconds
         if (seconds.innerHTML == 0) {
