@@ -19,6 +19,8 @@ backgrounds.forEach((img) => {
     new Image().src = img
 })
 
+new Image().src = 'images/bday.jpg'
+
 var once = false
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,18 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         // surprise
                         var m = document.getElementById('music')
                         m.volume = 1
-                        document.getElementById('body').style.background='url(images/bday.png) no-repeat center center fixed'
-                        document.getElementById('body').style.backgroundSize = 'cover'
-                        document.getElementById('heading1').style.color = '#F18F01'
-                        document.getElementById('heading2').style.color = '#F18F01'
-                        document.getElementById('heading1').style.textShadow = '2px 2px 8px white'
-                        document.getElementById('heading2').style.textShadow = '2px 2px 8px white'
-                        var h2 = document.getElementById('heading2')
-                        h2.parentElement.removeChild(h2)
                         m.play()
                         if(!once) {
                             document.getElementById('main').innerHTML = 'Happy Birthday, Aastha!'.bold()
                             document.getElementsByTagName('title')[0].innerHTML = 'Aastha\'s Birthday!'
+                            document.getElementById('body').style.background='url(images/bday.png) no-repeat center center fixed'
+                            document.getElementById('body').style.backgroundSize = 'cover'
+                            document.getElementById('heading1').style.color = '#F18F01'
+                            document.getElementById('heading1').style.textShadow = '2px 2px 8px white'
+                            document.getElementById('heading0').style.height = '0%'
+                            var h2 = document.getElementById('heading2')
+                            h2.parentElement.removeChild(h2)
                             once = !once
                         }
                     }
